@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity 
-@Table(name="band") 
+@Table(name="Bands") 
 public class Band {
 
 	
