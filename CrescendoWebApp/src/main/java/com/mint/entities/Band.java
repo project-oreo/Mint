@@ -39,7 +39,5 @@ public class Band {
                 joinColumns       = {@JoinColumn(name="band_id")},
                 inverseJoinColumns= {@JoinColumn(name="gig_id")})
     List<Gig> gigs;
-    
-    
-    
+    //
 }
