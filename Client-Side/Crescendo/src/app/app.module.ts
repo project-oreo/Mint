@@ -19,6 +19,7 @@ import { PromoterhomeComponent } from './components/promoter/promoterhome/promot
 import { PromotermanageComponent } from './components/promoter/promotermanage/promotermanage.component';
 import { PromoterendorseComponent } from './components/promoter/promoterendorse/promoterendorse.component';
 import { PromoterresolveComponent} from './components/promoter/promoterresolve/promoterresolve.component';
+import { MasterComponent } from './components/general/master/master.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PromoterresolveComponent} from './components/promoter/promoterresolve/p
     PromoterhomeComponent,
     PromotermanageComponent,
     PromoterendorseComponent,
-    PromoterresolveComponent
+    PromoterresolveComponent,
+    MasterComponent
   ],
   imports: [
     BrowserModule,

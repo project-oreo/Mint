@@ -1,10 +1,11 @@
 body {
-    padding-top: 20px;
+    padding-top: 5px;
     margin: 0 auto;
   }
   .banner
   {
     background-image: url('https://sevenrooms.com/wp-content/uploads/2018/11/Nightlife_Banner-min.jpg');
+    background-position: top;
   }
   
   hr {

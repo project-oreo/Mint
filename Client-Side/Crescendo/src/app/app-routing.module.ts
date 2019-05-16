@@ -17,47 +17,50 @@ import { PromoterhomeComponent } from './components/promoter/promoterhome/promot
 import { PromotermanageComponent } from './components/promoter/promotermanage/promotermanage.component';
 import { PromoterendorseComponent } from './components/promoter/promoterendorse/promoterendorse.component';
 import { PromoterresolveComponent} from './components/promoter/promoterresolve/promoterresolve.component';
+import { MasterComponent } from './components/general/master/master.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'reservation',
-    component: ReservationComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    children: [
-      {
-        path: 'promoterlogin',
-        component: PromoterloginComponent
-      },
-      {
-        path: 'bandlogin',
-        component: BandloginComponent
-      }
-    ]
-  },
-  {
-    path: 'signup',
-    component: SignupComponent,
-    children: [
-      {
-        path: 'promotersignup',
-        component: PromotersignupComponent
-      },
-      {
-        path: 'bandlogin',
-        component: BandsignupComponent
-      }
-    ]
+  { path: '',
+  component: MasterComponent,
+  children: [
+    {
+      path: '',
+      component: HomeComponent
+    },
+    {
+      path: 'home',
+      component: HomeComponent
+    },
+    {
+      path: 'reservation',
+      component: ReservationComponent
+    },
+    {
+      path: 'login',
+      component: LoginComponent,
+    },
+    {
+      path: 'promoterlogin',
+      component: PromoterloginComponent
+    },
+    {
+      path: 'bandlogin',
+      component: BandloginComponent
+    }
+    ,
+    {
+      path: 'signup',
+      component: SignupComponent,
+    },
+    {
+      path: 'promotersignup',
+      component: PromotersignupComponent
+    },
+    {
+      path: 'bandsignup',
+      component: BandsignupComponent
+    },
+  ]
   },
   {
     path: 'bandhome',
