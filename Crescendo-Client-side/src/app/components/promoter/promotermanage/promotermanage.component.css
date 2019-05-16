@@ -4,28 +4,28 @@
     justify-content: center;
     align-self: center;
     align-items: center;
-    font-size: 7px;
     text-align: center;
     
 }
-#submit
+/* #submit
 {
     min-width: 80px;
     max-width: 100px;
     margin: 0 5px;
-}
+} */
 .city
 {
     background-image: url('https://backgrounddownload.com/wp-content/uploads/2018/09/gig-background-2.jpg');
     background-size: cover;
     background-position: fixed;
+    height: 100vh;
     
 }
-#name, #time, #location, #secure, #unsecure, #open, #closed, label, #capacity, #update, #cancel
+/* #name, #time, #location, #secure, #unsecure, #open, #closed, label, #capacity, #update, #cancel
 {
     font-size: 7px;
 
-}
+} */
 .box
 {
     background-color: rgba(0,0,0,0.7);
@@ -38,6 +38,7 @@ label
     padding: 5px;
     margin-bottom: 0;
     color:white;
+    font-size: 1rem;
 }
 .btn{
     padding:5px;

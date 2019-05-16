@@ -4,27 +4,31 @@
     justify-content: center;
     align-self: center;
     align-items: center;
-    font-size: 7px;
     text-align: center;
     
 }
-#submit
+/* #submit
 {
     min-width: 80px;
     max-width: 100px;
-}
+} */
 .city
 {
     background-image: url('https://wallpaperaccess.com/full/106221.jpg');
     background-size: cover;
     background-position: fixed;
+    height: 100vh;
     
 }
-#email, #password, .btn, label, #confirmpassword, #name, #website
+.extend
+{
+
+}
+/* #email, #password, .btn, label, #confirmpassword, #name, #website
 {
     font-size: 7px;
 
-}
+} */
 .box
 {
     background-color: rgba(0,0,0,0.7);
@@ -37,6 +41,7 @@ label
     padding: 5px;
     margin-bottom: 0;
     color:white;
+    font-size: 1rem;
 }
 .btn{
     padding:5px;
