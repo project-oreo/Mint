@@ -4,28 +4,31 @@
     justify-content: center;
     align-self: center;
     align-items: center;
-    font-size: 7px;
     text-align: center;
     
 }
-#submit
+/* #submit
 {
     min-width: 80px;
     max-width: 100px;
-}
+} */
 .city
 {
     background-image: url('https://i.ytimg.com/vi/hnqd4gh--9o/maxresdefault.jpg');
     background-size: cover;
+    height: 100vh;
     
 }
-#email, #password, .btn, label
+.extend
 {
-    font-size: 7px;
+    margin-top: 10%;
+}
+/* #email, #password, .btn, label
+{
     max-width: 200px;
     min-width:150px;
 
-}
+} */
 .box
 {
     background-color: rgba(0,0,0,0.7);
@@ -38,6 +41,7 @@ label
     padding: 5px;
     margin-bottom: 0;
     color:white;
+    font-size: 1rem;
 }
 .btn{
     padding:5px;

@@ -1,6 +1,7 @@
-body {
+html, body {
     padding-top: 5px;
     margin: 0 auto;
+    font-size: 1rem;
   }
   .banner
   {
@@ -16,8 +17,27 @@ body {
   .navbar {
     text-align: center;
   }
-  
-  .link-wrapper {
+  .nav{
+    font-size: 1.5rem;
+  }
+   @include media-breakpoint-up(sm) {
+    body {
+      font-size: 1.2rem;
+    }
+   }
+   
+   @include media-breakpoint-up(md) {
+    body {
+      font-size: 1.4rem;
+    }
+   }
+   
+   @include media-breakpoint-up(lg) {
+    body {
+      font-size: 1.6rem;
+    }
+   }
+  /* .link-wrapper {
     position: relative;
     display: inline-block;
   }
@@ -64,7 +84,6 @@ body {
   
   .img-wrapper img {
     width: auto;
-    height: 40px;
     display: block;
     left: 0;
     right: 0;
@@ -90,7 +109,6 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 35px;
     overflow: hidden;
   }
   .shape-wrapper .shape svg {
@@ -155,4 +173,4 @@ body {
       width: 100%;
       transform: scale(1.25, 1) skewX(20deg) translateY(3px) rotateX(-40deg) rotateY(-10deg) rotateZ(-15deg);
     }
-  }
+  } */

@@ -4,15 +4,14 @@
     justify-content: center;
     align-self: center;
     align-items: center;
-    font-size: 7px;
     text-align: center;
     
 }
-#submit
+/* #submit
 {
     min-width: 80px;
     max-width: 100px;
-}
+} */
 .city
 {
     background-image: url('https://www.losgallardosleisure.es/events/eventimg/Eagles%206.jpg');
@@ -20,11 +19,11 @@
     background-position: fixed;
     
 }
-#email, #password, .btn, label, #confirmpassword, #name, #bio, #genre, #date, #promotion, #rate
+/* #email, #password, .btn, label, #confirmpassword, #name, #bio, #genre, #date, #promotion, #rate
 {
     font-size: 7px;
 
-}
+} */
 .box
 {
     background-color: rgba(0,0,0,0.7);
@@ -37,6 +36,7 @@ label
     padding: 5px;
     margin-bottom: 0;
     color:white;
+    font-size: 1rem;
 }
 .btn{
     padding:5px;

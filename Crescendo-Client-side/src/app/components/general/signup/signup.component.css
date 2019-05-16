@@ -1,23 +1,22 @@
 .photo
 {
     display: flex;
-    height: 100px;
-    width: 118px;
     align-content: center;
     justify-content: center;
 }
 .shrink
 {
     text-align: center;
-    font-size: 7px;
 }
 h5{
-    font-size:0.5rem;
+    font-size: 1.25rem;
+}
+.card-text
+{
+    font-size: 1rem;
 }
 .signcard
 {
-    height: 200px;
-    width: 120px;
     margin: 20px auto;
     opacity: 0.8;
 }
@@ -32,6 +31,7 @@ h5{
 {
     background-image: url('https://i.imgur.com/THHrxmn.jpg');
     background-size: cover;
+    height: 100vh;
 }
 .signcard:hover{
     opacity:1;
@@ -42,8 +42,6 @@ h5{
     opacity: 0.9;
     margin: 0;
     padding: 0;
-    height: 200px;
-    width: 120px;
 }
 @media only screen and (max-width: 300px)
 {
