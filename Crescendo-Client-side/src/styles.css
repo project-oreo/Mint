@@ -6,6 +6,7 @@ body {
   {
     background-image: url('https://sevenrooms.com/wp-content/uploads/2018/11/Nightlife_Banner-min.jpg');
     background-position: top;
+    background-size: cover;
   }
   
   hr {
