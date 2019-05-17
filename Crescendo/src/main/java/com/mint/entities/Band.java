@@ -3,6 +3,7 @@ package com.mint.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 @Entity 
 @Table(name="bands")
@@ -19,12 +22,17 @@ public class Band {
 		@Id 
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)                              
 	    private int id;
+		
+		@NotNull
 	    private String bandName;    
 	    private String genre;
 	    private Date   debutDate;
 	    private String bio;
-	    private String promotion;
+	    private String socialMedia;
 	    private double hourlyRate;
+	    
+	    @Email
+		@Column(unique = true)
 	    private String email;
 	    private String password;
 	 
@@ -86,13 +94,13 @@ public class Band {
 		}
 
 
-		public String getPromotion() {
-			return promotion;
+		public String getSocialMedia() {
+			return socialMedia;
 		}
 
 
-		public void setPromotion(String promotion) {
-			this.promotion = promotion;
+		public void setSocialMedia(String socialMedia) {
+			this.socialMedia = socialMedia;
 		}
 
 
@@ -151,7 +159,7 @@ public class Band {
 			result = prime * result + (int) (temp ^ (temp >>> 32));
 			result = prime * result + id;
 			result = prime * result + ((password == null) ? 0 : password.hashCode());
-			result = prime * result + ((promotion == null) ? 0 : promotion.hashCode());
+			result = prime * result + ((socialMedia == null) ? 0 : socialMedia.hashCode());
 			return result;
 		}
 
@@ -204,10 +212,10 @@ public class Band {
 					return false;
 			} else if (!password.equals(other.password))
 				return false;
-			if (promotion == null) {
-				if (other.promotion != null)
+			if (socialMedia == null) {
+				if (other.socialMedia != null)
 					return false;
-			} else if (!promotion.equals(other.promotion))
+			} else if (!socialMedia.equals(other.socialMedia))
 				return false;
 			return true;
 		}
@@ -216,20 +224,20 @@ public class Band {
 		@Override
 		public String toString() {
 			return "Band [id=" + id + ", bandName=" + bandName + ", genre=" + genre + ", debutDate=" + debutDate
-					+ ", bio=" + bio + ", promotion=" + promotion + ", hourlyRate=" + hourlyRate + ", email=" + email
-					+ ", password=" + password + ", gigs=" + gigs + "]";
+					+ ", bio=" + bio + ", socialMedia=" + socialMedia + ", hourlyRate=" + hourlyRate + ", email="
+					+ email + ", password=" + password + ", gigs=" + gigs + "]";
 		}
 
 
-		public Band(int id, String bandName, String genre, Date debutDate, String bio, String promotion,
-				double hourlyRate, String email, String password, List<Gig> gigs) {
+		public Band(int id, String bandName, String genre, Date debutDate, String bio, String socialMedia,
+				double hourlyRate, @Email String email, String password, List<Gig> gigs) {
 			super();
 			this.id = id;
 			this.bandName = bandName;
 			this.genre = genre;
 			this.debutDate = debutDate;
 			this.bio = bio;
-			this.promotion = promotion;
+			this.socialMedia = socialMedia;
 			this.hourlyRate = hourlyRate;
 			this.email = email;
 			this.password = password;
@@ -241,6 +249,8 @@ public class Band {
 			super();
 			// TODO Auto-generated constructor stub
 		}
-	 
+
+
+		
 	
 }
