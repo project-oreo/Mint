@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.mint.entities.Band;
 import com.mint.entities.Promoter;
 import com.mint.repositories.SignUpRepository;
 
@@ -20,6 +21,10 @@ public class SignUpService {
 
 	public Promoter create(Promoter promoter) {
 		return this.signUpRepository.create(promoter);
+	}
+
+	public Band create(Band band) {
+		return this.signUpRepository.create(band);
 	}
 	
 	

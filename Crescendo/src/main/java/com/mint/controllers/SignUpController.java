@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mint.entities.Band;
 import com.mint.entities.Promoter;
 import com.mint.services.SignUpService;
 
@@ -28,6 +29,12 @@ public class SignUpController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Promoter createPromoter(@RequestBody Promoter promoter) {
 		return this.signUpService.create(promoter);
+	}
+	
+	@PostMapping("band")
+	@ResponseStatus(HttpStatus.CREATED)
+	public Band createBand(@RequestBody Band band) {
+		return this.signUpService.create(band);
 	}
 	
 	
