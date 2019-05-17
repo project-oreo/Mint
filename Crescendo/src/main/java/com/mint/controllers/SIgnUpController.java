@@ -27,7 +27,7 @@ public class SignUpController {
 	@PostMapping("promoter")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Promoter createPromoter(@RequestBody Promoter promoter) {
-		this.signUpService.create(promoter);
+		return this.signUpService.create(promoter);
 	}
 	
 	
