@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 
 @Entity 
 public class Band {
+<<<<<<< HEAD
 
 	 @Id // Indicates a primary key field
 	    @GeneratedValue(strategy = GenerationType.IDENTITY) // Creates fields as SERIAL in pg                                       // and allows the table to provide values itself
@@ -32,4 +33,7 @@ public class Band {
 	    List<Gig> gigs;
 	 
 	
+=======
+ 
+>>>>>>> 89ea008944581e34799dfc82a1ef55a08d580269
 }
