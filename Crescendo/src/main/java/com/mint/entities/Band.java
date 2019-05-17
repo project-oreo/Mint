@@ -1,5 +1,6 @@
 package com.mint.entities;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import com.mint.hasher.PasswordHasher;
 
 @Entity 
 @Table(name="bands")
@@ -35,6 +37,7 @@ public class Band {
 		@Column(unique = true)
 	    private String email;
 	    private String password;
+	    private String hashedPassword;
 	 
 	    
 	    @ManyToMany
@@ -133,6 +136,18 @@ public class Band {
 			this.password = password;
 		}
 
+		
+
+		public String getHashedPassword() throws NoSuchAlgorithmException {
+			this.hashedPassword = PasswordHasher.passwordHasher(password);
+			return hashedPassword;
+		}
+
+
+		public void setHashedPassword(String hashedPassword) throws NoSuchAlgorithmException {
+			this.hashedPassword = PasswordHasher.passwordHasher(password);
+		}
+
 
 		public List<Gig> getGigs() {
 			return gigs;
@@ -144,6 +159,8 @@ public class Band {
 		}
 
 
+		
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -154,6 +171,7 @@ public class Band {
 			result = prime * result + ((email == null) ? 0 : email.hashCode());
 			result = prime * result + ((genre == null) ? 0 : genre.hashCode());
 			result = prime * result + ((gigs == null) ? 0 : gigs.hashCode());
+			result = prime * result + ((hashedPassword == null) ? 0 : hashedPassword.hashCode());
 			long temp;
 			temp = Double.doubleToLongBits(hourlyRate);
 			result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -203,6 +221,11 @@ public class Band {
 					return false;
 			} else if (!gigs.equals(other.gigs))
 				return false;
+			if (hashedPassword == null) {
+				if (other.hashedPassword != null)
+					return false;
+			} else if (!hashedPassword.equals(other.hashedPassword))
+				return false;
 			if (Double.doubleToLongBits(hourlyRate) != Double.doubleToLongBits(other.hourlyRate))
 				return false;
 			if (id != other.id)
@@ -225,12 +248,12 @@ public class Band {
 		public String toString() {
 			return "Band [id=" + id + ", bandName=" + bandName + ", genre=" + genre + ", debutDate=" + debutDate
 					+ ", bio=" + bio + ", socialMedia=" + socialMedia + ", hourlyRate=" + hourlyRate + ", email="
-					+ email + ", password=" + password + ", gigs=" + gigs + "]";
+					+ email + ", password=" + password + ", hashedPassword=" + hashedPassword + ", gigs=" + gigs + "]";
 		}
 
 
-		public Band(int id, String bandName, String genre, Date debutDate, String bio, String socialMedia,
-				double hourlyRate, @Email String email, String password, List<Gig> gigs) {
+		public Band(int id, @NotNull String bandName, String genre, Date debutDate, String bio, String socialMedia,
+				double hourlyRate, @Email String email, String password, String hashedPassword, List<Gig> gigs) {
 			super();
 			this.id = id;
 			this.bandName = bandName;
@@ -241,6 +264,7 @@ public class Band {
 			this.hourlyRate = hourlyRate;
 			this.email = email;
 			this.password = password;
+			this.hashedPassword = hashedPassword;
 			this.gigs = gigs;
 		}
 
@@ -249,6 +273,9 @@ public class Band {
 			super();
 			// TODO Auto-generated constructor stub
 		}
+
+
+		
 
 
 		
