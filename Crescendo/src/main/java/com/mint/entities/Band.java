@@ -41,7 +41,7 @@ public class Band {
 	 
 	    
 	    @ManyToMany
-	    @JoinTable  (name="band_gigs",
+	    @JoinTable  (name="band_gig",
 	                joinColumns       = {@JoinColumn(name="band_id")},
 	                inverseJoinColumns= {@JoinColumn(name="gig_id")})
 	    List<Gig> gigs;
