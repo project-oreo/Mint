@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/general/home/home.component';
-import { LoginComponent } from './components/general/login/login.component';
 import { ReservationComponent } from './components/general/reservation/reservation.component';
 import { SignupComponent } from './components/general/signup/signup.component';
 import { PromotersignupComponent } from './components/promoter/promotersignup/promotersignup.component';
@@ -33,10 +32,6 @@ const routes: Routes = [
     {
       path: 'reservation',
       component: ReservationComponent
-    },
-    {
-      path: 'login',
-      component: LoginComponent,
     },
     {
       path: 'promoterlogin',

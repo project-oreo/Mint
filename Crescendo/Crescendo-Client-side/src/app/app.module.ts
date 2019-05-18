@@ -1,10 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/general/home/home.component';
-import { LoginComponent } from './components/general/login/login.component';
 import { ReservationComponent } from './components/general/reservation/reservation.component';
 import { SignupComponent } from './components/general/signup/signup.component';
 import { PromotersignupComponent } from './components/promoter/promotersignup/promotersignup.component';
@@ -25,7 +23,6 @@ import { MasterComponent } from './components/general/master/master.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
     ReservationComponent,
     SignupComponent,
     PromotersignupComponent,
@@ -46,10 +43,7 @@ import { MasterComponent } from './components/general/master/master.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
