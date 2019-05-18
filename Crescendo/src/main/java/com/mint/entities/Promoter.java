@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 
 import com.mint.hasher.PasswordHasher;
@@ -27,7 +28,10 @@ public class Promoter {
 	@Email
 	@Column(unique = true)
 	private String email;
+	
+	@Transient
 	private String password;
+	
 	private String businessName;
 	private String website;
 	private String hashedPassword;
@@ -35,9 +39,7 @@ public class Promoter {
 	
 	
 	@OneToMany
-	@JoinTable(name = "promoter_gig",
-		joinColumns = {@JoinColumn(name="promoter_id")},
-		inverseJoinColumns = {@JoinColumn(name="gig_id")})
+	@JoinColumn(name = "promoter_id")
 	private List<Gig> gigs;
 
 
