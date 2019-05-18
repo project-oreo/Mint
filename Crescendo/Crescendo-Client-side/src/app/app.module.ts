@@ -43,12 +43,9 @@ import { MasterComponent } from './components/general/master/master.component';
     BrowserModule,
     AppRoutingModule
   ],
-<<<<<<< HEAD
+  
   providers: [],
-=======
-  providers: [
-  ],
->>>>>>> 505ff947702fd0825f5e34e4426982b1146f9a48
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
