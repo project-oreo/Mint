@@ -10,7 +10,7 @@
     padding-bottom: 0;
 }
 video.fullscreen { 
-    position: relative;
+    position: fixed;
     top: 50%;
     left: 50%;
     width: 100%;
@@ -61,13 +61,44 @@ video.fullscreen {
     text-shadow: 20px 0px 20px  black ;
 }
 
+@media screen and (min-width: 768px) {
+    #title {
+      font-size: 8rem;
+      animation-name: example2;
+    }
+    @keyframes example2 {
+        0% {
+            opacity: 0;
+            font-size: 0rem;
+            transform: rotate(0deg);
+            color:white;
+          }
+          50% {
+              opacity: 0.8;
+              font-size: 8rem;
+            
+          }
+          100%
+          {
+            opacity: 0.8;
+            font-size: 8rem;
+            transform: rotate(360deg);
+            color: white;
+            
+          }
+      }
+  }
+
 @keyframes example1 {
-    from {
+    0% {
         opacity: 0.8;
       }
-    to {
-          opacity: 0;
+    50% {
+          opacity: 0.8;
       }
+    100% {
+        opacity: 0;
+    }
   }
 
   @keyframes example {
