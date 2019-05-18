@@ -43,7 +43,7 @@ import { MasterComponent } from './components/general/master/master.component';
     BrowserModule,
     AppRoutingModule
   ],
-  
+
   providers: [],
 
   bootstrap: [AppComponent]
