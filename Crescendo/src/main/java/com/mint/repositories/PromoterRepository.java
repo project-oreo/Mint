@@ -6,8 +6,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mint.entities.Band;
 import com.mint.entities.Promoter;
 
 @Repository
@@ -45,9 +47,10 @@ public class PromoterRepository {
 	}
 
 
-
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Promoter getById(int id) {
-		return null;
+		Session session = sf.getCurrentSession();
+		return session.get(Promoter.class, id);
 	}
 
 
