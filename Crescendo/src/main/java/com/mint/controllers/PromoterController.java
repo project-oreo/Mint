@@ -26,7 +26,6 @@ import com.mint.services.PromoterService;
 
 @RestController
 @RequestMapping("promoters")
-@CrossOrigin
 public class PromoterController {
 
 	private PromoterService promoterService;

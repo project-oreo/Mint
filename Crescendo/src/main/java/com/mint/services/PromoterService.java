@@ -1,5 +1,7 @@
 package com.mint.services;
 
+import java.security.NoSuchAlgorithmException;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -18,7 +20,8 @@ public class PromoterService {
 		this.promoterRepository = promoterRepository;
 	}
 
-	public Promoter create(Promoter promoter) {
+	public Promoter create(Promoter promoter) throws NoSuchAlgorithmException {
+		promoter.setHashedPassword(promoter.getPassword());
 		return this.promoterRepository.create(promoter);
 	}
 
