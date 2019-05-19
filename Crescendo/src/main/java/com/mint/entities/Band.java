@@ -13,8 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+
 import com.mint.hasher.PasswordHasher;
 
 @Entity 
@@ -36,6 +38,8 @@ public class Band {
 	    @Email
 		@Column(unique = true)
 	    private String email;
+	    
+	    @Transient
 	    private String password;
 	    private String hashedPassword;
 	 

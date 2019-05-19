@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.mint.entities.Band;
+import com.mint.entities.Promoter;
 
 @Repository
 public class BandRepository {
@@ -49,6 +50,11 @@ public class BandRepository {
 		if (band == null) throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
 		session.delete(band);
 		return band;
+	}
+
+	public Promoter login(Promoter promoter) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
