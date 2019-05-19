@@ -31,4 +31,29 @@ public class PromoterRepository {
 		return promoter;
 	}
 
+
+
+	public Promoter login(Promoter promoter) {
+
+		return null;
+	}
+
+
+
+	public Promoter update(Promoter promoter) {
+		return null;
+	}
+
+
+
+	public Promoter getById(int id) {
+		return null;
+	}
+
+
+
+	public Promoter delete(int id) {
+		return null;
+	}
+
 }

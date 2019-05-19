@@ -110,7 +110,7 @@ public class Promoter {
 
 
 
-	public void setHashedPassword(String hashedPassword) throws NoSuchAlgorithmException {
+	public void setHashedPassword(String password) throws NoSuchAlgorithmException {
 		this.hashedPassword = PasswordHasher.passwordHasher(password);
 	}
 

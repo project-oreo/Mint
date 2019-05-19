@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.mint.entities.Band;
+import com.mint.entities.Promoter;
 import com.mint.services.BandService;
 
 @RestController // All methods infer @ResponseBody
@@ -39,13 +40,18 @@ public class BandController {
 			.orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
 	}
 	
-	@PostMapping("")
+	@PostMapping("signup")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Band createBand(@RequestBody Band band) {
 		return this.bandService.create(band);
 	}
 	
-	@PutMapping("")
+	@PostMapping("login")
+	public Promoter login(@RequestBody Promoter promoter) {
+		return this.bandService.login(promoter);
+	}
+	
+	@PutMapping("update")
 	public Band updateBand(@RequestBody Band band) {
 		return this.bandService.update(band);
 	}

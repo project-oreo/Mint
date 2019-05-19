@@ -28,7 +28,7 @@ public class Gig {
 	
 	@ManyToOne
 	@JoinColumn(name = "promoter_id")
-	private int promoter;	
+	private Promoter promoter;	
 	
 	
 	private boolean Security;
@@ -42,6 +42,28 @@ public class Gig {
 		joinColumns = {@JoinColumn(name="band_id")},
 		inverseJoinColumns = {@JoinColumn(name="gig_id")})
 	private List<Band> bands;
+
+
+	public Gig() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Gig(int id, String gigName, Date startTime, String location, Promoter promoter, boolean security,
+			boolean closed, int maxCapacity, String websiteURL, List<Band> bands) {
+		super();
+		this.id = id;
+		this.gigName = gigName;
+		this.startTime = startTime;
+		this.location = location;
+		this.promoter = promoter;
+		Security = security;
+		this.closed = closed;
+		this.maxCapacity = maxCapacity;
+		this.websiteURL = websiteURL;
+		this.bands = bands;
+	}
 
 
 	public int getId() {
@@ -84,12 +106,12 @@ public class Gig {
 	}
 
 
-	public int getPromoter() {
+	public Promoter getPromoter() {
 		return promoter;
 	}
 
 
-	public void setPromoter(int promoter) {
+	public void setPromoter(Promoter promoter) {
 		this.promoter = promoter;
 	}
 
@@ -155,7 +177,7 @@ public class Gig {
 		result = prime * result + id;
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + maxCapacity;
-		result = prime * result + promoter;
+		result = prime * result + ((promoter == null) ? 0 : promoter.hashCode());
 		result = prime * result + ((startTime == null) ? 0 : startTime.hashCode());
 		result = prime * result + ((websiteURL == null) ? 0 : websiteURL.hashCode());
 		return result;
@@ -194,7 +216,10 @@ public class Gig {
 			return false;
 		if (maxCapacity != other.maxCapacity)
 			return false;
-		if (promoter != other.promoter)
+		if (promoter == null) {
+			if (other.promoter != null)
+				return false;
+		} else if (!promoter.equals(other.promoter))
 			return false;
 		if (startTime == null) {
 			if (other.startTime != null)
@@ -218,29 +243,4 @@ public class Gig {
 	}
 
 
-	public Gig(int id, String gigName, Date startTime, String location, int promoter, boolean security, boolean closed,
-			int maxCapacity, String websiteURL, List<Band> bands) {
-		super();
-		this.id = id;
-		this.gigName = gigName;
-		this.startTime = startTime;
-		this.location = location;
-		this.promoter = promoter;
-		Security = security;
-		this.closed = closed;
-		this.maxCapacity = maxCapacity;
-		this.websiteURL = websiteURL;
-		this.bands = bands;
-	}
-
-
-	public Gig() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-	
-	
-	
 }

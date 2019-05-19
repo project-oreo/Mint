@@ -22,4 +22,23 @@ public class PromoterService {
 		return this.promoterRepository.create(promoter);
 	}
 
+	public Promoter login(Promoter promoter) {
+		return this.promoterRepository.login(promoter);
+	}
+
+	public Promoter update(Promoter promoter) {
+		// TODO Auto-generated method stub
+		return this.promoterRepository.update(promoter);
+	}
+
+	public Promoter getById(int id) {
+		// TODO Auto-generated method stub
+		return this.promoterRepository.getById(id);
+	}
+
+	public Promoter deleteById(int id) {
+		// TODO Auto-generated method stub
+		return this.promoterRepository.delete(id);
+	}
+
 }

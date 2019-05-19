@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.mint.entities.Band;
+import com.mint.entities.Promoter;
 import com.mint.repositories.BandRepository;
 
 @Service
@@ -32,6 +33,11 @@ public class BandService {
 
 	public Band deleteById(int id) {
 		return this.bandRepository.deleteById(id);
+	}
+
+	public Promoter login(Promoter promoter) {
+		// TODO Auto-generated method stub
+		return this.bandRepository.login(promoter);
 	}
 
 }
