@@ -1,3 +1,60 @@
-<p>
-  bandhome works!
-</p>
+<div class ="col-12">
+  <nav class="nav nav-pills text-white">
+      <a class=" text-sm-center nav-link text-white" routerLink="/home">Logout</a>
+  </nav>
+</div>
+<div class="city">
+  <div class="gigtable cont">
+      <table class="pushdown">
+        <tr>
+        <th class="tablehead" colspan="6">Upcoming Shows</th> 
+        </tr>
+        <tr>
+          <th>Security</th>
+          <th>Gig Name</th>
+          <th>Location</th>
+          <th>Start Time</th>
+          <th>Website</th>
+          <th>Promoter</th>
+        </tr>
+        <tr *ngFor="let item of gigs">
+          <td>{{item.security}}</td>
+          <td>{{item.gigname}}</td>
+          <td>{{item.location}}</td>
+          <td>{{item.starttime}}</td>
+          <td>{{item.websiteurl}}</td>
+          <td>{{item.promoter_id}}</td>
+        </tr>
+      </table>
+  </div>
+  <div class="gigtable cont">
+      <table class="pushdown">
+        <tr>
+        <th class="tablehead" colspan="7">Gig Invites</th> 
+        </tr>
+        <tr>
+          <th>Security</th>
+          <th>Gig Name</th>
+          <th>Location</th>
+          <th>Start Time</th>
+          <th>Website</th>
+          <th>Promoter</th>
+          <th>Play this Gig?</th>
+
+        </tr>
+        <tr *ngFor="let item of gigs">
+          <td>{{item.security}}</td>
+          <td>{{item.gigname}}</td>
+          <td>{{item.location}}</td>
+          <td>{{item.starttime}}</td>
+          <td>{{item.websiteurl}}</td>
+          <td>{{item.promoter_id}}</td>
+          <td><nav  class="nav nav-pills text-white">
+              <button type="button" class="btn btn-light">Yes</button>
+              <button type="button" class="btn btn-dark">No</button>
+              </nav>
+          </td>
+        </tr>
+      </table>
+  </div>
+</div>
