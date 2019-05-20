@@ -1,5 +1,6 @@
 package com.mint.controllers;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -42,7 +43,7 @@ public class BandController {
 	
 	@PostMapping("signup")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Band createBand(@RequestBody Band band) {
+	public Band createBand(@RequestBody Band band) throws NoSuchAlgorithmException {
 		return this.bandService.create(band);
 	}
 	

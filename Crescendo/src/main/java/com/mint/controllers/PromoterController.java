@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.mint.entities.Band;
+import com.mint.entities.Credentials;
 import com.mint.entities.Promoter;
 import com.mint.services.PromoterService;
 
@@ -43,8 +44,8 @@ public class PromoterController {
 	}
 	
 	@PostMapping("login")
-	public Promoter login(@RequestBody Promoter promoter) {
-		return this.promoterService.login(promoter);
+	public Promoter login(@RequestBody Promoter promoter) throws NoSuchAlgorithmException {
+				return this.promoterService.login(promoter);
 	}
 	
 	@GetMapping("/{id}")

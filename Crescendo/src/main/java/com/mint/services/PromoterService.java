@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.mint.entities.Credentials;
 import com.mint.entities.Promoter;
 import com.mint.repositories.PromoterRepository;
 
@@ -25,8 +26,13 @@ public class PromoterService {
 		return this.promoterRepository.create(promoter);
 	}
 
-	public Promoter login(Promoter promoter) {
-		return this.promoterRepository.login(promoter);
+	public Promoter login(Promoter promoter) throws NoSuchAlgorithmException {
+		Credentials credentials = new Credentials();
+		credentials.setPassword(promoter.getPassword());
+		credentials.setEmail(promoter.getEmail());
+		System.out.println(credentials); 
+		credentials.setHashedPassword(credentials.getPassword());
+		return this.promoterRepository.login(credentials);
 	}
 
 	public Promoter update(Promoter promoter) {

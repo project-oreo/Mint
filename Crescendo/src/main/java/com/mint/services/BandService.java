@@ -1,4 +1,6 @@
 package com.mint.services;
+import java.security.NoSuchAlgorithmException;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -23,7 +25,8 @@ public class BandService {
 		return this.bandRepository.getById(id);
 	}
 
-	public Band create(Band band) {
+	public Band create(Band band) throws NoSuchAlgorithmException {
+		band.setHashedPassword(band.getPassword());
 		return this.bandRepository.create(band);
 	}
 
