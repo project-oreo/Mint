@@ -49,3 +49,8 @@ label
 {
     display: flex;
 }
+
+.spaceAround {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
