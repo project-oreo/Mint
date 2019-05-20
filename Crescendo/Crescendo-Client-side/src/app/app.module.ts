@@ -18,6 +18,8 @@ import { PromotermanageComponent } from './components/promoter/promotermanage/pr
 import { PromoterendorseComponent } from './components/promoter/promoterendorse/promoterendorse.component';
 import { PromoterresolveComponent} from './components/promoter/promoterresolve/promoterresolve.component';
 import { MasterComponent } from './components/general/master/master.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,11 +39,13 @@ import { MasterComponent } from './components/general/master/master.component';
     PromotermanageComponent,
     PromoterendorseComponent,
     PromoterresolveComponent,
-    MasterComponent
+    MasterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
 
   providers: [],
