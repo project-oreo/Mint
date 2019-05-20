@@ -50,7 +50,9 @@ public class PromoterRepository {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Promoter getById(int id) {
 		Session session = sf.getCurrentSession();
+		System.out.println(session.get(Promoter.class, id));
 		return session.get(Promoter.class, id);
+		
 	}
 
 
