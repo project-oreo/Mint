@@ -105,8 +105,8 @@ public class Promoter {
 
 
 	public String getHashedPassword() throws NoSuchAlgorithmException {
-		
-		return hashedPassword;	}
+		return hashedPassword;	
+	}
 
 
 

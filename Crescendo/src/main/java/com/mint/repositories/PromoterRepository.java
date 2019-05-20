@@ -34,8 +34,9 @@ public class PromoterRepository {
 	}
 
 
-
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Promoter login(Promoter promoter) {
+		Session session = sf.getCurrentSession();
 
 		return null;
 	}
