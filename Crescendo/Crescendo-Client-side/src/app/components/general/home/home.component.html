@@ -5,29 +5,49 @@
     <a class=" text-sm-center nav-link text-white" routerLink="/signup">Signup</a>
   </nav>
 </div>
-        <div class ="row">
-            <div class ="col">
-             
-              <div class="cont">
-                  
-                  <div class="banner">
-                      <div class="content">
-                      
-                          Where bands meet promotion.
-                          Reach your ... 
-                      </div>
-                          <div id ="title" >Crescendo</div>
-                          </div>
-                      <!-- <img src="assets\Untitled design.png" class="img-fluid"> -->
-                  
-                 
-                <div class ="video">
-                  <video id="video1" width ="100%" height ="100%" src="assets\Keira Knightley - A Step You Cant Take Back.mp4" autoplay loop="loop">
-                    
-                  </video>
-                  </div>
-              <!-- <img src="assets\Untitled design.png" class="img-fluid"> -->
+  <div class ="row">
+    <div class ="col">
+      <div class="cont">
+        <div class="banner">
+          <div class="content">
+            Where bands meet promotion.
+            Reach your ... 
+          </div>
+          <div class ="title" >Crescendo</div>
+          <div class="gigtable cont">
+              <table>
+                <tr>
+                <th class="tablehead" colspan="5">Gigs</th> 
+                </tr>
+                <tr>
+                  <th>Gig Name</th>
+                  <th>Location</th>
+                  <th>Max Capacity</th>
+                  <th>Start Time</th>
+                  <th>Website</th>
+                </tr>
+                <tr *ngFor="let item of gigs">
+                  <td>{{item.gigname}}</td>
+                  <td>{{item.location}}</td>
+                  <td>{{item.maxcapacity}}</td>
+                  <td>{{item.starttime}}</td>
+                  <td>{{item.websiteurl}}</td>
+                </tr>
+              </table>
+          </div>
+        </div>
+        <!-- <img src="assets\Untitled design.png" class="img-fluid"> -->
+        <div class ="video">
+        <video id="video1" width ="100%" height ="100%" src="assets\Keira Knightley - A Step You Cant Take Back.mp4" autoplay loop="loop"></video>
+        </div>
+    </div>
+  </div>
 </div>
+
+
+            
+          
+      
 
         
        

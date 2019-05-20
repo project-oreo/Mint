@@ -46,7 +46,7 @@ video.fullscreen {
     animation-duration: 12s;
     opacity: 0;
 }
-#title
+.title
 {
     opacity: 0.8;
     color: white;
@@ -62,7 +62,7 @@ video.fullscreen {
 }
 
 @media screen and (min-width: 768px) {
-    #title {
+    .title {
       font-size: 8rem;
       animation-name: example2;
     }
@@ -121,4 +121,26 @@ video.fullscreen {
         color: white;
         
       }
+  }
+
+  .gigtable {
+    font-size: 2rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    margin-top: 220px;
+  }
+
+  .tablehead {
+    background-color: rgba(0, 0, 0, 0.541);
+    color: white;
+  }
+
+  th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.541);
   }

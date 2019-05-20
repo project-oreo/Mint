@@ -40,8 +40,7 @@ const routes: Routes = [
     {
       path: 'bandlogin',
       component: BandloginComponent
-    }
-    ,
+    },
     {
       path: 'signup',
       component: SignupComponent,
