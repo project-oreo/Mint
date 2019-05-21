@@ -9,9 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
@@ -44,10 +42,7 @@ public class Band {
 	    private String hashedPassword;
 	 
 	    
-	    @ManyToMany
-	    @JoinTable  (name="band_gig",
-	                joinColumns       = {@JoinColumn(name="band_id")},
-	                inverseJoinColumns= {@JoinColumn(name="gig_id")})
+	    @OneToMany(mappedBy = "band")
 	    List<Gig> gigs;
 
 
