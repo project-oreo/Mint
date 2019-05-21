@@ -78,7 +78,6 @@ label
     text-shadow: 20px 0px 20px  black;
     margin-top: 200px;
     margin-left: 50px;
-    
 }
 .subtitlevalue
 {
@@ -91,7 +90,6 @@ label
     text-shadow: 0px 0px 20px  rgb(255, 0, 0);
     margin-top: 300px;
     margin-left: 50px;
-    
 }
 .subtitle1
 {
@@ -103,8 +101,7 @@ label
     color: rgb(255, 0, 0);
     text-shadow: 20px 0px 20px  black;
     margin-top: 200px;
-    margin-left: 800px;
-    
+    margin-left: 200px;
 }
 .subtitlevalue1
 {
@@ -114,12 +111,12 @@ label
     font-size: 2rem;
     color: rgb(0, 0, 0);
     margin-top: 320px;
-    margin-left: 620px;
     background-color: white;
     padding: 20px;
     width: 500px;
-    height: 300px;
+    height: 500px;
     flex-wrap: wrap;
+    margin-left: 5%;
 }
 .subtitle2
 {
@@ -131,7 +128,7 @@ label
     color: rgb(255, 255, 255);
     text-shadow: 20px 0px 20px  black;
     margin-top: 200px;
-    margin-left: 1250px;
+    margin-left: 50px;
     
 }
 .subtitlevalue2
@@ -144,6 +141,106 @@ label
     color: rgb(0, 0, 0);
     text-shadow: 0px 0px 20px  rgb(255, 0, 0);
     margin-top: 300px;
-    margin-left: 1275px;
+    margin-left: 50px;
+    
+}
+.subtitle3
+{
+    opacity: 0.8;
+    text-align: left;
+    position: absolute;
+    font-family: earwig;
+    font-size: 5rem;
+    color: rgb(255, 255, 255);
+    text-shadow: 20px 0px 20px  black;
+    margin-top: 400px;
+    margin-left: 50px;
+}
+.subtitlevalue3
+{
+    opacity: 0.8;
+    text-align: left;
+    position: absolute;
+    font-family: earwig;
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 20px  rgb(255, 0, 0);
+    margin-top: 500px;
+    margin-left: 50px;
+}
+.subtitle4
+{
+    opacity: 0.8;
+    text-align: left;
+    position: absolute;
+    font-family: earwig;
+    font-size: 5rem;
+    color: rgb(255, 255, 255);
+    text-shadow: 20px 0px 20px  black;
+    margin-top: 400px;
+    margin-left: 50px;
+    
+}
+.subtitlevalue4
+{
+    opacity: 0.8;
+    text-align: left;
+    position: absolute;
+    font-family: earwig;
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 20px  rgb(255, 0, 0);
+    margin-top: 500px;
+    margin-left: 50px;
+    
+}
+.subtitle5
+{
+    opacity: 0.8;
+    text-align: left;
+    position: absolute;
+    font-family: earwig;
+    font-size: 5rem;
+    color: rgb(255, 255, 255);
+    text-shadow: 20px 0px 20px  black;
+    margin-top: 600px;
+    margin-left: 50px;
+}
+.subtitlevalue5
+{
+    opacity: 0.8;
+    text-align: left;
+    position: absolute;
+    font-family: earwig;
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 20px  rgb(255, 0, 0);
+    margin-top: 700px;
+    margin-left: 50px;
+}
+.subtitle6
+{
+    opacity: 0.8;
+    text-align: left;
+    position: absolute;
+    font-family: earwig;
+    font-size: 5rem;
+    color: rgb(255, 255, 255);
+    text-shadow: 20px 0px 20px  black;
+    margin-top: 600px;
+    margin-left: 50px;
+    
+}
+.subtitlevalue6
+{
+    opacity: 0.8;
+    text-align: left;
+    position: absolute;
+    font-family: earwig;
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 20px  rgb(255, 0, 0);
+    margin-top: 700px;
+    margin-left: 50px;
     
 }
