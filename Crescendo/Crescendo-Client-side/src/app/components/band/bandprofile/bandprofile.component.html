@@ -6,60 +6,43 @@
   </nav>
 </div>
 <div class="city">
-  <!-- <div class="gigtable cont">
-      <table class="pushdown">
-        <tr>
-        <th class="tablehead" colspan="7">My Profile Info</th> 
-        </tr>
-        <tr>
-          <th>Band Name</th>
-          <th>Bio</th>
-          <th>Debut Date</th>
-          <th>Email</th>
-          <th>Genre</th>
-          <th>Hourly Rate</th>
-          <th>Social Media</th>
-        </tr>
-        <tr *ngFor="let item of gigs">
-          <td>{{item.bandname}}</td>
-          <td>{{item.bio}}</td>
-          <td>{{item.debutdate}}</td>
-          <td>{{item.emial}}</td>
-          <td>{{item.genre}}</td>
-          <td>{{item.hourlyrate}}</td>
-          <td>{{item.socialmedia}}</td>
-        </tr>
-      </table>
-  </div> -->
   <div class="title">My Profile Info</div>
   <div class="row">
-      <div class="col-sm-4">
-          <span class="subtitle">Band Name</span>
-          <span class="subtitlevalue">{{item.bandname}}</span>
-          <br>
-          <span class="subtitle3">Email</span>
-          <span class="subtitlevalue3">{{item.email}}</span>
-          <br>
-          <span class="subtitle5">Hourly Rate</span>
-          <span class="subtitlevalue5">{{item.hourlyrate}}</span>
+    <div class="col-sm-4">
+        <div class="picCenter">
+            <img class="profilepic" src="../../../../assets/placeholder600x400.png" alt="Band image goes here.">
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <span class="subtitle">Band Name</span>
+        <span class="subtitlevalue">{{item.bandname}}</span>
+        <span class="subtitle4">Genre</span>
+        <span class="subtitlevalue4">{{item.genre}}</span>
+        <span class="subtitle6">Social Media</span>
+        <span class="subtitlevalue6">{{item.socialmedia}}</span>
+    </div>
+
+  </div>
+  
+  <div class="row">
+      <div class="col-sm-6">
+        <span class="subtitle1">Bio</span>
+        <span class="subtitlevalue1 ">{{item.bios}}</span>
+      </div>
+      <div class="col-sm-6">
+        <span class="subtitle2">Debut Date</span>
+        <span class="subtitlevalue2">item.debutdate}}</span>
+        <br>
+        <span class="subtitle3">Email</span>
+        <span class="subtitlevalue3">item.email}}</span>
+        <br>
+        <span class="subtitle5">Hourly Rate</span>
+        <span class="subtitlevalue5">item.hourlyrate}}</span>
+          
       </div>
       <div class="col-sm-4">
-          <span class="subtitle1">Bio</span>
-          <span class="subtitlevalue1 ">{{item.bio}}</span>
-      </div>
-      <div class="col-sm-4">
-          <span class="subtitle2">Debut Date</span>
-          <span class="subtitlevalue2">{{item.debutdate}}</span>
-          <br>
-          <span class="subtitle4">Genre</span>
-          <span class="subtitlevalue4">{{item.genre}}</span>
-          <br>
-          <span class="subtitle6">Social Media</span>
-          <span class="subtitlevalue6">{{item.socialmedia}}</span>
+          
+          
       </div>
     </div>
-  
-   
-   
-  
 </div>

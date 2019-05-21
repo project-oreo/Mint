@@ -16,6 +16,7 @@ import { PromoterendorseComponent } from './components/promoter/promoterendorse/
 import { PromoterresolveComponent} from './components/promoter/promoterresolve/promoterresolve.component';
 import { MasterComponent } from './components/general/master/master.component';
 import { BandMasterComponent } from './components/band/bandMaster/band-master/band-master.component';
+import { PromotermasterComponent } from './components/promoter/promotermaster/promotermaster.component';
 
 const routes: Routes = [
   { path: '',
@@ -74,9 +75,13 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'promoterhome',
-    component: PromoterhomeComponent,
+    path: 'promotermaster',
+    component: PromotermasterComponent,
     children: [
+      {
+        path: 'promoterhome',
+        component: PromoterhomeComponent,
+      },
       {
         path: 'promotermanage',
         component: PromotermanageComponent

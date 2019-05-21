@@ -20,6 +20,7 @@ import { MasterComponent } from './components/general/master/master.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BandMasterComponent } from './components/band/bandMaster/band-master/band-master.component';
+import { PromotermasterComponent } from './components/promoter/promotermaster/promotermaster.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { BandMasterComponent } from './components/band/bandMaster/band-master/ba
     PromoterresolveComponent,
     MasterComponent,
     BandMasterComponent,
+    PromotermasterComponent,
   ],
   imports: [
     BrowserModule,
