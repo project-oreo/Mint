@@ -50,7 +50,7 @@ label
     padding: 10px 30px;
     
 }
-.nav {
+#Accept {
     font-size: 1rem;
     display: flex;
     justify-content: space-around;
