@@ -6,7 +6,7 @@
     </nav>
   </div>
   <div class="city">
-    <div class="gigtable cont">
+    <div class="gigtable">
         <table class="pushdown">
           <tr>
           <th class="tablehead" colspan="7">My Profile Info</th> 
@@ -21,14 +21,17 @@
             <th>Social Media</th>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><input type="text" [(ngModel)]="bandname"></td>
+            <td><input type="text" [(ngModel)]="bio"></td>
+            <td><input type="date" [(ngModel)]="debutdate"></td>
+            <td><input type="email" [(ngModel)]="email"></td>
+            <td><input type="text" [(ngModel)]="genre"></td>
+            <td><input type="number" min="0.00" max="10000000000.00" step="0.01" [(ngModel)]="hourlyrate"></td>
+            <td><input type="text" [(ngModel)]="socialmedia"></td>
           </tr>
         </table>
+    </div>
+    <div class="center">
+      <button id="Accept" class="btn btn-dark" type="submit">Submit Changes</button>
     </div>
   </div>
