@@ -21,12 +21,12 @@
     border: 1px solid black;
     text-align: center;
     padding: 10px;
-    background-color: rgba(255, 0, 0, 0.541);
+    background-color: rgba(255, 0, 0, 0.753);
   }
 
   .city
 {
-    background-image: url('https://i.ytimg.com/vi/wrpgVH-AqY4/maxresdefault.jpg');
+    background-image: url('https://i.ytimg.com/vi/hnqd4gh--9o/maxresdefault.jpg');
     background-size: cover;
     height: 100vh;
     

@@ -37,7 +37,7 @@ public class HibernateConfig {
        LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
        factoryBean.setConfigLocation(new ClassPathResource("hibernate.cfg.xml"));
 
-       factoryBean.setAnnotatedClasses(Band.class, Gig.class, Promoter.class, BandController.class);
+       factoryBean.setAnnotatedClasses(Band.class, Gig.class, Promoter.class);
 
        factoryBean.setDataSource(getDataSource());
 
@@ -51,6 +51,7 @@ public class HibernateConfig {
        transactionManager.setSessionFactory(sessionFactory);
        return transactionManager;
    }
+   
    @Bean(name="dataSource")
    public DataSource getDataSource() {
        System.out.println("Getting data source");
