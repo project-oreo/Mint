@@ -6,7 +6,7 @@
   </nav>
 </div>
 <div class="city">
-  <div class="gigtable cont">
+  <div class="gigtable">
       <table class="pushdown">
         <tr>
         <th class="tablehead" colspan="6">Your Gigs</th> 
@@ -17,6 +17,7 @@
           <th>Location</th>
           <th>Start Time</th>
           <th>Max Capacity</th>
+          <th>Invite Accepted</th>
         </tr>
         <tr *ngFor="let item of gigs">
           <td>{{item.security}}</td>
@@ -24,6 +25,7 @@
           <td>{{item.location}}</td>
           <td>{{item.starttime}}</td>
           <td>{{item.maxcapacity}}</td>
+          <td>{{item.closed}}</td>
         </tr>
       </table>
   </div>
