@@ -34,8 +34,7 @@ public class Gig {
 	private boolean closed;
 	private int maxCapacity;
 	
-	
-	@OneToMany(mappedBy = "gig")
+	@OneToMany
 	private List<Band> bands;
 
 
