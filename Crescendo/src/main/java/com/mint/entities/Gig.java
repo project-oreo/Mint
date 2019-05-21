@@ -8,9 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -36,10 +35,7 @@ public class Gig {
 	private int maxCapacity;
 	
 	
-	@ManyToMany
-	@JoinTable(name = "band_gig",
-		joinColumns = {@JoinColumn(name="band_id")},
-		inverseJoinColumns = {@JoinColumn(name="gig_id")})
+	@OneToMany(mappedBy = "gig")
 	private List<Band> bands;
 
 
