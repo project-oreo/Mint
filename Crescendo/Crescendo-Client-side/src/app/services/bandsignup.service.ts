@@ -31,7 +31,6 @@ export class BandsignupService {
       observe: 'response'
       })
       .subscribe(response => {
-        sessionStorage.setItem('cache', response.body.toString());
         this.signupStatusSubject.next(200);
       }, err => {
         this.signupStatusSubject.next(err.status);
