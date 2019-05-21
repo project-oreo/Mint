@@ -40,7 +40,7 @@ public class GigController {
 			.orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
 	}
 	
-	@PostMapping("")
+	@PostMapping("create")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Gig createGig(@RequestBody Gig gig) {
 		return this.gigService.create(gig);

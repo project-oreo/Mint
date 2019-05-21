@@ -22,6 +22,8 @@ public class GigService {
 	}
 
 	public Gig create(Gig gig) {
+		
+		
 		return this.gigRepository.create(gig);
 	}
 
