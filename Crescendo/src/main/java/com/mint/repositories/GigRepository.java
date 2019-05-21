@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.mint.entities.Gig;
+import com.mint.entities.Promoter;
 @Repository
 public class GigRepository {
 	
@@ -27,9 +28,11 @@ public class GigRepository {
 		return session.get(Gig.class, id);
 	}
 	
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.MANDATORY)
 	public Gig create(Gig gig) {
 		Session session = sf.getCurrentSession();
+//		Promoter promoter = session.get(Promoter.class, gig.getPromoterId());
+//		gig.setPromoter(promoter);
 		session.save(gig);
 		return gig;
 	}
