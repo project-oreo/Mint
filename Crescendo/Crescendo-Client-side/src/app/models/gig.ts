@@ -9,10 +9,9 @@ export class Gig {
     Security: boolean;
     closed: boolean;
     maxCapacity: number;
-    websiteUrl: string;
 
     constructor(id: number, gigName: string, startTime: any, location: string, promoter: Promoter,
-                Security: boolean, closed: boolean, maxCapacity: number, websiteUrl: string) {
+                Security: boolean, closed: boolean, maxCapacity: number) {
             this.id = id;
             this.gigName = gigName;
             this.startTime = startTime;
@@ -21,6 +20,5 @@ export class Gig {
             this.Security = Security;
             this.closed = closed;
             this.maxCapacity = maxCapacity;
-            this.websiteUrl = websiteUrl;
         }
 }

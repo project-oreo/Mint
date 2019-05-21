@@ -22,7 +22,6 @@ export class PromoterloginService {
       observe: 'response'
       })
       .subscribe(response => {
-        sessionStorage.setItem('cache', response.body.toString());
         this.loginStatusSubject.next(200);
       }, err => {
         this.loginStatusSubject.next(err.status);
