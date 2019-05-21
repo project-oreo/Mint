@@ -16,42 +16,42 @@
             <form id ="bandregistrationform">
                 <div class="form-group">
                     <label for="EmailInput">Email Address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="email">
                 </div>
                 <div class="form-group">
                     <label for="PasswordInput">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" [(ngModel)]="password">
                 </div>
                 <div class="form-group">
                     <label for="PasswordInput">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" name="confirmpassword">
+                    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" name="confirmpassword" [(ngModel)]="confirmpassword">
                 </div>
                 <div class="form-group">
                     <label for="NameInput">Band Name</label>
-                    <input type="name" class="form-control" id="name" placeholder="Band Name" name="name">
+                    <input type="name" class="form-control" id="name" placeholder="Band Name" name="name" [(ngModel)]="name">
                 </div>
                 <div class="form-group">
                     <label for="description">Bio</label>
-                    <textarea class="form-control" id="description" rows="3"  id ="bio" name="bio"></textarea>
+                    <textarea class="form-control" id="description" rows="3"  id ="bio" name="bio" [(ngModel)]="bio"></textarea>
                   </div>
                 <div class="form-group">
                     <label for="GenreInput">Genre</label>
-                    <input type="text" class="form-control" id="genre" placeholder="Genre" name="genre">
+                    <input type="text" class="form-control" id="genre" placeholder="Genre" name="genre" [(ngModel)]="genre">
                 </div>
                 <div class="form-group">
                     <label for="DebutInput">Debut Date</label>
-                    <input type="date" class="form-control" id="date" name="date">
+                    <input type="date" class="form-control" id="date" name="date" [(ngModel)]="debutDate">
                 </div>
                 <div class="form-group">
                     <label for="PromotionInput">Promotion (Please provide a link to your masterpiece!)</label>
-                    <input type="url" class="form-control" id="promotion" name="promotion">
+                    <input type="url" class="form-control" id="promotion" name="promotion" [(ngModel)]="promotion">
                 </div>
                 <div class="form-group">
                     <label for="RateInput">Hourly Rate</label>
-                    <input type="number" class="form-control" id="rate" name="rate" min="0.00" max="10000000000.00" step="0.01">
+                    <input type="number" class="form-control" id="rate" name="rate" min="0.00" max="10000000000.00" step="0.01" [(ngModel)]="hourlyRate">
                 </div>
                 
-            <div class="center"><button type="submit" class="btn btn-primary bg-danger" id="submit">Submit</button></div>
+            <div class="center"><button type="submit" class="btn btn-primary bg-danger" id="submit" [disabled] ="!formValidation()" (click)="submit()">Submit</button></div>
                 
             </form>
         </div>
