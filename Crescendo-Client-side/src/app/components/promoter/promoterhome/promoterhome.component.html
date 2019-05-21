@@ -7,27 +7,67 @@
 </div>
 <div class="city">
   <div class="gigtable">
-      <table class="pushdown">
-        <tr>
-        <th class="tablehead" colspan="6">Your Gigs</th> 
-        </tr>
-        <tr>
-          <th>Security</th>
-          <th>Gig Name</th>
-          <th>Location</th>
-          <th>Start Time</th>
-          <th>Max Capacity</th>
-          <th>Invite Accepted</th>
-        </tr>
-        <tr *ngFor="let item of gigs">
-          <td>{{item.security}}</td>
-          <td>{{item.gigname}}</td>
-          <td>{{item.location}}</td>
-          <td>{{item.starttime}}</td>
-          <td>{{item.maxcapacity}}</td>
-          <td>{{item.closed}}</td>
-        </tr>
+      <table class="pushdown table table-dark col-sm-9">
+        <thead>
+          <tr scope="row">
+          <th scope="col" class="tablehead" colspan="7">Your Gigs</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr scope="row">
+            <th scope="col">Security</th>
+            <th scope="col">Gig Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">Max Capacity</th>
+            <th scope="col">Invite Bands</th>
+            <th scope="col">Invite Accepted</th>
+          </tr>
+          <tr scope="row" *ngFor="let item of gigs">
+            <td>{{item.security}}</td>
+            <td><a href="">{{item.gigname}}</a></td>
+            <td>{{item.location}}</td>
+            <td>{{item.starttime}}</td>
+            <td>{{item.maxcapacity}}</td>
+            <td><a href="">Invite Bands</a></td>
+            <td>{{item.closed}}</td>
+          </tr>
+        </tbody>
       </table>
   </div>
+  <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Invite Bands</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <table class="table table-dark modal-body">
+              <thead>
+                <tr>
+                  <th scope="col">Band Name</th>
+                  <th scope="col">Hourly Rate</th>
+                  <th scope="col">Genre</th>
+                  <th scope="col">Social Media</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of bands">
+                  <td>{{item.bandname}}</td>
+                  <td>{{item.hourlyrate}}</td>
+                  <td>{{item.genre}}</td>
+                  <td>{{item.socialmedia}}</td>
+                </tr>
+              </tbody>
+            </table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Invite Bands</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 <router-outlet></router-outlet>
