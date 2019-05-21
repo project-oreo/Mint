@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mint.hasher.PasswordHasher;
 
 @Entity
@@ -103,10 +104,9 @@ public class Promoter {
 	}
 
 
-
 	public String getHashedPassword() throws NoSuchAlgorithmException {
-		this.hashedPassword = PasswordHasher.passwordHasher(password);
-		return hashedPassword;	}
+		return hashedPassword;	
+	}
 
 
 

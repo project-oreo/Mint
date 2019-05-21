@@ -1,5 +1,8 @@
 package com.mint.repositories;
 
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.hibernate.Session;
@@ -11,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.mint.entities.Band;
+import com.mint.entities.Credentials;
 import com.mint.entities.Promoter;
 
 @Repository
@@ -51,10 +55,23 @@ public class BandRepository {
 		session.delete(band);
 		return band;
 	}
-
-	public Promoter login(Promoter promoter) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public Band login(Credentials credentials) throws NoSuchAlgorithmException {
+	Session session = sf.getCurrentSession();
+		
+		
+		List<Band> bandList = session.createQuery("Select b from Band b where b.email = :email").setParameter("email", credentials.getEmail()).list();
+		Band band = bandList.get(0);
+		System.out.println(band);
+		System.out.println("band :" +band);
+		if(band.getHashedPassword().equals(credentials.getHashedPassword())) {
+			return band;
+		}
+		else{
+			
+			return null ;
+		}
 	}
 
 }

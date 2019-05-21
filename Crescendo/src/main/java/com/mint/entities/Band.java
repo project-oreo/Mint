@@ -143,7 +143,6 @@ public class Band {
 		
 
 		public String getHashedPassword() throws NoSuchAlgorithmException {
-			this.hashedPassword = PasswordHasher.passwordHasher(password);
 			return hashedPassword;
 		}
 
