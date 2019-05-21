@@ -22,7 +22,6 @@ export class BandsignupService {
       debutDate: debutDate,
       socialMedia: promotion,
       hourlyRate: hourlyRate
-
     };
 
     console.log(payload);

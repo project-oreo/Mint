@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GigregistrationService } from 'src/app/services/gigregistration.service';
+import { GigupdateService } from 'src/app/services/gigupdate.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PromotermanageComponent implements OnInit {
 
-  constructor(private gigService: GigregistrationService, private router: Router) { }
+  constructor(private gigService: GigupdateService, private router: Router) { }
 
   name = '';
   startTime: any;
