@@ -10,12 +10,12 @@ import { BandloginComponent } from './components/band/bandlogin/bandlogin.compon
 import { BandhomeComponent } from './components/band/bandhome/bandhome.component';
 import { BandprofileComponent } from './components/band/./bandprofile/bandprofile.component';
 import { BandeditprofileComponent } from './components/band//bandeditprofile/bandeditprofile.component';
-import { BandgigsComponent } from './components/band/bandgigs/bandgigs.component';
 import { PromoterhomeComponent } from './components/promoter/promoterhome/promoterhome.component';
 import { PromotermanageComponent } from './components/promoter/promotermanage/promotermanage.component';
 import { PromoterendorseComponent } from './components/promoter/promoterendorse/promoterendorse.component';
 import { PromoterresolveComponent} from './components/promoter/promoterresolve/promoterresolve.component';
 import { MasterComponent } from './components/general/master/master.component';
+import { BandMasterComponent } from './components/band/bandMaster/band-master/band-master.component';
 
 const routes: Routes = [
   { path: '',
@@ -40,8 +40,7 @@ const routes: Routes = [
     {
       path: 'bandlogin',
       component: BandloginComponent
-    }
-    ,
+    },
     {
       path: 'signup',
       component: SignupComponent,
@@ -57,9 +56,13 @@ const routes: Routes = [
   ]
   },
   {
-    path: 'bandhome',
-    component: BandhomeComponent,
+    path: 'bandmaster',
+    component: BandMasterComponent,
     children: [
+      {
+        path: 'bandhome',
+        component: BandhomeComponent,
+      },
       {
         path: 'bandprofile',
         component: BandprofileComponent
@@ -68,14 +71,6 @@ const routes: Routes = [
         path: 'bandeditprofile',
         component: BandeditprofileComponent
       },
-      {
-        path: 'bandgigs',
-        component: BandgigsComponent
-      },
-      {
-        path: '',
-        component: BandgigsComponent
-      }
     ]
   },
   {
