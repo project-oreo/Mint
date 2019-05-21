@@ -28,7 +28,7 @@ public class GigRepository {
 		return session.get(Gig.class, id);
 	}
 	
-	@Transactional(propagation = Propagation.MANDATORY)
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Gig create(Gig gig) {
 		Session session = sf.getCurrentSession();
 //		Promoter promoter = session.get(Promoter.class, gig.getPromoterId());
