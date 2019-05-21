@@ -13,7 +13,7 @@
   }
 
   .tablehead {
-    background-color: rgba(0, 0, 0, 0.541);
+    background-color: rgb(0, 0, 0);
     color: white;
   }
 
@@ -21,7 +21,7 @@
     border: 1px solid black;
     text-align: center;
     padding: 10px;
-    background-color: rgba(255, 0, 0, 0.541);
+    background-color: rgb(212, 7, 7);
   }
 
   .city
