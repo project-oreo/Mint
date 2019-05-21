@@ -28,9 +28,8 @@ public class PromoterService {
 
 	public Promoter login(Promoter promoter) throws NoSuchAlgorithmException {
 		Credentials credentials = new Credentials();
-		credentials.setPassword(promoter.getPassword());
 		credentials.setEmail(promoter.getEmail());
-		System.out.println(credentials); 
+		credentials.setPassword(promoter.getPassword());
 		credentials.setHashedPassword(credentials.getPassword());
 		return this.promoterRepository.login(credentials);
 	}

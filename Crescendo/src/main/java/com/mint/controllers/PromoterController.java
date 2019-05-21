@@ -44,8 +44,15 @@ public class PromoterController {
 	}
 	
 	@PostMapping("login")
-	public Promoter login(@RequestBody Promoter promoter) throws NoSuchAlgorithmException {
-				return this.promoterService.login(promoter);
+	public ResponseEntity<Promoter> login(@RequestBody Promoter promoter) throws NoSuchAlgorithmException {
+		promoter = this.promoterService.login(promoter);
+		
+		if( promoter == null){
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+		}else {
+			return ResponseEntity.ok(promoter);
+		}
+		
 	}
 	
 	@GetMapping("/{id}")

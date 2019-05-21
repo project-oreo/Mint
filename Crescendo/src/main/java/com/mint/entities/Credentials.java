@@ -10,6 +10,7 @@ public class Credentials {
 	private String email;
 	private String password;
 	private String hashedPassword;
+	
 	public int getId() {
 		return id;
 	}
@@ -31,8 +32,8 @@ public class Credentials {
 	public String getHashedPassword() {
 		return hashedPassword;
 	}
-	public void setHashedPassword(String hashedPassword) {
-		this.hashedPassword = hashedPassword;
+	public void setHashedPassword(String password) throws NoSuchAlgorithmException {
+		this.hashedPassword = PasswordHasher.passwordHasher(password);
 	}
 	@Override
 	public int hashCode() {

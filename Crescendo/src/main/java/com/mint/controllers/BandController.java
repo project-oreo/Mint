@@ -48,8 +48,15 @@ public class BandController {
 	}
 	
 	@PostMapping("login")
-	public Promoter login(@RequestBody Promoter promoter) {
-		return this.bandService.login(promoter);
+	public ResponseEntity<Band> login(@RequestBody Band band) throws NoSuchAlgorithmException {
+		band = this.bandService.login(band);
+		
+		if( band == null){
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+		}else {
+			return ResponseEntity.ok(band);
+		}
+		
 	}
 	
 	@PutMapping("update")
