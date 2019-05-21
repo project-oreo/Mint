@@ -29,9 +29,9 @@ public class GigController {
 	private GigService gigService;
 	
 	@Inject
-	public GigController(GigService bandService) {
+	public GigController(GigService gigService) {
 		super();
-		this.gigService = bandService;
+		this.gigService = gigService;
 	}
 
 	@GetMapping("/{id}")
