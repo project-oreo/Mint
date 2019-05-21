@@ -34,7 +34,6 @@ public class Gig {
 	private boolean Security;
 	private boolean closed;
 	private int maxCapacity;
-	private String websiteURL;
 	
 	
 	@ManyToMany
@@ -42,28 +41,6 @@ public class Gig {
 		joinColumns = {@JoinColumn(name="band_id")},
 		inverseJoinColumns = {@JoinColumn(name="gig_id")})
 	private List<Band> bands;
-
-
-	public Gig() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
-	public Gig(int id, String gigName, Date startTime, String location, Promoter promoter, boolean security,
-			boolean closed, int maxCapacity, String websiteURL, List<Band> bands) {
-		super();
-		this.id = id;
-		this.gigName = gigName;
-		this.startTime = startTime;
-		this.location = location;
-		this.promoter = promoter;
-		Security = security;
-		this.closed = closed;
-		this.maxCapacity = maxCapacity;
-		this.websiteURL = websiteURL;
-		this.bands = bands;
-	}
 
 
 	public int getId() {
@@ -146,16 +123,6 @@ public class Gig {
 	}
 
 
-	public String getWebsiteURL() {
-		return websiteURL;
-	}
-
-
-	public void setWebsiteURL(String websiteURL) {
-		this.websiteURL = websiteURL;
-	}
-
-
 	public List<Band> getBands() {
 		return bands;
 	}
@@ -179,7 +146,6 @@ public class Gig {
 		result = prime * result + maxCapacity;
 		result = prime * result + ((promoter == null) ? 0 : promoter.hashCode());
 		result = prime * result + ((startTime == null) ? 0 : startTime.hashCode());
-		result = prime * result + ((websiteURL == null) ? 0 : websiteURL.hashCode());
 		return result;
 	}
 
@@ -226,11 +192,6 @@ public class Gig {
 				return false;
 		} else if (!startTime.equals(other.startTime))
 			return false;
-		if (websiteURL == null) {
-			if (other.websiteURL != null)
-				return false;
-		} else if (!websiteURL.equals(other.websiteURL))
-			return false;
 		return true;
 	}
 
@@ -239,8 +200,30 @@ public class Gig {
 	public String toString() {
 		return "Gig [id=" + id + ", gigName=" + gigName + ", startTime=" + startTime + ", location=" + location
 				+ ", promoter=" + promoter + ", Security=" + Security + ", closed=" + closed + ", maxCapacity="
-				+ maxCapacity + ", websiteURL=" + websiteURL + ", bands=" + bands + "]";
+				+ maxCapacity + ", bands=" + bands + "]";
 	}
 
 
+	public Gig(int id, String gigName, Date startTime, String location, Promoter promoter, boolean security,
+			boolean closed, int maxCapacity, List<Band> bands) {
+		super();
+		this.id = id;
+		this.gigName = gigName;
+		this.startTime = startTime;
+		this.location = location;
+		this.promoter = promoter;
+		Security = security;
+		this.closed = closed;
+		this.maxCapacity = maxCapacity;
+		this.bands = bands;
+	}
+
+
+	public Gig() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	
 }
