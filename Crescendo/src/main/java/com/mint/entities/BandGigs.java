@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
@@ -24,7 +23,6 @@ public class BandGigs {
     @MapsId("gigId")
 	private Gig gigs;
 	
-	@Column(name="status")
 	private String status;
 
 	public BandGigs() {
