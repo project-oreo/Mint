@@ -1,28 +1,30 @@
 package com.mint.entities;
 
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
 import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="band_gigs")
-@IdClass(BandGigsPK.class)
 public class BandGigs {
 	
-	@Id
-    @ManyToOne
-    @JoinColumn(name = "band_id", referencedColumnName = "id")
-	private Band band;
+	@EmbeddedId
+    private BandGigsPK bandGigId;
 	
-	@Id
-    @ManyToOne
-    @JoinColumn(name = "gig_id", referencedColumnName = "id")
-	private Gig gig;
+	@ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("bandId")
+	private Band bands;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("gigId")
+	private Gig gigs;
+	
+	@Column(name="status")
 	private String status;
 
 	public BandGigs() {
@@ -30,27 +32,36 @@ public class BandGigs {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BandGigs(Band band, Gig gig, String status) {
+	public BandGigs(BandGigsPK bandGigId, Band bands, Gig gigs, String status) {
 		super();
-		this.band = band;
-		this.gig = gig;
+		this.bandGigId = bandGigId;
+		this.bands = bands;
+		this.gigs = gigs;
 		this.status = status;
 	}
 
-	public Band getBand() {
-		return band;
+	public BandGigsPK getBandGigId() {
+		return bandGigId;
 	}
 
-	public void setBand(Band band) {
-		this.band = band;
+	public void setBandGigId(BandGigsPK bandGigId) {
+		this.bandGigId = bandGigId;
 	}
 
-	public Gig getGig() {
-		return gig;
+	public Band getBands() {
+		return bands;
 	}
 
-	public void setGig(Gig gig) {
-		this.gig = gig;
+	public void setBands(Band bands) {
+		this.bands = bands;
+	}
+
+	public Gig getGigs() {
+		return gigs;
+	}
+
+	public void setGigs(Gig gigs) {
+		this.gigs = gigs;
 	}
 
 	public String getStatus() {
@@ -65,8 +76,9 @@ public class BandGigs {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((band == null) ? 0 : band.hashCode());
-		result = prime * result + ((gig == null) ? 0 : gig.hashCode());
+		result = prime * result + ((bandGigId == null) ? 0 : bandGigId.hashCode());
+		result = prime * result + ((bands == null) ? 0 : bands.hashCode());
+		result = prime * result + ((gigs == null) ? 0 : gigs.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
 	}
@@ -80,15 +92,20 @@ public class BandGigs {
 		if (getClass() != obj.getClass())
 			return false;
 		BandGigs other = (BandGigs) obj;
-		if (band == null) {
-			if (other.band != null)
+		if (bandGigId == null) {
+			if (other.bandGigId != null)
 				return false;
-		} else if (!band.equals(other.band))
+		} else if (!bandGigId.equals(other.bandGigId))
 			return false;
-		if (gig == null) {
-			if (other.gig != null)
+		if (bands == null) {
+			if (other.bands != null)
 				return false;
-		} else if (!gig.equals(other.gig))
+		} else if (!bands.equals(other.bands))
+			return false;
+		if (gigs == null) {
+			if (other.gigs != null)
+				return false;
+		} else if (!gigs.equals(other.gigs))
 			return false;
 		if (status == null) {
 			if (other.status != null)
@@ -100,9 +117,8 @@ public class BandGigs {
 
 	@Override
 	public String toString() {
-		return "BandGigs [band=" + band + ", gig=" + gig + ", status=" + status + "]";
+		return "BandGigs [bandGigId=" + bandGigId + ", bands=" + bands + ", gigs=" + gigs + ", status=" + status + "]";
 	}
 	
 	
-
 }

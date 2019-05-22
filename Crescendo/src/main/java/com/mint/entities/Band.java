@@ -1,22 +1,19 @@
 package com.mint.entities;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-
-import com.mint.hasher.PasswordHasher;
 
 @Entity 
 @Table(name="bands")
@@ -43,8 +40,36 @@ public class Band {
 	    private String hashedPassword;
 	 
 	    
-	    @OneToMany(mappedBy="bands")
-	    List<Gig> gigs;
+	    @OneToMany(
+	            mappedBy = "bands",
+	            cascade = CascadeType.ALL,
+	            orphanRemoval = true
+	        )
+	    List<BandGigs> bandGigs;
+
+
+		public Band() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
+
+		public Band(int id, @NotNull String bandName, String genre, Date debutDate, String bio, String socialMedia,
+				double hourlyRate, @Email String email, String password, String hashedPassword,
+				List<BandGigs> bandGigs) {
+			super();
+			this.id = id;
+			this.bandName = bandName;
+			this.genre = genre;
+			this.debutDate = debutDate;
+			this.bio = bio;
+			this.socialMedia = socialMedia;
+			this.hourlyRate = hourlyRate;
+			this.email = email;
+			this.password = password;
+			this.hashedPassword = hashedPassword;
+			this.bandGigs = bandGigs;
+		}
 
 
 		public int getId() {
@@ -136,40 +161,37 @@ public class Band {
 			this.password = password;
 		}
 
-		
 
-		public String getHashedPassword() throws NoSuchAlgorithmException {
+		public String getHashedPassword() {
 			return hashedPassword;
 		}
 
 
-		public void setHashedPassword(String hashedPassword) throws NoSuchAlgorithmException {
-			this.hashedPassword = PasswordHasher.passwordHasher(password);
+		public void setHashedPassword(String hashedPassword) {
+			this.hashedPassword = hashedPassword;
 		}
 
 
-		public List<Gig> getGigs() {
-			return gigs;
+		public List<BandGigs> getBandGigs() {
+			return bandGigs;
 		}
 
 
-		public void setGigs(List<Gig> gigs) {
-			this.gigs = gigs;
+		public void setBandGigs(List<BandGigs> bandGigs) {
+			this.bandGigs = bandGigs;
 		}
 
-
-		
 
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
+			result = prime * result + ((bandGigs == null) ? 0 : bandGigs.hashCode());
 			result = prime * result + ((bandName == null) ? 0 : bandName.hashCode());
 			result = prime * result + ((bio == null) ? 0 : bio.hashCode());
 			result = prime * result + ((debutDate == null) ? 0 : debutDate.hashCode());
 			result = prime * result + ((email == null) ? 0 : email.hashCode());
 			result = prime * result + ((genre == null) ? 0 : genre.hashCode());
-			result = prime * result + ((gigs == null) ? 0 : gigs.hashCode());
 			result = prime * result + ((hashedPassword == null) ? 0 : hashedPassword.hashCode());
 			long temp;
 			temp = Double.doubleToLongBits(hourlyRate);
@@ -190,6 +212,11 @@ public class Band {
 			if (getClass() != obj.getClass())
 				return false;
 			Band other = (Band) obj;
+			if (bandGigs == null) {
+				if (other.bandGigs != null)
+					return false;
+			} else if (!bandGigs.equals(other.bandGigs))
+				return false;
 			if (bandName == null) {
 				if (other.bandName != null)
 					return false;
@@ -214,11 +241,6 @@ public class Band {
 				if (other.genre != null)
 					return false;
 			} else if (!genre.equals(other.genre))
-				return false;
-			if (gigs == null) {
-				if (other.gigs != null)
-					return false;
-			} else if (!gigs.equals(other.gigs))
 				return false;
 			if (hashedPassword == null) {
 				if (other.hashedPassword != null)
@@ -247,36 +269,11 @@ public class Band {
 		public String toString() {
 			return "Band [id=" + id + ", bandName=" + bandName + ", genre=" + genre + ", debutDate=" + debutDate
 					+ ", bio=" + bio + ", socialMedia=" + socialMedia + ", hourlyRate=" + hourlyRate + ", email="
-					+ email + ", password=" + password + ", hashedPassword=" + hashedPassword + ", gigs=" + gigs + "]";
-		}
-
-
-		public Band(int id, @NotNull String bandName, String genre, Date debutDate, String bio, String socialMedia,
-				double hourlyRate, @Email String email, String password, String hashedPassword, List<Gig> gigs) {
-			super();
-			this.id = id;
-			this.bandName = bandName;
-			this.genre = genre;
-			this.debutDate = debutDate;
-			this.bio = bio;
-			this.socialMedia = socialMedia;
-			this.hourlyRate = hourlyRate;
-			this.email = email;
-			this.password = password;
-			this.hashedPassword = hashedPassword;
-			this.gigs = gigs;
-		}
-
-
-		public Band() {
-			super();
-			// TODO Auto-generated constructor stub
+					+ email + ", password=" + password + ", hashedPassword=" + hashedPassword + ", bandGigs=" + bandGigs
+					+ "]";
 		}
 
 
 		
-
-
 		
-	
 }
