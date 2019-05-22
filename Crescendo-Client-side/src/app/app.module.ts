@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/general/home/home.component';
@@ -22,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BandMasterComponent } from './components/band/bandMaster/band-master/band-master.component';
 import { PromotermasterComponent } from './components/promoter/promotermaster/promotermaster.component';
+import { BsModalRef, BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -49,10 +49,11 @@ import { PromotermasterComponent } from './components/promoter/promotermaster/pr
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule,
+    ModalModule.forRoot()
   ],
 
-  providers: [],
+  providers: [BsModalRef,
+    BsModalService],
 
   bootstrap: [AppComponent]
 })

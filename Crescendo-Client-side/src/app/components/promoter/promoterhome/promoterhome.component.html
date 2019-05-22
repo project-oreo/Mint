@@ -23,24 +23,29 @@
             <th scope="col">Invite Bands</th>
             <th scope="col">Invite Accepted</th>
           </tr>
+<<<<<<< HEAD
           <tr scope="row" *ngFor="let items of Gigs">
             <td>{{item.security}}</td>
             <td><button type="button" class="btn btn-light" data-toggle="modal" data-target="#gigname">{{item.gigname}}</button></td>
+=======
+          <tr scope="row" >
+            <td>{{item.Security}}</td>
+            <td><button type="button" class="btn btn-light" (click)="openGig(gig)">{{item.gigname}}</button></td>
+>>>>>>> master
             <td>{{item.location}}</td>
             <td>{{item.starttime}}</td>
             <td>{{item.maxcapacity}}</td>
-            <td><button type="button" class="btn btn-light" data-toggle="modal" data-target="#invite">Invite Bands</button></td>
+            <td><button type="button" class="btn btn-light" data-toggle="modal" (click)="openBand(band)">Invite Bands</button></td>
             <td>{{item.closed}}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="modal fade" id="invite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
+    <ng-template #band>
+        <div class="modal-content modal-lg">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Invite Bands</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title">Invite Bands</h5>
+              <button type="button" class="close" (click)="modalRef.hide()">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -65,11 +70,34 @@
                   </table>
               </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-dark" (click)="modalRef.hide()">Close</button>
               <button type="button" class="btn btn-light">Invite Bands</button>
             </div>
           </div>
-        </div>
-      </div>
-  </div>
+    </ng-template>
+          
   <router-outlet></router-outlet>
+  
+  <!-- Modal -->
+  <ng-template #gig>
+          <div class="modal-content gigmodal">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+
+</ng-template>
+<!-- <div class="tbcontainer">
+<div class="centered">Hiiiii!</div>
+      <img class ="img-fluid" src="assets\kisspng-persona-5-dialog-box-dialogue-computer-icons-art-5b1ff3598a6291.2793164815288205695668.png">
+</div> -->
