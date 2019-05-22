@@ -7,28 +7,32 @@
   </div>
   <div class="city">
     <div class="gigtable">
-        <table class="pushdown">
-          <tr>
-          <th class="tablehead" colspan="7">My Profile Info</th> 
-          </tr>
-          <tr>
-            <th>Band Name</th>
-            <th>Bio</th>
-            <th>Debut Date</th>
-            <th>Email</th>
-            <th>Genre</th>
-            <th>Hourly Rate</th>
-            <th>Social Media</th>
-          </tr>
-          <tr>
-            <td><input type="text" [(ngModel)]="bandname"></td>
-            <td><input type="text" [(ngModel)]="bio"></td>
-            <td><input type="date" [(ngModel)]="debutdate"></td>
-            <td><input type="email" [(ngModel)]="email"></td>
-            <td><input type="text" [(ngModel)]="genre"></td>
-            <td><input type="number" min="0.00" max="10000000000.00" step="0.01" [(ngModel)]="hourlyrate"></td>
-            <td><input type="text" [(ngModel)]="socialmedia"></td>
-          </tr>
+        <table class="pushdown table table-dark col-sm-9">
+          <thead>
+            <tr scope="row">
+            <th scope="col" class="tablehead" colspan="7">My Profile Info</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr scope="row">
+              <th scope="col">Band Name</th>
+              <th scope="col">Bio</th>
+              <th scope="col">Debut Date</th>
+              <th scope="col">Email</th>
+              <th scope="col">Genre</th>
+              <th scope="col">Hourly Rate</th>
+              <th scope="col">Social Media</th>
+            </tr>
+            <tr scope="row">
+              <td><input type="text" [(ngModel)]="bandname"></td>
+              <td><input type="text" [(ngModel)]="bio"></td>
+              <td><input type="date" [(ngModel)]="debutdate"></td>
+              <td><input type="email" [(ngModel)]="email"></td>
+              <td><input type="text" [(ngModel)]="genre"></td>
+              <td><input type="number" min="0.00" max="10000000000.00" step="0.01" [(ngModel)]="hourlyrate"></td>
+              <td><input type="text" [(ngModel)]="socialmedia"></td>
+            </tr>
+          </tbody>
         </table>
     </div>
     <div class="center">

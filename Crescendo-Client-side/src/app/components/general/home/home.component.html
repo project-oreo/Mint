@@ -14,25 +14,29 @@
             Reach your ... 
           </div>
           <div class ="title" >Crescendo</div>
-          <div class="gigtable cont">
-              <table>
-                <tr>
-                <th class="tablehead" colspan="5">Gigs</th> 
-                </tr>
-                <tr>
-                  <th>Gig Name</th>
-                  <th>Location</th>
-                  <th>Max Capacity</th>
-                  <th>Start Time</th>
-                  <th>Website</th>
-                </tr>
-                <tr *ngFor="let item of gigs">
-                  <td>{{item.gigname}}</td>
-                  <td>{{item.location}}</td>
-                  <td>{{item.maxcapacity}}</td>
-                  <td>{{item.starttime}}</td>
-                  <td>{{item.websiteurl}}</td>
-                </tr>
+          <div class="gigtable">
+              <table class="table table-dark col-sm-9">
+                <thead>
+                  <tr scope="row">
+                  <th scope="col" class="tablehead" colspan="5">Gigs</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr scope="row">
+                    <th>Gig Name</th>
+                    <th>Location</th>
+                    <th>Max Capacity</th>
+                    <th>Start Time</th>
+                    <th>Website</th>
+                  </tr>
+                  <tr scope="row" *ngFor="let item of gigs">
+                    <td>{{item.gigname}}</td>
+                    <td>{{item.location}}</td>
+                    <td>{{item.maxcapacity}}</td>
+                    <td>{{item.starttime}}</td>
+                    <td>{{item.websiteurl}}</td>
+                  </tr>
+                </tbody>
               </table>
           </div>
         </div>

@@ -5,57 +5,64 @@
   </nav>
 </div>
 <div class="city">
-  <div class="gigtable cont">
-      <table class="pushdown">
-        <tr>
-        <th class="tablehead" colspan="6">Upcoming Shows</th> 
-        </tr>
-        <tr>
-          <th>Security</th>
-          <th>Gig Name</th>
-          <th>Location</th>
-          <th>Start Time</th>
-          <th>Website</th>
-          <th>Promoter</th>
-        </tr>
-        <tr *ngFor="let item of gigs">
-          <td>{{item.security}}</td>
-          <td>{{item.gigname}}</td>
-          <td>{{item.location}}</td>
-          <td>{{item.starttime}}</td>
-          <td>{{item.websiteurl}}</td>
-          <td>{{item.promoter_id}}</td>
-        </tr>
+  <div class="gigtable">
+      <table class="pushdown table table-dark col-sm-9">
+        <thead>
+          <tr scope="row">
+            <th scope="col" class="tablehead" colspan="6">Upcoming Shows</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr scope="row">
+            <th scope="col">Security</th>
+            <th scope="col">Gig Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">Website</th>
+            <th scope="col">Promoter</th>
+          </tr>
+          <tr scope="row" *ngFor="let item of gigs">
+            <td>{{item.security}}</td>
+            <td>{{item.gigname}}</td>
+            <td>{{item.location}}</td>
+            <td>{{item.starttime}}</td>
+            <td>{{item.websiteurl}}</td>
+            <td>{{item.promoter_id}}</td>
+          </tr>
+        </tbody>
       </table>
   </div>
   <div class="gigtable cont">
-      <table class="pushdown">
-        <tr>
-        <th class="tablehead" colspan="7">Gig Invites</th> 
-        </tr>
-        <tr>
-          <th>Security</th>
-          <th>Gig Name</th>
-          <th>Location</th>
-          <th>Start Time</th>
-          <th>Website</th>
-          <th>Promoter</th>
-          <th>Play this Gig?</th>
-
-        </tr>
-        <tr *ngFor="let item of gigs">
-          <td>{{item.security}}</td>
-          <td>{{item.gigname}}</td>
-          <td>{{item.location}}</td>
-          <td>{{item.starttime}}</td>
-          <td>{{item.websiteurl}}</td>
-          <td>{{item.promoter_id}}</td>
-          <td><nav id="Accept" class="nav nav-pills text-white">
-              <button type="button" class="btn btn-light">Yes</button>
-              <button type="button" class="btn btn-dark">No</button>
-              </nav>
-          </td>
-        </tr>
+      <table class="pushdown table table-dark col-sm-9">
+        <thead>
+          <tr>
+          <th class="tablehead" colspan="7">Gig Invites</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr scope="row">
+            <th scope="col">Security</th>
+            <th scope="col">Gig Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">Website</th>
+            <th scope="col">Promoter</th>
+            <th scope="col">Play this Gig?</th>
+          </tr>
+          <tr scope="row" *ngFor="let item of gigs">
+            <td>{{item.security}}</td>
+            <td>{{item.gigname}}</td>
+            <td>{{item.location}}</td>
+            <td>{{item.starttime}}</td>
+            <td>{{item.websiteurl}}</td>
+            <td>{{item.promoter_id}}</td>
+            <td><nav id="Accept" class="nav nav-pills text-white">
+                  <button type="button" class="btn btn-light">Yes</button>
+                  <button type="button" class="btn btn-dark">No</button>
+                </nav>
+            </td>
+          </tr>
+        </tbody> 
       </table>
   </div>
 </div>
