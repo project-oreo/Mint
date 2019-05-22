@@ -21,7 +21,7 @@ export class PromoterloginComponent implements OnInit {
   ngOnInit() {
     this.loginResponse = this.promoterLoginService.$loginStatus.subscribe(status => {
       if (status === 200) {
-        this.router.navigate(['../promoterhome']);
+        this.router.navigateByUrl('promotermaster/promoterhome');
       } else {
         alert('Email or password is incorrect.');
         this.lastStatus = status;

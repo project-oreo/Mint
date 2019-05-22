@@ -1,5 +1,6 @@
 package com.mint.entities;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+
+import com.mint.hasher.PasswordHasher;
 
 @Entity 
 @Table(name="bands")
@@ -167,8 +170,8 @@ public class Band {
 		}
 
 
-		public void setHashedPassword(String hashedPassword) {
-			this.hashedPassword = hashedPassword;
+		public void setHashedPassword(String password) throws NoSuchAlgorithmException {
+			this.hashedPassword = PasswordHasher.passwordHasher(password);
 		}
 
 
