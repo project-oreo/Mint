@@ -20,7 +20,7 @@ export class BandloginComponent implements OnInit {
   ngOnInit() {
     this.loginResponse = this.bandLoginService.$loginStatus.subscribe(status => {
       if (status === 200) {
-        this.router.navigate(['../bandhome']);
+        this.router.navigateByUrl('bandmaster/bandhome');
       } else {
         alert('Email or password is incorrect.');
         this.lastStatus = status;
