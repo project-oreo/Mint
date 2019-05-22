@@ -1,5 +1,6 @@
 package com.mint.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -59,5 +60,10 @@ public class GigController {
 	@ExceptionHandler(HttpClientErrorException.class)
 	public ResponseEntity<String> handleClientError(HttpClientErrorException e) {
 		return ResponseEntity.status(e.getStatusCode()).body(e.getMessage());
+	}
+	
+	@GetMapping("")
+	public List<Gig> getAllGigs() {
+		return this.gigService.getAllGigs();
 	}
 }

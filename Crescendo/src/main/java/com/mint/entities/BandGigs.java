@@ -8,6 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="band_gigs")
 public class BandGigs {
@@ -15,10 +17,12 @@ public class BandGigs {
 	@EmbeddedId
     private BandGigsPK bandGigId;
 	
+	//@JsonIgnoreProperties("gigBands")
 	@ManyToOne(fetch = FetchType.LAZY)
     @MapsId("bandId")
 	private Band bands;
 	
+	//@JsonIgnoreProperties("gigBands")
 	@ManyToOne(fetch = FetchType.LAZY)
     @MapsId("gigId")
 	private Gig gigs;

@@ -1,6 +1,9 @@
 package com.mint.repositories;
 
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -51,6 +54,14 @@ public class GigRepository {
 		if (gig == null) throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
 		session.delete(gig);
 		return gig;
+	}
+	
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public List<Gig> getAllGigs() {
+		Session session = sf.getCurrentSession();
+		List<Gig> gigList = session.createQuery("SELECT g FROM Gig g", Gig.class).getResultList();
+		return gigList;
 	}
 
 }
