@@ -61,6 +61,7 @@ public class GigRepository {
 		Session session = sf.getCurrentSession();
 		List<Gig> gigList = session.createQuery("Select g FROM Gig g", Gig.class).list();
 		return gigList;
+		
 	}
 
 }

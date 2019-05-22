@@ -23,7 +23,7 @@
             <th scope="col">Invite Bands</th>
             <th scope="col">Invite Accepted</th>
           </tr>
-          <tr scope="row" >
+          <tr scope="row" *ngFor="let items of Gigs">
             <td>{{item.security}}</td>
             <td><button type="button" class="btn btn-light" data-toggle="modal" data-target="#gigname">{{item.gigname}}</button></td>
             <td>{{item.location}}</td>
