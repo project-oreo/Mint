@@ -18,7 +18,7 @@ export class PromoterloginService {
       password: password
     };
 
-    this.httpClient.post('Crescendo/promoters/login', payload, {
+    this.httpClient.post('http://ec2-18-221-232-129.us-east-2.compute.amazonaws.com:8081/Crescendo/promoters/login', payload, {
       observe: 'response'
       })
       .subscribe(response => {
