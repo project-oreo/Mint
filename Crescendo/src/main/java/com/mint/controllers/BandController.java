@@ -59,6 +59,7 @@ public class BandController {
 		
 	}
 	
+	
 	@PutMapping("update")
 	public Band updateBand(@RequestBody Band band) {
 		return this.bandService.update(band);
