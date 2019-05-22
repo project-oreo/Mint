@@ -73,7 +73,7 @@ public class PromoterRepository {
 		return session.get(Promoter.class, id);
 		
 	}
-
+	
 
 
 	public Promoter delete(int id) {

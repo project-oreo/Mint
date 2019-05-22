@@ -41,7 +41,7 @@ public class GigController {
 			.orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
 	}
 	
-	@PostMapping("create")
+	@PostMapping("create") 
 	@ResponseStatus(HttpStatus.CREATED)
 	public Gig createGig(@RequestBody Gig gig) {
 		return this.gigService.create(gig);
@@ -56,6 +56,8 @@ public class GigController {
 	public Gig deleteGig(@PathVariable int id) {
 		return this.gigService.deleteById(id);
 	}
+	
+	
 	
 	@ExceptionHandler(HttpClientErrorException.class)
 	public ResponseEntity<String> handleClientError(HttpClientErrorException e) {
