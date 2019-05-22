@@ -3,6 +3,7 @@ package com.mint.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,107 +35,111 @@ public class Gig {
 	private boolean closed;
 	private int maxCapacity;
 	
-	@OneToMany
-	private List<Band> bands;
+	@OneToMany(
+	        mappedBy = "gigs",
+	        cascade = CascadeType.ALL,
+	        orphanRemoval = true
+	    )
+	private List<BandGigs> gigBands;
 
+	public Gig() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Gig(int id, String gigName, Date startTime, String location, Promoter promoter, boolean security,
+			boolean closed, int maxCapacity, List<BandGigs> gigBands) {
+		super();
+		this.id = id;
+		this.gigName = gigName;
+		this.startTime = startTime;
+		this.location = location;
+		this.promoter = promoter;
+		Security = security;
+		this.closed = closed;
+		this.maxCapacity = maxCapacity;
+		this.gigBands = gigBands;
+	}
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getGigName() {
 		return gigName;
 	}
 
-
 	public void setGigName(String gigName) {
 		this.gigName = gigName;
 	}
-
 
 	public Date getStartTime() {
 		return startTime;
 	}
 
-
 	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
-
 
 	public String getLocation() {
 		return location;
 	}
 
-
 	public void setLocation(String location) {
 		this.location = location;
 	}
-
 
 	public Promoter getPromoter() {
 		return promoter;
 	}
 
-
 	public void setPromoter(Promoter promoter) {
 		this.promoter = promoter;
 	}
-
 
 	public boolean isSecurity() {
 		return Security;
 	}
 
-
 	public void setSecurity(boolean security) {
 		Security = security;
 	}
-
 
 	public boolean isClosed() {
 		return closed;
 	}
 
-
 	public void setClosed(boolean closed) {
 		this.closed = closed;
 	}
-
 
 	public int getMaxCapacity() {
 		return maxCapacity;
 	}
 
-
 	public void setMaxCapacity(int maxCapacity) {
 		this.maxCapacity = maxCapacity;
 	}
 
-
-	public List<Band> getBands() {
-		return bands;
+	public List<BandGigs> getGigBands() {
+		return gigBands;
 	}
 
-
-	public void setBands(List<Band> bands) {
-		this.bands = bands;
+	public void setGigBands(List<BandGigs> gigBands) {
+		this.gigBands = gigBands;
 	}
-
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (Security ? 1231 : 1237);
-		result = prime * result + ((bands == null) ? 0 : bands.hashCode());
 		result = prime * result + (closed ? 1231 : 1237);
+		result = prime * result + ((gigBands == null) ? 0 : gigBands.hashCode());
 		result = prime * result + ((gigName == null) ? 0 : gigName.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
@@ -143,7 +148,6 @@ public class Gig {
 		result = prime * result + ((startTime == null) ? 0 : startTime.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -156,12 +160,12 @@ public class Gig {
 		Gig other = (Gig) obj;
 		if (Security != other.Security)
 			return false;
-		if (bands == null) {
-			if (other.bands != null)
-				return false;
-		} else if (!bands.equals(other.bands))
-			return false;
 		if (closed != other.closed)
+			return false;
+		if (gigBands == null) {
+			if (other.gigBands != null)
+				return false;
+		} else if (!gigBands.equals(other.gigBands))
 			return false;
 		if (gigName == null) {
 			if (other.gigName != null)
@@ -190,35 +194,13 @@ public class Gig {
 		return true;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Gig [id=" + id + ", gigName=" + gigName + ", startTime=" + startTime + ", location=" + location
 				+ ", promoter=" + promoter + ", Security=" + Security + ", closed=" + closed + ", maxCapacity="
-				+ maxCapacity + ", bands=" + bands + "]";
+				+ maxCapacity + ", gigBands=" + gigBands + "]";
 	}
 
-
-	public Gig(int id, String gigName, Date startTime, String location, Promoter promoter, boolean security,
-			boolean closed, int maxCapacity, List<Band> bands) {
-		super();
-		this.id = id;
-		this.gigName = gigName;
-		this.startTime = startTime;
-		this.location = location;
-		this.promoter = promoter;
-		Security = security;
-		this.closed = closed;
-		this.maxCapacity = maxCapacity;
-		this.bands = bands;
-	}
-
-
-	public Gig() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
+	
 	
 }

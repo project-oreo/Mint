@@ -1,43 +1,51 @@
 package com.mint.entities;
 
-public class BandGigsPK {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class BandGigsPK implements Serializable{
 	
-    private int band_id;
-    private Long gig_id;
+	@Column(name="band_id")
+    private int bandId;
+	@Column(name="gig_id")
+    private int gigId;
     
 	public BandGigsPK() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public BandGigsPK(int band_id, Long gig_id) {
+	public BandGigsPK(int bandId, int gigId) {
 		super();
-		this.band_id = band_id;
-		this.gig_id = gig_id;
+		this.bandId = bandId;
+		this.gigId = gigId;
 	}
 
-	public int getBand_id() {
-		return band_id;
+	public int getBandId() {
+		return bandId;
 	}
 
-	public void setBand_id(int band_id) {
-		this.band_id = band_id;
+	public void setBandId(int bandId) {
+		this.bandId = bandId;
 	}
 
-	public Long getGig_id() {
-		return gig_id;
+	public int getGigId() {
+		return gigId;
 	}
 
-	public void setGig_id(Long gig_id) {
-		this.gig_id = gig_id;
+	public void setGigId(int gigId) {
+		this.gigId = gigId;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + band_id;
-		result = prime * result + ((gig_id == null) ? 0 : gig_id.hashCode());
+		result = prime * result + bandId;
+		result = prime * result + gigId;
 		return result;
 	}
 
@@ -50,21 +58,17 @@ public class BandGigsPK {
 		if (getClass() != obj.getClass())
 			return false;
 		BandGigsPK other = (BandGigsPK) obj;
-		if (band_id != other.band_id)
+		if (bandId != other.bandId)
 			return false;
-		if (gig_id == null) {
-			if (other.gig_id != null)
-				return false;
-		} else if (!gig_id.equals(other.gig_id))
+		if (gigId != other.gigId)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "BandGigsPK [band_id=" + band_id + ", gig_id=" + gig_id + "]";
+		return "BandGigsPK [bandId=" + bandId + ", gigId=" + gigId + "]";
 	}
-    
 	
-
+	
 }

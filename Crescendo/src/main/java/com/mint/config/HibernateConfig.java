@@ -15,6 +15,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.mint.controllers.BandController;
 import com.mint.entities.Band;
+import com.mint.entities.BandGigs;
+import com.mint.entities.BandGigsPK;
 import com.mint.entities.Gig;
 import com.mint.entities.Promoter;
 
@@ -37,7 +39,7 @@ public class HibernateConfig {
        LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
        factoryBean.setConfigLocation(new ClassPathResource("hibernate.cfg.xml"));
 
-       factoryBean.setAnnotatedClasses(Band.class, Gig.class, Promoter.class);
+       factoryBean.setAnnotatedClasses(Band.class, Gig.class, Promoter.class, BandGigs.class, BandGigsPK.class);
 
        factoryBean.setDataSource(getDataSource());
 
