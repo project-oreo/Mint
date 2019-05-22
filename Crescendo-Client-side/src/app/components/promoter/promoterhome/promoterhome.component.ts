@@ -15,11 +15,17 @@ export class PromoterhomeComponent implements OnInit {
   }
   openGig(template: TemplateRef<any>) {
       console.log(template);
-      this.modalRef = this.modalService.show(template);
+      this.modalRef = this.modalService.show(template,
+        {
+          class: 'modal-dialog-centered modal-lg'
+        });
   }
 
   openBand(template: TemplateRef<any>) {
     console.log(template);
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(template,
+      {
+        class: 'modal-dialog modal-dialog-centered modal-lg'
+      });
 }
 }
