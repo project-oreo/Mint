@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="gigs")
 public class Gig {
@@ -36,6 +38,7 @@ public class Gig {
 	private boolean closed;
 	private int maxCapacity;
 	
+	@JsonManagedReference
 	@OneToMany(
 	        mappedBy = "gigs",
 	        cascade = CascadeType.ALL,

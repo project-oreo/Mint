@@ -60,7 +60,7 @@ public class GigRepository {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public List<Gig> getAllGigs() {
 		Session session = sf.getCurrentSession();
-		List<Gig> gigList = session.createQuery("SELECT g FROM Gig g", Gig.class).getResultList();
+		List<Gig> gigList = session.createQuery("Select g FROM Gig g", Gig.class).list();
 		return gigList;
 	}
 
