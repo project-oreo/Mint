@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.mint.entities.Band;
 import com.mint.entities.Credentials;
 import com.mint.entities.Gig;
 import com.mint.entities.Promoter;
@@ -57,6 +58,11 @@ public class PromoterService {
 
 	public void inviteBand(int bandId, int gigId) {
 		this.promoterRepository.inviteBand(bandId, gigId);
+		
+	}
+
+	public List<Band> getAllBands() {
+		return this.promoterRepository.getAllBands();
 		
 	}
 
