@@ -19,7 +19,7 @@ export class HomeService {
 
   Request(): void {
     if (!this.homeComp) {
-      this.httpClient.get('http://localhost:8081/Crescendo/gigs', {
+      this.httpClient.get('http://ec2-18-220-247-101.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/', {
         observe: 'response'
       }).pipe(map(response => response.body as Array<Gig>)).subscribe(response => {
           this.RequestGigSubject.next(200);
