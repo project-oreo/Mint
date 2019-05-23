@@ -86,6 +86,12 @@ public class PromoterController {
 		this.promoterService.inviteBand(bandId, gigId);
 	}
 	
+	@GetMapping("allbands")
+	public List<Band> getAllBands()
+	{
+		return this.promoterService.getAllBands();
+	}
+	
 	@ExceptionHandler(HttpClientErrorException.class)
 	public ResponseEntity<String> handleClientError(HttpClientErrorException e) {
 		return ResponseEntity.status(e.getStatusCode()).body(e.getMessage());

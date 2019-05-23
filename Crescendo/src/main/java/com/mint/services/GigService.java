@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+
+import com.mint.entities.Band;
 import com.mint.entities.Gig;
 import com.mint.repositories.GigRepository;
 
@@ -40,6 +42,10 @@ public class GigService {
 
 	public List<Gig> getAllGigs() {
 		return this.gigRepository.getAllGigs();
+	}
+
+	public List<Band> getBands(int id) {
+		return this.gigRepository.getBands(id);
 	}
 
 }

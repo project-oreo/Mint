@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.HttpClientErrorException;
 
+import com.mint.entities.Band;
 import com.mint.entities.Gig;
 import com.mint.entities.Promoter;
 
@@ -62,6 +63,15 @@ public class GigRepository {
 		Session session = sf.getCurrentSession();
 		List<Gig> gigList = session.createSQLQuery("Select * from gigs").list();
 		return gigList;
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	public List<Band> getBands(int id) {
+		
+		Session session = sf.getCurrentSession();
+		String query = "select bands FROM BandGigs where gigs_id = :id and status = 'Approved'";
+		List<Band> bandList = session.createQuery(query, Band.class).setParameter("id", id).list();
+		return bandList;
 	}
 
 }

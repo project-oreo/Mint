@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mint.hasher.PasswordHasher;
 
 @Entity
@@ -38,7 +39,7 @@ public class Promoter {
 	private String hashedPassword;
 	
 	
-	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL,
 	        fetch = FetchType.EAGER)
 	@JoinColumn(name = "promoter_id")

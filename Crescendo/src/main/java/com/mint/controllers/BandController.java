@@ -74,6 +74,7 @@ public class BandController {
 	@GetMapping("invites/{id}")
 	public List<Gig> getInvites(@PathVariable int id)
 	{
+		
 		return this.bandService.getInvites(id);
 	}
 	
