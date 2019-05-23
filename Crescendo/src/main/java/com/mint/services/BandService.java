@@ -1,5 +1,6 @@
 package com.mint.services;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.mint.entities.Band;
 import com.mint.entities.Credentials;
-import com.mint.entities.Promoter;
+import com.mint.entities.Gig;
 import com.mint.repositories.BandRepository;
 
 @Service
@@ -45,6 +46,19 @@ public class BandService {
 		credentials.setPassword(band.getPassword());
 		credentials.setHashedPassword(credentials.getPassword());
 		return this.bandRepository.login(credentials);
+	}
+
+	public List<Gig> getInvites(int id) {
+		return this.bandRepository.getInvites(id);
+	}
+
+	public List<Gig> getGigs(int id) {
+		return this.bandRepository.getGigs(id);
+	}
+
+	public void resolveInvite(int bandId, int gigId, String status) {
+		this.bandRepository.resolveInvite(bandId, gigId, status);
+		
 	}
 
 }

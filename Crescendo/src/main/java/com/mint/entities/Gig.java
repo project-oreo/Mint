@@ -14,7 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name="gigs")
@@ -29,6 +31,7 @@ public class Gig {
 	private Date   startTime;
 	private String location;
 	
+	@JsonIgnoreProperties("gigs")
 	@ManyToOne
 	@JoinColumn(name = "promoter_id")
 	private Promoter promoter;	
@@ -38,7 +41,7 @@ public class Gig {
 	private boolean closed;
 	private int maxCapacity;
 	
-	@JsonManagedReference
+	@JsonIgnore
 	@OneToMany(
 	        mappedBy = "gigs",
 	        cascade = CascadeType.ALL,
