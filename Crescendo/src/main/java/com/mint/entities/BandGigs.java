@@ -1,12 +1,13 @@
 package com.mint.entities;
 
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="band_gigs")
@@ -15,10 +16,12 @@ public class BandGigs {
 	@EmbeddedId
     private BandGigsPK bandGigId;
 	
+	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
     @MapsId("bandId")
 	private Band bands;
 	
+	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
     @MapsId("gigId")
 	private Gig gigs;

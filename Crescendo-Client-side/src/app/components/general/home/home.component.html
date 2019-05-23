@@ -18,7 +18,7 @@
               <table class="table table-dark col-sm-9">
                 <thead>
                   <tr scope="row">
-                  <th scope="col" class="tablehead" colspan="5">Gigs</th> 
+                  <th scope="col" class="tablehead" colspan="4">Gigs</th> 
                   </tr>
                 </thead>
                 <tbody>
@@ -27,14 +27,12 @@
                     <th>Location</th>
                     <th>Max Capacity</th>
                     <th>Start Time</th>
-                    <th>Website</th>
                   </tr>
-                  <tr scope="row" *ngFor="let item of gigs">
-                    <td>{{item.gigname}}</td>
-                    <td>{{item.location}}</td>
-                    <td>{{item.maxcapacity}}</td>
-                    <td>{{item.starttime}}</td>
-                    <td>{{item.websiteurl}}</td>
+                  <tr scope="row" *ngFor="let index of gigs; let i of index">
+                    <td>{{i[3]}}</td>
+                    <td>{{i[4]}}</td>
+                    <td>{{i[5]}}</td>
+                    <td>{{i[6]}}</td>
                   </tr>
                 </tbody>
               </table>
