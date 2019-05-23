@@ -50,6 +50,7 @@ public class PromoterController {
 		if( promoter == null){
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}else {
+			
 			return ResponseEntity.ok(promoter);
 		}
 		
