@@ -1,6 +1,7 @@
 package com.mint.controllers;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.mint.entities.Band;
-import com.mint.entities.Promoter;
+import com.mint.entities.Gig;
 import com.mint.services.BandService;
 
 @RestController // All methods infer @ResponseBody
@@ -68,6 +69,24 @@ public class BandController {
 	@DeleteMapping("/{id}")
 	public Band deleteBand(@PathVariable int id) {
 		return this.bandService.deleteById(id);
+	}
+	
+	@GetMapping("invites/{id}")
+	public List<Gig> getInvites(@PathVariable int id)
+	{
+		return this.bandService.getInvites(id);
+	}
+	
+	@GetMapping("gigs/{id}")
+	public List<Gig> getGigs(@PathVariable int id)
+	{
+		return this.bandService.getGigs(id);
+	}
+	
+	@PutMapping("resolve/{bandId}/{gigId}/{status}")
+	public void resolveInvite(@PathVariable int bandId, @PathVariable int gigId, @PathVariable String status)
+	{
+		this.bandService.resolveInvite(bandId, gigId, status);
 	}
 	
 	@ExceptionHandler(HttpClientErrorException.class)

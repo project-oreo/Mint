@@ -4,6 +4,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,7 +16,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import com.mint.entities.Band;
 import com.mint.entities.Credentials;
-import com.mint.entities.Promoter;
+import com.mint.entities.Gig;
 
 @Repository
 public class BandRepository {
@@ -72,6 +73,39 @@ public class BandRepository {
 			
 			return null ;
 		}
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public List<Gig> getInvites(int id) {
+		Session session = sf.getCurrentSession();
+		String query = "select gigs FROM BandGigs where bands_id = :id and status = 'Pending'";
+		List<Gig> gigList = session.createQuery(query, Gig.class).setParameter("id", id).list();
+		return gigList;
+		
+		
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public List<Gig> getGigs(int id) {
+		
+		Session session = sf.getCurrentSession();
+		String query = "select gigs FROM BandGigs where bands_id = :id and status = 'Approved'";
+		List<Gig> gigList = session.createQuery(query, Gig.class).setParameter("id", id).list();
+		return gigList;
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void resolveInvite(int bandId, int gigId, String status) {
+		Session session = sf.getCurrentSession();
+		String hql = "update BandGigs set status = :status" +
+					" where bands_id = :bandId" +
+					" and gigs_id = :gigId";
+		
+		Query update = session.createQuery(hql);
+		update.setParameter("status", status);
+		update.setParameter("bandId", bandId);
+		update.setParameter("gigId", gigId);
+		update.executeUpdate();
 	}
 
 }

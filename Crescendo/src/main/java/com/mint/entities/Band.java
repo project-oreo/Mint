@@ -16,6 +16,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mint.hasher.PasswordHasher;
 
 @Entity 
@@ -41,8 +42,8 @@ public class Band {
 	    @Transient
 	    private String password;
 	    private String hashedPassword;
-	 
 	    
+	    @JsonIgnore
 	    @OneToMany(
 	            mappedBy = "bands",
 	            cascade = CascadeType.ALL,

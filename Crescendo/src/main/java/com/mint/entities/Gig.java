@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="gigs")
 public class Gig {
@@ -26,6 +29,7 @@ public class Gig {
 	private Date   startTime;
 	private String location;
 	
+	@JsonIgnoreProperties("gigs")
 	@ManyToOne
 	@JoinColumn(name = "promoter_id")
 	private Promoter promoter;	
@@ -40,6 +44,7 @@ public class Gig {
 	        cascade = CascadeType.ALL,
 	        orphanRemoval = true
 	    )
+	@JsonIgnore
 	private List<BandGigs> gigBands;
 
 	public Gig() {

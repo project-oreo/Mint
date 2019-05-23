@@ -1,24 +1,22 @@
 package com.mint.repositories;
 
 import java.security.NoSuchAlgorithmException;
-import java.sql.ResultSet;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.NativeQuery;
-import org.hibernate.type.StringType;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mint.entities.Band;
+import com.mint.entities.BandGigs;
+import com.mint.entities.BandGigsPK;
 import com.mint.entities.Credentials;
+import com.mint.entities.Gig;
 import com.mint.entities.Promoter;
 
 @Repository
@@ -75,9 +73,32 @@ public class PromoterRepository {
 	}
 	
 
-
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Promoter delete(int id) {
 		return null;
+	}
+
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	public List<Gig> getGigs(int id) {
+		Session session = sf.getCurrentSession();
+		String query = "FROM Gig where promoter_id = :id";
+		List<Gig> gigList = session.createQuery(query, Gig.class).setParameter("id", id).list();
+		return gigList;	
+	}
+
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void inviteBand(int bandId, int gigId) {
+		Session session = sf.getCurrentSession();
+		String bandQuery="FROM Band b where b.id = :bandId";
+		List<Band> band = session.createQuery(bandQuery, Band.class).setParameter("bandId", bandId).list();
+		String gigQuery = "FROM Gig g where g.id = :gigId";
+		List<Gig> gig = session.createQuery(gigQuery, Gig.class).setParameter("gigId", gigId).list();
+		BandGigsPK pk = new BandGigsPK(bandId,gigId);
+		BandGigs bg = new BandGigs(pk, band.get(0), gig.get(0), "Pending");
+		session.persist(bg);
+		
 	}
 
 }

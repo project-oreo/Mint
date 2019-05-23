@@ -1,6 +1,7 @@
 package com.mint.controllers;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -22,6 +23,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import com.mint.entities.Band;
 import com.mint.entities.Credentials;
+import com.mint.entities.Gig;
 import com.mint.entities.Promoter;
 import com.mint.services.PromoterService;
 
@@ -69,6 +71,18 @@ public class PromoterController {
 	@DeleteMapping("/{id}")
 	public Promoter deletePromoter(@PathVariable int id) {
 		return this.promoterService.deleteById(id);
+	}
+	
+	@GetMapping("gigs/{id}")
+	public List<Gig> getGigs(@PathVariable int id)
+	{
+		return this.promoterService.getGigs(id);
+	}
+	
+	@PostMapping("invite/{bandId}/{gigId}")
+	public void inviteBand(@PathVariable int bandId, @PathVariable int gigId)
+	{
+		this.promoterService.inviteBand(bandId, gigId);
 	}
 	
 	@ExceptionHandler(HttpClientErrorException.class)
