@@ -101,4 +101,13 @@ public class PromoterRepository {
 		
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
+	public List<Band> getAllBands() {
+		Session session = sf.getCurrentSession();
+		String query = "FROM Band";
+		List<Band> bands = session.createQuery(query, Band.class).list();
+		return bands;
+		
+	}
+
 }

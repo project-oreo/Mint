@@ -1,6 +1,5 @@
 package com.mint.controllers;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 
-
+import com.mint.entities.Band;
 import com.mint.entities.Gig;
 import com.mint.services.GigService;
 
@@ -58,7 +57,11 @@ public class GigController {
 		return this.gigService.deleteById(id);
 	}
 	
-	
+	@GetMapping("bands/{id}")
+	public List<Band> getBands(@PathVariable int id)
+	{
+		return this.gigService.getBands(id);
+	}
 	
 	@ExceptionHandler(HttpClientErrorException.class)
 	public ResponseEntity<String> handleClientError(HttpClientErrorException e) {
