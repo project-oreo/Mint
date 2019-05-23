@@ -63,8 +63,6 @@ public class BandRepository {
 		
 		List<Band> bandList = session.createQuery("Select b from Band b where b.email = :email").setParameter("email", credentials.getEmail()).list();
 		Band band = bandList.get(0);
-		System.out.println(band);
-		System.out.println("band :" +band);
 		if(band.getHashedPassword().equals(credentials.getHashedPassword())) {
 			return band;
 		}
