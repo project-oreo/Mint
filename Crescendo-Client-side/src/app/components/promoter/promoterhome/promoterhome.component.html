@@ -23,14 +23,14 @@
             <th scope="col">Invite Bands</th>
             <th scope="col">Invite Accepted</th>
           </tr>
-          <tr scope="row" *ngFor="let item of gigs">
-            <td>{{item.security}}</td>
-            <td><button type="button" class="btn btn-light" (click)="openGig(gig)">{{item.gigname}}</button></td>
-            <td>{{item.location}}</td>
-            <td>{{item.starttime}}</td>
-            <td>{{item.maxcapacity}}</td>
+          <tr scope="row" *ngFor="let index of gigs; let i of index">
+            <td>{{i[1]}}</td>
+            <td><button type="button" class="btn btn-light" (click)="openGig(gig)">{{i[3]}}</button></td>
+            <td>{{i[4]}}</td>
+            <td>{{i[6]}}</td>
+            <td>{{i[5]}}</td>
             <td><button type="button" class="btn btn-light" data-toggle="modal" (click)="openBand(band)">Invite Bands</button></td>
-            <td>{{item.closed}}</td>
+            <td>{{i[2]}}</td>
           </tr>
         </tbody>
       </table>

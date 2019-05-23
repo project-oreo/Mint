@@ -9,7 +9,7 @@
       <table class="pushdown table table-dark col-sm-9">
         <thead>
           <tr scope="row">
-            <th scope="col" class="tablehead" colspan="6">Upcoming Shows</th> 
+            <th scope="col" class="tablehead" colspan="5">Upcoming Shows</th> 
           </tr>
         </thead>
         <tbody>
@@ -18,16 +18,14 @@
             <th scope="col">Gig Name</th>
             <th scope="col">Location</th>
             <th scope="col">Start Time</th>
-            <th scope="col">Website</th>
             <th scope="col">Promoter</th>
           </tr>
-          <tr scope="row" *ngFor="let item of gigs">
-            <td>{{item.security}}</td>
-            <td>{{item.gigname}}</td>
-            <td>{{item.location}}</td>
-            <td>{{item.starttime}}</td>
-            <td>{{item.websiteurl}}</td>
-            <td>{{item.promoter_id}}</td>
+          <tr scope="row" *ngFor="let index of gigs; let i of index">
+            <td>{{i[1]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+            <td>{{i[6]}}</td>
+            <td>{{i[7]}}</td>
           </tr>
         </tbody>
       </table>
@@ -36,7 +34,7 @@
       <table class="pushdown table table-dark col-sm-9">
         <thead>
           <tr>
-          <th class="tablehead" colspan="7">Gig Invites</th> 
+          <th class="tablehead" colspan="6">Gig Invites</th> 
           </tr>
         </thead>
         <tbody>
@@ -45,17 +43,15 @@
             <th scope="col">Gig Name</th>
             <th scope="col">Location</th>
             <th scope="col">Start Time</th>
-            <th scope="col">Website</th>
             <th scope="col">Promoter</th>
             <th scope="col">Play this Gig?</th>
           </tr>
-          <tr scope="row" *ngFor="let item of gigs">
-            <td>{{item.security}}</td>
-            <td>{{item.gigname}}</td>
-            <td>{{item.location}}</td>
-            <td>{{item.starttime}}</td>
-            <td>{{item.websiteurl}}</td>
-            <td>{{item.promoter_id}}</td>
+          <tr scope="row" *ngFor="let index of gigs; let i of index">
+            <td>{{i[1]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+            <td>{{i[6]}}</td>
+            <td>{{i[7]}}</td>
             <td><nav id="Accept" class="nav nav-pills text-white">
                   <button type="button" class="btn btn-light">Yes</button>
                   <button type="button" class="btn btn-dark">No</button>
