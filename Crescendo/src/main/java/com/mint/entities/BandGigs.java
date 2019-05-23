@@ -7,8 +7,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 @Table(name="band_gigs")
@@ -22,7 +26,6 @@ public class BandGigs {
     @MapsId("bandId")
 	private Band bands;
 	
-
 	@ManyToOne(fetch = FetchType.LAZY)
     @MapsId("gigId")
 	private Gig gigs;

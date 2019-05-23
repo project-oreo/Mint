@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name="gigs")
@@ -39,12 +41,13 @@ public class Gig {
 	private boolean closed;
 	private int maxCapacity;
 	
+	@JsonIgnore
 	@OneToMany(
 	        mappedBy = "gigs",
 	        cascade = CascadeType.ALL,
+	        fetch = FetchType.EAGER,
 	        orphanRemoval = true
 	    )
-	@JsonIgnore
 	private List<BandGigs> gigBands;
 
 	public Gig() {

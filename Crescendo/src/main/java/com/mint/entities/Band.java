@@ -42,7 +42,7 @@ public class Band {
 	    @Transient
 	    private String password;
 	    private String hashedPassword;
-	    
+
 	    @JsonIgnore
 	    @OneToMany(
 	            mappedBy = "bands",
@@ -179,7 +179,7 @@ public class Band {
 		public List<BandGigs> getBandGigs() {
 			return bandGigs;
 		}
-
+		
 
 		public void setBandGigs(List<BandGigs> bandGigs) {
 			this.bandGigs = bandGigs;
