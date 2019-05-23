@@ -3,6 +3,7 @@ import { BandhomeService } from 'src/app/services/bandhome.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Gig } from 'src/app/classes/gig';
+import { BandloginService } from 'src/app/services/bandlogin.service';
 
 @Component({
   selector: 'app-bandhome',
@@ -15,11 +16,14 @@ export class BandhomeComponent implements OnInit {
   createResponse: Subscription;
   lastStatus = 200;
   vid: any;
-  constructor(private bandhomeService: BandhomeService, private router: Router) { }
+  bandStats;
+
+  constructor(private bandhomeService: BandhomeService, private bandloginService: BandloginService, private router: Router) { }
 
   ngOnInit() {
     this.bandhomeService.AssignedGigs();
     this.bandhomeService.Invite();
+    this.bandStats = this.bandloginService.bandStats;
     this.createResponse = this.bandhomeService.$requestGigStatus.subscribe(status => {
       // do something with the status here
       if (status === 200) {

@@ -14,7 +14,6 @@ export class BandhomeService {
   gigs = new Array<Gig>();
   bandhomeComp;
   myProfileComp;
-  bandStats = this.bandloginService.bandStats;
 
   constructor(private httpClient: HttpClient,  private bandloginService: BandloginService) { }
 
