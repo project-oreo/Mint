@@ -23,8 +23,8 @@
             <th scope="col">Invite Bands</th>
             <th scope="col">Invite Accepted</th>
           </tr>
-          <tr scope="row" >
-            <td>{{item.Security}}</td>
+          <tr scope="row" *ngFor="let item of gigs">
+            <td>{{item.security}}</td>
             <td><button type="button" class="btn btn-light" (click)="openGig(gig)">{{item.gigname}}</button></td>
             <td>{{item.location}}</td>
             <td>{{item.starttime}}</td>

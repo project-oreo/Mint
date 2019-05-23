@@ -1,5 +1,6 @@
 package com.mint.repositories;
 
+import java.util.HashSet;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -59,9 +60,8 @@ public class GigRepository {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public List<Gig> getAllGigs() {
 		Session session = sf.getCurrentSession();
-		List<Gig> gigList = session.createQuery("Select g FROM Gig g", Gig.class).list();
+		List<Gig> gigList = session.createSQLQuery("Select * from gigs").list();
 		return gigList;
-		
 	}
 
 }

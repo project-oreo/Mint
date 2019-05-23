@@ -3,6 +3,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import com.mint.entities.Gig;
 import com.mint.repositories.GigRepository;
