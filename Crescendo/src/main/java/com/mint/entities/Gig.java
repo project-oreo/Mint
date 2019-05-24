@@ -31,8 +31,8 @@ public class Gig {
 	private Date   startTime;
 	private String location;
 	
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("gigs")
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="promoter_id")
 	private Promoter promoter;	
 	
