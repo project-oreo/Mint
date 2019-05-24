@@ -11,11 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -31,9 +31,9 @@ public class Gig {
 	private Date   startTime;
 	private String location;
 	
-	@JsonIgnoreProperties("gigs")
-	@ManyToOne
-	@JoinColumn(name = "promoter_id")
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="gigs")
 	private Promoter promoter;	
 	
 	
@@ -45,7 +45,6 @@ public class Gig {
 	@OneToMany(
 	        mappedBy = "gigs",
 	        cascade = CascadeType.ALL,
-	        fetch = FetchType.EAGER,
 	        orphanRemoval = true
 	    )
 	private List<BandGigs> gigBands;
