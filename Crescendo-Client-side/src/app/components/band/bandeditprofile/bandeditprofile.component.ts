@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-bandeditprofile',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BandeditprofileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+  }
+
+  clearStorage() {
+    localStorage.clear();
   }
 
 }

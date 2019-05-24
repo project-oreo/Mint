@@ -15,7 +15,6 @@ import { BandeditprofileComponent } from './components/band//bandeditprofile/ban
 import { PromoterhomeComponent } from './components/promoter/promoterhome/promoterhome.component';
 import { PromotermanageComponent } from './components/promoter/promotermanage/promotermanage.component';
 import { PromoterendorseComponent } from './components/promoter/promoterendorse/promoterendorse.component';
-import { PromoterresolveComponent} from './components/promoter/promoterresolve/promoterresolve.component';
 import { MasterComponent } from './components/general/master/master.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,7 +38,6 @@ import { BsModalRef, BsModalService, ModalModule } from 'ngx-bootstrap/modal';
     PromoterhomeComponent,
     PromotermanageComponent,
     PromoterendorseComponent,
-    PromoterresolveComponent,
     MasterComponent,
     BandMasterComponent,
     PromotermasterComponent,
