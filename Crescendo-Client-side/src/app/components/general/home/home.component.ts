@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { Gig } from 'src/app/classes/gig';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { HomeService } from 'src/app/services/home.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   gigs = new Array<Gig>();
   createResponse: Subscription;
@@ -33,4 +33,16 @@ export class HomeComponent implements OnInit {
     this.vid.muted = true;
   }
 
+  ngOnDestroy() {
+    if (this.createResponse) {
+      this.createResponse.unsubscribe();
+    }
+    this.homeService.gigs.length = 0;
+    this.gigs.length = 0;
+  }
+
+  clearStorage() {
+    localStorage.clear();
+    this.homeService.Request();
+  }
 }
