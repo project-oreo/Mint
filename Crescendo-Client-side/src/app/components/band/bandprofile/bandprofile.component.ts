@@ -9,12 +9,14 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class BandprofileComponent implements OnInit {
   band;
+  imageURL;
 
   constructor(private bandloginService: BandloginService, private homeService: HomeService) { }
 
   ngOnInit() {
     this.band = this.bandloginService.band;
     console.log(this.band);
+    this.imageURL = localStorage.getItem('imageURL');
   }
 
   clearStorage() {

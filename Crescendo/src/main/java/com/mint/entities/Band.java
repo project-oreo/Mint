@@ -34,6 +34,7 @@ public class Band {
 	    private String bio;
 	    private String socialMedia;
 	    private double hourlyRate;
+	    private String imageURL;
 	    
 	    @Email
 		@Column(unique = true)
@@ -51,140 +52,101 @@ public class Band {
 	        )
 	    List<BandGigs> bandGigs;
 
-
-		public Band() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
-
-
-		public Band(int id, @NotNull String bandName, String genre, Date debutDate, String bio, String socialMedia,
-				double hourlyRate, @Email String email, String password, String hashedPassword,
-				List<BandGigs> bandGigs) {
-			super();
-			this.id = id;
-			this.bandName = bandName;
-			this.genre = genre;
-			this.debutDate = debutDate;
-			this.bio = bio;
-			this.socialMedia = socialMedia;
-			this.hourlyRate = hourlyRate;
-			this.email = email;
-			this.password = password;
-			this.hashedPassword = hashedPassword;
-			this.bandGigs = bandGigs;
-		}
-
-
 		public int getId() {
 			return id;
 		}
-
 
 		public void setId(int id) {
 			this.id = id;
 		}
 
-
 		public String getBandName() {
 			return bandName;
 		}
-
 
 		public void setBandName(String bandName) {
 			this.bandName = bandName;
 		}
 
-
 		public String getGenre() {
 			return genre;
 		}
-
 
 		public void setGenre(String genre) {
 			this.genre = genre;
 		}
 
-
 		public Date getDebutDate() {
 			return debutDate;
 		}
-
 
 		public void setDebutDate(Date debutDate) {
 			this.debutDate = debutDate;
 		}
 
-
 		public String getBio() {
 			return bio;
 		}
-
 
 		public void setBio(String bio) {
 			this.bio = bio;
 		}
 
-
 		public String getSocialMedia() {
 			return socialMedia;
 		}
-
 
 		public void setSocialMedia(String socialMedia) {
 			this.socialMedia = socialMedia;
 		}
 
-
 		public double getHourlyRate() {
 			return hourlyRate;
 		}
-
 
 		public void setHourlyRate(double hourlyRate) {
 			this.hourlyRate = hourlyRate;
 		}
 
+		public String getImageURL() {
+			return imageURL;
+		}
+
+		public void setImageURL(String imageURL) {
+			this.imageURL = imageURL;
+		}
 
 		public String getEmail() {
 			return email;
 		}
 
-
 		public void setEmail(String email) {
 			this.email = email;
 		}
-
 
 		public String getPassword() {
 			return password;
 		}
 
-
 		public void setPassword(String password) {
 			this.password = password;
 		}
-
 
 		public String getHashedPassword() {
 			return hashedPassword;
 		}
 
-
-		public void setHashedPassword(String password) throws NoSuchAlgorithmException {
+		public void setHashedPassword(String hashedPassword) throws NoSuchAlgorithmException {
 			this.hashedPassword = PasswordHasher.passwordHasher(password);
 		}
-
 
 		public List<BandGigs> getBandGigs() {
 			return bandGigs;
 		}
-		
 
 		public void setBandGigs(List<BandGigs> bandGigs) {
 			this.bandGigs = bandGigs;
 		}
-
 
 		@Override
 		public int hashCode() {
@@ -201,11 +163,11 @@ public class Band {
 			temp = Double.doubleToLongBits(hourlyRate);
 			result = prime * result + (int) (temp ^ (temp >>> 32));
 			result = prime * result + id;
+			result = prime * result + ((imageURL == null) ? 0 : imageURL.hashCode());
 			result = prime * result + ((password == null) ? 0 : password.hashCode());
 			result = prime * result + ((socialMedia == null) ? 0 : socialMedia.hashCode());
 			return result;
 		}
-
 
 		@Override
 		public boolean equals(Object obj) {
@@ -255,6 +217,11 @@ public class Band {
 				return false;
 			if (id != other.id)
 				return false;
+			if (imageURL == null) {
+				if (other.imageURL != null)
+					return false;
+			} else if (!imageURL.equals(other.imageURL))
+				return false;
 			if (password == null) {
 				if (other.password != null)
 					return false;
@@ -268,16 +235,38 @@ public class Band {
 			return true;
 		}
 
-
 		@Override
 		public String toString() {
 			return "Band [id=" + id + ", bandName=" + bandName + ", genre=" + genre + ", debutDate=" + debutDate
-					+ ", bio=" + bio + ", socialMedia=" + socialMedia + ", hourlyRate=" + hourlyRate + ", email="
-					+ email + ", password=" + password + ", hashedPassword=" + hashedPassword + ", bandGigs=" + bandGigs
-					+ "]";
+					+ ", bio=" + bio + ", socialMedia=" + socialMedia + ", hourlyRate=" + hourlyRate + ", imageURL="
+					+ imageURL + ", email=" + email + ", password=" + password + ", hashedPassword=" + hashedPassword
+					+ ", bandGigs=" + bandGigs + "]";
+		}
+
+		public Band(int id, @NotNull String bandName, String genre, Date debutDate, String bio, String socialMedia,
+				double hourlyRate, String imageURL, @Email String email, String password, String hashedPassword,
+				List<BandGigs> bandGigs) {
+			super();
+			this.id = id;
+			this.bandName = bandName;
+			this.genre = genre;
+			this.debutDate = debutDate;
+			this.bio = bio;
+			this.socialMedia = socialMedia;
+			this.hourlyRate = hourlyRate;
+			this.imageURL = imageURL;
+			this.email = email;
+			this.password = password;
+			this.hashedPassword = hashedPassword;
+			this.bandGigs = bandGigs;
+		}
+
+		public Band() {
+			super();
+			// TODO Auto-generated constructor stub
 		}
 
 
 		
-		
+			
 }
