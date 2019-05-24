@@ -23,6 +23,7 @@ export class PromoterhomeComponent implements OnInit {
   promoter;
   allBands = new Array<Band>();
   gigId: number;
+  emptyBandArray = new Array<Band>();
 
 
   constructor(private modalRef: BsModalRef, private modalService: BsModalService, private promoterLoginService: PromoterloginService,
@@ -46,13 +47,15 @@ export class PromoterhomeComponent implements OnInit {
 
   openBand(template: TemplateRef<any>, id: number) {
     console.log(template);
+    this.promoterHomeService.$bandsAtGig.length = 0;
     this.modalRef = this.modalService.show(template,
       {
         class: 'modal-dialog modal-dialog-centered modal-lg'
       });
-    this.gigId = id;
+      this.gigId = id;
       console.log(id);
       this.promoterHomeService.bandExists(this.gigId);
+      
 
   }
   
@@ -62,14 +65,15 @@ export class PromoterhomeComponent implements OnInit {
     this.promoterHomeService.inviteBands(gigId,bandId);
   }
 
-  checkBand(bandId: number){
-    let bandExists = false;
-    for(let i = 0; this.promoterHomeService.$bandsAtGig.length; i++){
-      if(this.promoterHomeService.$bandsAtGig[i].id == bandId){
-        bandExists = true;
-        break;
-      }
+  checkBand(bandId: number): boolean{
+    let bandExists: boolean = false;
+    let idList = new Set<Number>();
+    for(let i = 0; i<this.promoterHomeService.$bandsAtGig.length; i++){
+      idList.add(this.promoterHomeService.$bandsAtGig[i].id);
     }
+    console.log(idList);
+    if(idList.has(bandId)){bandExists = true;}
+    idList.clear();
     return bandExists;
   }
 }
