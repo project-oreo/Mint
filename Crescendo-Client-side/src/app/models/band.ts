@@ -9,9 +9,10 @@ export class Band {
     bio: string;
     socialMedia: string;
     hourlyRate: number;
+    imageURL: string;
     gigs: Array<Gig>;
     constructor(id: number, email: string, bandName: string, genre: string, debutDate: any, bio: string,
-                socialMedia: string, hourlyRate: number, gigs: Array<Gig>) {
+                socialMedia: string, hourlyRate: number, imageURL: string, gigs: Array<Gig>) {
             this.id = id;
             this.email = email;
             this.bandName = bandName;
@@ -20,6 +21,7 @@ export class Band {
             this.bio = bio;
             this.socialMedia = socialMedia;
             this.hourlyRate = hourlyRate;
+            this.imageURL = imageURL;
             this.gigs = gigs;
         }
 }

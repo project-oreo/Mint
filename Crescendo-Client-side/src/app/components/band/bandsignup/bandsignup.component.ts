@@ -22,6 +22,7 @@ export class BandsignupComponent implements OnInit {
   debutDate: any;
   promotion = '';
   hourlyRate = 0;
+  imageURL: '';
   signupResponse: Subscription;
   lastStatus = 200;
 
@@ -38,12 +39,13 @@ export class BandsignupComponent implements OnInit {
   }
 
   formValidation(): boolean {
-    return this.email.length > 0 && this. hourlyRate > 0 && this.name.length > 0 && this.password === this.confirmpassword;
+    return this.email.length > 0 && this. hourlyRate > 0 && this.name.length > 0 &&
+           this.password === this.confirmpassword && this.imageURL.length > 0;
   }
 
   submit() {
     this.bandSignupService.signup(this.email, this.password, this.name, this.bio,
-                                  this.genre, this.debutDate, this.promotion, this.hourlyRate);
+                                  this.genre, this.debutDate, this.promotion, this.hourlyRate, this.imageURL);
   }
   // tslint:disable-next-line: use-life-cycle-interface
   ngOnDestroy() {

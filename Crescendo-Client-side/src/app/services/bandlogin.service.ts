@@ -31,9 +31,11 @@ export class BandloginService {
       }).pipe(map(response => response.body as Band)).subscribe(response => {
         this.loginStatusSubject.next(200);
         localStorage.setItem('bandId', response.id.toString());
+        localStorage.setItem('imageURL', response.imageURL);
         this.AssignedGigs();
         this.Invite();
         this.getBandInfo();
+        console.log(response);
       }, err => {
         this.loginStatusSubject.next(err.status);
       });
