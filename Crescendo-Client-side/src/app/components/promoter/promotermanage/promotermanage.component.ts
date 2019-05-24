@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GigupdateService } from 'src/app/services/gigupdate.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-promotermanage',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PromotermanageComponent implements OnInit {
 
-  constructor(private gigService: GigupdateService, private router: Router) { }
+  constructor(private gigService: GigupdateService, private homeService: HomeService, private router: Router) { }
 
   name = '';
   startTime: any;
@@ -41,6 +42,10 @@ export class PromotermanageComponent implements OnInit {
     if (this.gigResponse) {
       this.gigResponse.unsubscribe();
     }
+  }
+
+  clearStorage() {
+    localStorage.clear();
   }
 
 }
