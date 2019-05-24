@@ -13,7 +13,6 @@ import { BandeditprofileComponent } from './components/band//bandeditprofile/ban
 import { PromoterhomeComponent } from './components/promoter/promoterhome/promoterhome.component';
 import { PromotermanageComponent } from './components/promoter/promotermanage/promotermanage.component';
 import { PromoterendorseComponent } from './components/promoter/promoterendorse/promoterendorse.component';
-import { PromoterresolveComponent} from './components/promoter/promoterresolve/promoterresolve.component';
 import { MasterComponent } from './components/general/master/master.component';
 import { BandMasterComponent } from './components/band/bandMaster/band-master/band-master.component';
 import { PromotermasterComponent } from './components/promoter/promotermaster/promotermaster.component';
@@ -90,14 +89,6 @@ const routes: Routes = [
         path: 'promoterendorse',
         component: PromoterendorseComponent
       },
-      {
-        path: 'promoterresolve',
-        component: PromoterresolveComponent
-      },
-      {
-        path: '',
-        component: PromoterresolveComponent
-      }
     ]
   }
 

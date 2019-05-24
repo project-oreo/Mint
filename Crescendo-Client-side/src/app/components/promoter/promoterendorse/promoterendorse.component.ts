@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GigregistrationService } from 'src/app/services/gigregistration.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-promoterendorse',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PromoterendorseComponent implements OnInit {
 
-  constructor(private gigService: GigregistrationService, private router: Router) { }
+  constructor(private gigService: GigregistrationService, private homeService: HomeService, private router: Router) { }
 
   name = '';
   startTime: any;
@@ -41,6 +42,10 @@ export class PromoterendorseComponent implements OnInit {
     if (this.gigResponse) {
       this.gigResponse.unsubscribe();
     }
+  }
+
+  clearStorage() {
+    localStorage.clear();
   }
 
 }

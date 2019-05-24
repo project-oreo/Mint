@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PromotersignupService } from 'src/app/services/promotersignup.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-promotersignup',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PromotersignupComponent implements OnInit {
 
-  constructor(private promoterSignupService: PromotersignupService, private router: Router) { }
+  constructor(private promoterSignupService: PromotersignupService, private homeService: HomeService, private router: Router) { }
 
   email = '';
   password = '';
@@ -45,6 +46,10 @@ export class PromotersignupComponent implements OnInit {
     if (this.signupResponse) {
       this.signupResponse.unsubscribe();
     }
+  }
+
+  clearStorage() {
+    localStorage.clear();
   }
 
 }

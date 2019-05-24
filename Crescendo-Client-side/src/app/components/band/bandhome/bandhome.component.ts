@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Gig } from 'src/app/classes/gig';
 import { BandloginService } from 'src/app/services/bandlogin.service';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-bandhome',
@@ -16,7 +17,7 @@ export class BandhomeComponent implements OnInit {
   lastStatus = 200;
   vid: any;
 
-  constructor(private bandloginService: BandloginService) { }
+  constructor(private bandloginService: BandloginService, private homeService: HomeService) { }
 
   ngOnInit() {
     this.assignedGigs = this.bandloginService.assignedGigs;
