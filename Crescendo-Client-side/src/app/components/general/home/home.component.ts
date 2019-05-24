@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
       // do something with the status here
       if (status === 200) {
         this.gigs = this.homeService.gigs;
-        console.log(this.gigs);
       } else {
         // set status to lastStatus to display appropriate error message
         this.lastStatus = status;

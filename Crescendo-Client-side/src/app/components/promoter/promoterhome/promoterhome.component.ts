@@ -15,17 +15,19 @@ import { PromoterhomeService } from 'src/app/services/promoterhome.service';
 })
 
 export class PromoterhomeComponent implements OnInit {
+  gigs = new Array<Gig>();
+  createResponse: Subscription;
+  lastStatus = 200;
+  loginResponse: Subscription;
+  promoterStats;
+  promoter;
+  allBands = new Array<Band>();
+  gigId: number;
+
 
   constructor(private modalRef: BsModalRef, private modalService: BsModalService, private promoterLoginService: PromoterloginService,
       private promoterHomeService : PromoterhomeService) { }
 
-  loginResponse: Subscription;
-  lastStatus = 200;
-  promoterStats;
-  promoter;
-  gigs = new Array<Gig>();
-  allBands = new Array<Band>();
-  gigId: number;
 
   ngOnInit() {
         this.promoter = this.promoterLoginService.promoter;

@@ -21,7 +21,6 @@ public class BandGigs {
 	@EmbeddedId
     private BandGigsPK bandGigId;
 
-	
 	@ManyToOne(fetch = FetchType.LAZY)
     @MapsId("bandId")
 	private Band bands;
