@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mint.hasher.PasswordHasher;
 
 @Entity
@@ -36,7 +36,6 @@ public class Promoter {
 	private String website;
 	private String hashedPassword;
 	
-	@JsonIgnore
 	@OneToMany(mappedBy="promoter",
 			cascade = CascadeType.ALL,
             orphanRemoval = true)
