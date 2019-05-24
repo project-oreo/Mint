@@ -47,5 +47,10 @@ public class GigService {
 	public List<Band> getBands(int id) {
 		return this.gigRepository.getBands(id);
 	}
+	
+	public List<Band> getAllBands(int id)
+	{
+		return this.gigRepository.getAllBands(id);
+	}
 
 }
