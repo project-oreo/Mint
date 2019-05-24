@@ -40,9 +40,9 @@ public class Promoter {
 	
 	
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL,
-	        fetch = FetchType.EAGER)
-	@JoinColumn(name = "promoter_id")
+	@OneToMany(mappedBy="promoter",
+			cascade = CascadeType.ALL,
+            orphanRemoval = true)
 	private List<Gig> gigs;
 
 
