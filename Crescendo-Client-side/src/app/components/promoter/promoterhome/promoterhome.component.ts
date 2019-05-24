@@ -4,6 +4,7 @@ import { PromoterloginService } from 'src/app/services/promoterlogin.service';
 import { Subscription } from 'rxjs';
 import { Gig } from 'src/app/classes/gig';
 import { Band } from 'src/app/models/band';
+import { PromoterhomeService } from 'src/app/services/promoterhome.service';
 
 
 
@@ -15,7 +16,8 @@ import { Band } from 'src/app/models/band';
 
 export class PromoterhomeComponent implements OnInit {
 
-  constructor(private modalRef: BsModalRef, private modalService: BsModalService, private promoterLoginService: PromoterloginService) { }
+  constructor(private modalRef: BsModalRef, private modalService: BsModalService, private promoterLoginService: PromoterloginService,
+      private promoterHomeService : PromoterhomeService) { }
 
   loginResponse: Subscription;
   lastStatus = 200;
@@ -49,10 +51,11 @@ export class PromoterhomeComponent implements OnInit {
     this.gigId = id;
       console.log(id);
   }
-  inviteBand(gigId: number, bandId: number)
-  {
+  
+  inviteBand(gigId: number, bandId: number){
     console.log(gigId);
     console.log(bandId);
+    this.promoterHomeService.inviteBands(gigId,bandId);
   }
   
 }
