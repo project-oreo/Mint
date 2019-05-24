@@ -1,6 +1,6 @@
 <div class ="col-12">
   <nav class="nav nav-pills text-white">
-      <a class=" text-sm-center nav-link text-white" routerLink="/home">Logout</a>
+      <a class=" text-sm-center nav-link text-white" routerLink="/home" (click)="clearStorage()">Logout</a>
       <a class=" text-sm-center nav-link text-white" routerLink="/bandmaster/bandprofile">My Profile</a>
   </nav>
 </div>
@@ -20,12 +20,12 @@
             <th scope="col">Start Time</th>
             <th scope="col">Promoter</th>
           </tr>
-          <tr scope="row" *ngFor="let index of gigs; let i of index">
-            <td>{{i[1]}}</td>
-            <td>{{i[3]}}</td>
-            <td>{{i[4]}}</td>
-            <td>{{i[6]}}</td>
-            <td>{{i[7]}}</td>
+          <tr scope="row" *ngFor="let gig of assignedGigs">
+            <td>{{gig.security}}</td>
+            <td>{{gig.gigName}}</td>
+            <td>{{gig.location}}</td>
+            <td>{{gig.startTime}}</td>
+            <td>{{gig.promoter_id}}</td>
           </tr>
         </tbody>
       </table>
@@ -46,12 +46,12 @@
             <th scope="col">Promoter</th>
             <th scope="col">Play this Gig?</th>
           </tr>
-          <tr scope="row" *ngFor="let index of gigs; let i of index">
-            <td>{{i[1]}}</td>
-            <td>{{i[3]}}</td>
-            <td>{{i[4]}}</td>
-            <td>{{i[6]}}</td>
-            <td>{{i[7]}}</td>
+          <tr scope="row" *ngFor="let gig of invitedGigs">
+            <td>{{gig.security}}</td>
+            <td>{{gig.gigName}}</td>
+            <td>{{gig.location}}</td>
+            <td>{{gig.startTime}}</td>
+            <td>{{gig.promoter_id}}</td>
             <td><nav id="Accept" class="nav nav-pills text-white">
                   <button type="button" class="btn btn-light">Yes</button>
                   <button type="button" class="btn btn-dark">No</button>

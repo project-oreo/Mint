@@ -32,6 +32,10 @@ export class PromoterhomeComponent implements OnInit {
     });
   }
 
+  clearStorage() {
+    localStorage.clear();
+  }
+
   openGig(template: TemplateRef<any>) {
       console.log(template);
       this.modalRef = this.modalService.show(template,

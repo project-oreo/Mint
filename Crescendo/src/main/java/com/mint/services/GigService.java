@@ -40,7 +40,7 @@ public class GigService {
 		return this.gigRepository.deleteById(id);
 	}
 
-	public List<Gig> getAllGigs() {
+	public List	<Gig> getAllGigs() {
 		return this.gigRepository.getAllGigs();
 	}
 
