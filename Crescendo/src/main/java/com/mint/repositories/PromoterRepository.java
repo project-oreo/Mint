@@ -48,7 +48,6 @@ public class PromoterRepository {
 		
 		List<Promoter> promoterList = session.createQuery("Select p from Promoter p where p.email = :email").setParameter("email", credentials.getEmail()).list();
 		Promoter promoter = promoterList.get(0);
-		System.out.println("promoter :" +promoter);
 		if(promoter.getHashedPassword().equals(credentials.getHashedPassword())) {
 			return promoter;
 		}

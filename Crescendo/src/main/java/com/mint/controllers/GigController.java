@@ -63,6 +63,12 @@ public class GigController {
 		return this.gigService.getBands(id);
 	}
 	
+	@GetMapping("allbands/{id}")
+	public List<Band> getAllBands(@PathVariable int id)
+	{
+		return this.gigService.getAllBands(id);
+	}
+	
 	@ExceptionHandler(HttpClientErrorException.class)
 	public ResponseEntity<String> handleClientError(HttpClientErrorException e) {
 		return ResponseEntity.status(e.getStatusCode()).body(e.getMessage());

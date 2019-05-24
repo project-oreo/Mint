@@ -73,6 +73,15 @@ public class GigRepository {
 		List<Band> bandList = session.createQuery(query, Band.class).setParameter("id", id).list();
 		return bandList;
 	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public List<Band> getAllBands(int id) {
+		
+		Session session = sf.getCurrentSession();
+		String query = "select bands FROM BandGigs where gigs_id = :id and status <> 'Denied'";
+		List<Band> bandList = session.createQuery(query, Band.class).setParameter("id", id).list();
+		return bandList;
+	}
 
 }
 
