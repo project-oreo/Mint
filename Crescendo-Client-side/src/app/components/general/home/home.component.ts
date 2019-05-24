@@ -33,4 +33,5 @@ export class HomeComponent implements OnInit {
     this.vid = document.getElementById('video1') as any;
     this.vid.muted = true;
   }
+
 }
