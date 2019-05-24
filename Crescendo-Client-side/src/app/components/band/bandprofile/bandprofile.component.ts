@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BandloginService } from 'src/app/services/bandlogin.service';
 
 @Component({
   selector: 'app-bandprofile',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bandprofile.component.css']
 })
 export class BandprofileComponent implements OnInit {
+  band;
 
-  constructor() { }
+  constructor(private bandloginService: BandloginService) { }
 
   ngOnInit() {
+    this.band = this.bandloginService.band;
+    console.log(this.band);
+  }
+
+  clearStorage() {
+    localStorage.clear();
   }
 
 }
