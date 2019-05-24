@@ -52,12 +52,24 @@ export class PromoterhomeComponent implements OnInit {
       });
     this.gigId = id;
       console.log(id);
+      this.promoterHomeService.bandExists(this.gigId);
+
   }
   
-  inviteBand(gigId: number, bandId: number){
+  inviteBands(gigId: number, bandId: number){
     console.log(gigId);
     console.log(bandId);
     this.promoterHomeService.inviteBands(gigId,bandId);
   }
-  
+
+  checkBand(bandId: number){
+    let bandExists = false;
+    for(let i = 0; this.promoterHomeService.$bandsAtGig.length; i++){
+      if(this.promoterHomeService.$bandsAtGig[i].id == bandId){
+        bandExists = true;
+        break;
+      }
+    }
+    return bandExists;
+  }
 }

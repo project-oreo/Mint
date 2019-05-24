@@ -61,7 +61,7 @@
                         <td>{{item.genre}}</td>
                         <td>{{item.socialMedia}}</td>
                         <td>
-                          <button type="button" class="btn btn-light" (click)="inviteBand(this.gigId, item.id)">Invite</button>
+                          <button type="button" class="btn btn-light" [disabled]="checkBand(item.id)" (click)="inviteBands(this.gigId, item.id)">Invite</button>
                         </td>
                       </tr>
                     </tbody>
