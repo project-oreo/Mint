@@ -27,7 +27,7 @@ export class PromoterhomeComponent implements OnInit {
 
 
   constructor(private modalRef: BsModalRef, private modalService: BsModalService, private promoterLoginService: PromoterloginService,
-      private promoterHomeService : PromoterhomeService) { }
+              private promoterHomeService : PromoterhomeService) { }
 
 
   ngOnInit() {
@@ -52,13 +52,21 @@ export class PromoterhomeComponent implements OnInit {
       {
         class: 'modal-dialog modal-dialog-centered modal-lg'
       });
-      this.gigId = id;
-      console.log(id);
-      this.promoterHomeService.bandExists(this.gigId);
-      
-
+    this.gigId = id;
+    console.log(id);
+    this.promoterHomeService.bandExists(this.gigId);
   }
-  
+
+  openPlaying(template: TemplateRef<any>, id: number) {
+    this.promoterHomeService.$bandsPlaying.length = 0;
+    this.modalRef = this.modalService.show(template,
+      {
+        class: 'modal-dialog modal-dialog-centered modal-lg'
+      });
+    this.gigId = id;
+    this.promoterHomeService.bandsPlaying(this.gigId);
+  }
+
   inviteBands(gigId: number, bandId: number){
     console.log(gigId);
     console.log(bandId);
@@ -76,4 +84,5 @@ export class PromoterhomeComponent implements OnInit {
     idList.clear();
     return bandExists;
   }
+
 }

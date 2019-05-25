@@ -21,7 +21,7 @@
             <th scope="col">Start Time</th>
             <th scope="col">Max Capacity</th>
             <th scope="col">Invite Bands</th>
-            <th scope="col">Invite Accepted</th>
+            <th scope="col">Featured Bands</th>
           </tr>
           <tr scope="row" *ngFor="let item of gigs">
             <td>{{item.security}}</td>
@@ -31,6 +31,7 @@
             <td>{{item.maxCapacity}}</td>
             <td><button type="button" class="btn btn-light" data-toggle="modal" (click)="openBand(band,item.id)">Invite Bands</button></td>
             <td>{{item.closed}}</td>
+            <td><button type="button" class="btn btn-light" data-toggle="modal" (click)="openPlaying(playing,item.id)">Bands</button></td>
           </tr>
         </tbody>
       </table>
@@ -72,6 +73,25 @@
             </div>
           </div>
     </ng-template>
+
+    <ng-template #playing>
+      <div class="modal-content modal-lg">
+          <div class="modal-header">
+            <h5 class="modal-title">Bands</h5>
+            <button type="button" class="close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div *ngFor="let item of this.promoterHomeService.$bandsPlaying">
+                {{item.bandName}}
+              </div>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" (click)="modalRef.hide()">Close</button>
+          </div>
+        </div>
+  </ng-template>
           
   <router-outlet></router-outlet>
   

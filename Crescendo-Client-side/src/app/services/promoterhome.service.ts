@@ -15,10 +15,13 @@ export class PromoterhomeService {
   private bandExistsStatusSubject = new Subject<number>();
   public $bandExists = this.bandExistsStatusSubject.asObservable();
 
+  private bandsPlayingStatusSubject = new Subject<number>();
+  private $bandsPlayingObservable = this.bandsPlayingStatusSubject.asObservable();
+
   public $bandsAtGig = new Array<Band>();
+  public $bandsPlaying = new Array<Band>();
 
   constructor(private httpClient: HttpClient) { }
-
 
   inviteBands(gigId: number, bandId: number){
     this.httpClient.post(`http://ec2-13-59-68-239.us-east-2.compute.amazonaws.com:8081/Crescendo/promoters/invite/${bandId}/${gigId}`, {
@@ -28,9 +31,10 @@ export class PromoterhomeService {
         alert('Invite successful!');
       }, err => {
         this.inviteStatusSubject.next(err.status);
-        alert('Unable to invite band to your gig!')
+        alert('Unable to invite band to your gig!');
       });
   }
+
 
   bandExists(gigId: number){
     this.httpClient.get(`http://ec2-13-59-68-239.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/allbands/${gigId}`, {
@@ -43,6 +47,20 @@ export class PromoterhomeService {
         this.$bandsAtGig.push(element);
         console.log(this.$bandsAtGig);
        });
+      }, err => { console.log('didnt pull anything');
+     });
+  }
+
+  bandsPlaying(gigId: number) {
+    this.httpClient.get(`http://ec2-18-222-31-237.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/bands/${gigId}`, {
+        observe: 'response'
+    }).pipe(map(response => response.body as Array<Band>))
+    .subscribe(response => {
+      response.forEach(element => {
+        this.$bandsPlaying.push(element);
+       });
+      console.log(this.$bandsPlaying);
+      this.bandsPlayingStatusSubject.next(200);
       }, err => { console.log('didnt pull anything');
      });
   }
