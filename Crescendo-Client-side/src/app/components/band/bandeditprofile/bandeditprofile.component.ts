@@ -19,6 +19,7 @@ export class BandeditprofileComponent implements OnInit {
   debutDate: any;
   hourlyRate = 0;
   imageURL: '';
+  hashedPassword;
   band;
   editProfile: boolean;
   editResponse: Subscription;
@@ -38,6 +39,7 @@ export class BandeditprofileComponent implements OnInit {
     });
     this.band = this.bandloginService.band;
     this.editProfile = false;
+    this.hashedPassword = localStorage.getItem('hashedPass');
   }
 
   formValidation(): boolean {
@@ -47,7 +49,7 @@ export class BandeditprofileComponent implements OnInit {
 
   submit() {
     this.editprofileService.edit(localStorage.getItem('bandId'), this.email, this.bandName, this.bio,
-                                 this.genre, this.debutDate, this.socialMedia, this.hourlyRate, this.imageURL);
+                                 this.genre, this.debutDate, this.socialMedia, this.hourlyRate, this.imageURL, this.hashedPassword);
   }
 
   clearStorage() {

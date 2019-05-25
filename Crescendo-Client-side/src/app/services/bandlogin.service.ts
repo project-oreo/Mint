@@ -32,6 +32,7 @@ export class BandloginService {
         this.loginStatusSubject.next(200);
         localStorage.setItem('bandId', response.id.toString());
         localStorage.setItem('imageURL', response.imageURL);
+        localStorage.setItem('hashedPass', response.hashedPassword);
         this.AssignedGigs();
         this.Invite();
         this.getBandInfo();

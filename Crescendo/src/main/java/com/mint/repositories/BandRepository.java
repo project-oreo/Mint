@@ -44,7 +44,9 @@ public class BandRepository {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Band update(Band band) {
 		Session session = sf.getCurrentSession();
-		session.update(band);
+		Band checkBand = session.get(Band.class, band.getId());
+		band.setBandGigs(checkBand.getBandGigs());
+		session.merge(band);
 		return band;
 	}
 
