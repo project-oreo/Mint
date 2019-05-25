@@ -53,8 +53,8 @@
             <td>{{gig.startTime}}</td>
             <td>{{gig.promoter_id}}</td>
             <td><nav id="Accept" class="nav nav-pills text-white">
-                  <button type="button" class="btn btn-light">Yes</button>
-                  <button type="button" class="btn btn-dark">No</button>
+                  <button type="button" class="btn btn-light" (click)="Approved(gig.id)">Yes</button>
+                  <button type="button" class="btn btn-dark" (click)="Denied(gig.id)">No</button>
                 </nav>
             </td>
           </tr>
