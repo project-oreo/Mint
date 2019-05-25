@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Gig } from '../classes/gig';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +27,7 @@ export class GigregistrationService {
     console.log(payload);
 
     this.httpClient.post('Crescendo/gigs/', payload, {
-    observe: 'response'
-    })
+    observe: 'response'}).pipe(map(response => response.body as Gig))
     .subscribe(response => {
     this.gigStatusSubject.next(200);
     }, err => {
