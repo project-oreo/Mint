@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PromoterhomeService {
+  
 
   private inviteStatusSubject = new Subject<number>();
   public $inviteStatus = this.inviteStatusSubject.asObservable();
@@ -18,8 +19,12 @@ export class PromoterhomeService {
   private bandsPlayingStatusSubject = new Subject<number>();
   private $bandsPlayingObservable = this.bandsPlayingStatusSubject.asObservable();
 
+  private updateGigStatusSubject = new Subject<number>();
+  public $updateGigStatus = this.updateGigStatusSubject.asObservable();
+
   public $bandsAtGig = new Array<Band>();
   public $bandsPlaying = new Array<Band>();
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -63,6 +68,35 @@ export class PromoterhomeService {
       this.bandsPlayingStatusSubject.next(200);
       }, err => { console.log('didnt pull anything');
      });
+  }
+
+  updateGig(gigName: string, startTime: any, location: string, Security: boolean, maxCapacity: any, closed: boolean) {
+    const payload = {
+      id: localStorage.getItem('gigId'),
+      gigName: gigName,
+      startTime: startTime, 
+      promoter: 
+      {
+        id : localStorage.getItem('promoterId')
+      },
+      location: location,
+      Security: Security,
+      maxCapacity: maxCapacity,
+      closed: closed
+    };
+
+    console.log(payload);
+
+    this.httpClient.put('http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs', payload, {
+      observe: 'response'
+    })
+    .subscribe(response => {
+      this.updateGigStatusSubject.next(200);
+      alert('Gig updated!');
+    }, err => {
+      this.updateGigStatusSubject.next(err.status);
+      alert('Something has gone terribly wrong!')
+    });
   }
 
 }
