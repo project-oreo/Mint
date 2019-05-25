@@ -42,6 +42,8 @@ public class Band {
 	    
 	    @Transient
 	    private String password;
+	    
+	    
 	    private String hashedPassword;
 
 	    @JsonIgnore

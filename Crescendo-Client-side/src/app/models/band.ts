@@ -5,13 +5,13 @@ export class Band {
     email: string;
     bandName: string;
     genre: string;
-    debutDate: any;
+    debutDate: Date;
     bio: string;
     socialMedia: string;
     hourlyRate: number;
     imageURL: string;
     gigs: Array<Gig>;
-    constructor(id: number, email: string, bandName: string, genre: string, debutDate: any, bio: string,
+    constructor(id: number, email: string, bandName: string, genre: string, debutDate: Date, bio: string,
                 socialMedia: string, hourlyRate: number, imageURL: string, gigs: Array<Gig>) {
             this.id = id;
             this.email = email;

@@ -10,7 +10,7 @@
         <table class="pushdown table table-dark col-sm-9">
           <thead>
             <tr scope="row">
-            <th scope="col" class="tablehead" colspan="7">My Profile Info</th> 
+            <th scope="col" class="tablehead" colspan="8">My Profile Info</th> 
             </tr>
           </thead>
           <tbody>
@@ -25,19 +25,20 @@
               <th scope="col">Profile Picture URL</th>
             </tr>
             <tr scope="row">
-              <td><input type="text" [(ngModel)]="bandname">{{band.name}}</td>
-              <td><input type="text" [(ngModel)]="bio">{{band.bio}}</td>
-              <td><input type="date" [(ngModel)]="debutdate">{{band.debutdate}}</td>
-              <td><input type="email" [(ngModel)]="email">{{band.email}}</td>
-              <td><input type="text" [(ngModel)]="genre">{{band.genre}}</td>
-              <td><input type="number" min="0.00" max="10000000000.00" step="0.01" [(ngModel)]="hourlyrate">{{band.hourlyrate}}</td>
-              <td><input type="text" [(ngModel)]="socialmedia">{{band.socialmedia}}</td>
-              <td><input type="url" [(ngModel)]="imageURL">{{band.imageURL}}</td>
+              <td><input type="text" [(ngModel)]="bandName" placeholder="Band Name">{{band.bandName}}</td>
+              <td><input type="text" [(ngModel)]="bio" placeholder="Bio">{{band.bio}}</td>
+              <td><input type="date" [(ngModel)]="debutDate"placeholder="Debut Date">{{band.debutDate}}</td>
+              <td><input type="email" [(ngModel)]="email" placeholder="Email">{{band.email}}</td>
+              <td><input type="text" [(ngModel)]="genre" placeholder="Genre">{{band.genre}}</td>
+              <td><input type="number" min="0.00" max="10000000000.00" step="0.01" [(ngModel)]="hourlyRate" placeholder="Hourly Rate">{{band.hourlyRate}}</td>
+              <td><input type="text" [(ngModel)]="socialMedia" placeholder="Social Media">{{band.socialMedia}}</td>
+              <td><input type="url" [(ngModel)]="imageURL" placeholder="Profile Picture URL">{{band.imageURL}}</td>
             </tr>
           </tbody>
         </table>
     </div>
+    <div class="center" *ngIf=""></div>
     <div class="center">
-      <button id="Accept" class="btn btn-dark" type="submit" (click)="formValidation()">Submit Changes</button>
+      <button id="Accept" class="btn btn-dark" type="button" [disabled]="!formValidation()" (click)="submit()">Submit Changes</button>
     </div>
   </div>
