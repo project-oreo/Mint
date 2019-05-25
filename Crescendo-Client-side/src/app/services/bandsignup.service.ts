@@ -27,7 +27,7 @@ export class BandsignupService {
 
     console.log(payload);
 
-    this.httpClient.post('http://ec2-18-222-31-237.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/signup', payload, {
+    this.httpClient.post('http://ec2-13-59-68-239.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/signup', payload, {
       observe: 'response'
       })
       .subscribe(response => {
