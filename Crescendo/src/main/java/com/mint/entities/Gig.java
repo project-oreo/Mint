@@ -44,7 +44,7 @@ public class Gig {
 	@JsonIgnore
 	@OneToMany(
 	        mappedBy = "gigs",
-	        cascade = CascadeType.MERGE,
+	        cascade = CascadeType.ALL,
 	        orphanRemoval = true
 	    )
 	private List<BandGigs> gigBands;
