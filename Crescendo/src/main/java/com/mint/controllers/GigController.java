@@ -39,6 +39,7 @@ public class GigController {
 	public Gig getById(@PathVariable int id) {
 		return Optional.ofNullable(this.gigService.getById(id))
 			.orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
+		
 	}
 	
 	@PostMapping("create") 
@@ -47,7 +48,7 @@ public class GigController {
 		return this.gigService.create(gig);
 	}
 	
-	@PutMapping("")
+	@PutMapping("updateGig")
 	public Gig updateGig(@RequestBody Gig gig) {
 		return this.gigService.update(gig);
 	}

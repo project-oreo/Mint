@@ -44,6 +44,8 @@ public class GigRepository {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Gig update(Gig gig) {
 		Session session = sf.getCurrentSession();
+		Gig checkGig = session.get(Gig.class, gig.getId());
+		gig.setGigBands(checkGig.getGigBands());
 		session.merge(gig);
 		return gig;
 	}
