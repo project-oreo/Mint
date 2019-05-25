@@ -21,7 +21,7 @@ export class PromotersignupService {
 
     console.log(payload);
 
-    this.httpClient.post('http://ec2-18-220-247-101.us-east-2.compute.amazonaws.com:8081/Crescendo/promoters/signup', payload, {
+    this.httpClient.post('http://ec2-13-59-68-239.us-east-2.compute.amazonaws.com:8081/Crescendo/promoters/signup', payload, {
       observe: 'response'
       })
       .subscribe(response => {
