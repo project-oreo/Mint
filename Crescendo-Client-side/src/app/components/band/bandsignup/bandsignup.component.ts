@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BandsignupService } from 'src/app/services/bandsignup.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-bandsignup',
@@ -11,7 +10,7 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class BandsignupComponent implements OnInit {
 
-  constructor(private bandSignupService: BandsignupService, private homeService: HomeService, private router: Router) { }
+  constructor(private bandSignupService: BandsignupService, private router: Router) { }
 
   email = '';
   password = '';
