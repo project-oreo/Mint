@@ -56,7 +56,7 @@ public class PromoterRepository {
 			return null ;
 		}
 	}
-
+ 
 
 
 	public Promoter update(Promoter promoter) {

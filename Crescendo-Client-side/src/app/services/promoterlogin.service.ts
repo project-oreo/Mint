@@ -36,6 +36,7 @@ export class PromoterloginService {
       .subscribe(response => {
         this.promoter = response;
         this.loginStatusSubject.next(200);
+        localStorage.setItem('promoterId',response.id.toString());
         this.promoterGigs();
         this.pullAllBands();
       }, err => {

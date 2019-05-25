@@ -24,7 +24,14 @@ export class PromoterhomeComponent implements OnInit {
   allBands = new Array<Band>();
   gigId: number;
   emptyBandArray = new Array<Band>();
+  gigId2;
 
+  gigName = '';
+  startTime: any;
+  location = '';
+  Security = true;
+  maxCapacity;
+  closed = false;
 
   constructor(private modalRef: BsModalRef, private modalService: BsModalService, private promoterLoginService: PromoterloginService,
               private promoterHomeService : PromoterhomeService) { }
@@ -37,23 +44,29 @@ export class PromoterhomeComponent implements OnInit {
         console.log(this.gigs);
   }
 
-  openGig(template: TemplateRef<any>) {
+  openGig(template: TemplateRef<any>, id: number) {
       console.log(template);
+      this.gigId2 = id;
+      console.log(id);
+      localStorage.setItem('gigId', id.toString());
       this.modalRef = this.modalService.show(template,
         {
           class: 'modal-dialog-centered modal-lg'
         });
+      
   }
 
   openBand(template: TemplateRef<any>, id: number) {
     console.log(template);
+    console.log(id);
+
     this.promoterHomeService.$bandsAtGig.length = 0;
     this.modalRef = this.modalService.show(template,
       {
         class: 'modal-dialog modal-dialog-centered modal-lg'
       });
     this.gigId = id;
-    console.log(id);
+    console.log(this.gigId);
     this.promoterHomeService.bandExists(this.gigId);
   }
 
@@ -83,6 +96,10 @@ export class PromoterhomeComponent implements OnInit {
     if(idList.has(bandId)){bandExists = true;}
     idList.clear();
     return bandExists;
+  }
+
+  submit(){
+    this.promoterHomeService.updateGig(this.gigName, this.startTime, this.location, this.Security, this.maxCapacity, this.closed);
   }
 
 }

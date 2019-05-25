@@ -3,6 +3,8 @@ import { GigregistrationService } from 'src/app/services/gigregistration.service
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { HomeService } from 'src/app/services/home.service';
+import { PromoterloginService } from 'src/app/services/promoterlogin.service';
+import { PromoterEndorseService } from 'src/app/services/promoter-endorse.service';
 
 @Component({
   selector: 'app-promoterendorse',
@@ -11,32 +13,27 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class PromoterendorseComponent implements OnInit {
 
-  constructor(private gigService: GigregistrationService, private homeService: HomeService, private router: Router) { }
+  constructor(private promoterLoginService: PromoterloginService, private promoterEndorseService: PromoterEndorseService, private router: Router) { }
 
-  name = '';
+  gigName = '';
   startTime: any;
   location = '';
   Security = true;
-  capacity = 0;
+  maxCapacity;
   closed = false;
   gigResponse: Subscription;
   lastStatus = 200;
+  promoter;
 
   ngOnInit() {
-    this.gigResponse = this.gigService.$gigStatus.subscribe(status => {
-      if (status === 200) {
-        alert('Gig successfully endorsed!');
-        this.router.navigateByUrl('');
-      } else {
-        alert('Invalid credentials. Please try again!');
-        this.lastStatus = status;
-      }
-    });
+   this.promoter = this.promoterLoginService.promoter;
+   console.log(this.promoter.id);
   }
 
   submit() {
-    this.gigService.register(this.name, this. startTime, this.location, this.Security, this.capacity, this.closed);
+    this.promoterEndorseService.register(this.gigName, this. startTime, this.location, this.promoter.id, this.Security, this.maxCapacity, this.closed);
   }
+
   // tslint:disable-next-line: use-life-cycle-interface
   ngOnDestroy() {
     if (this.gigResponse) {
