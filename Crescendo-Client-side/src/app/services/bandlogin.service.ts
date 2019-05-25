@@ -18,6 +18,7 @@ export class BandloginService {
   public  $loginStatus = this.loginStatusSubject.asObservable();
   bandId;
 
+
   constructor(private httpClient: HttpClient) { }
 
   login(email: string, password: string): void {
@@ -67,12 +68,10 @@ export class BandloginService {
     });
   }
 
-  Approve(status: string): void {
-    const payload = {
-      status
-    };
-    this.httpClient.put('http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/resolve/' +
-                        '{this.bandStats[0]}/somethinghererefgigid/buttonApproveorDeny', payload, {
+  Approve(): void {
+
+    this.httpClient.put('http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/resolve/' +
+                        localStorage.getItem('bandId') + '/' + localStorage.getItem('gigId') + '/' + localStorage.getItem('status'), {
       observe: 'response'
     }).subscribe(response => {
 
