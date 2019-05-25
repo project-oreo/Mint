@@ -42,12 +42,14 @@ public class Band {
 	    
 	    @Transient
 	    private String password;
+	    
+	    
 	    private String hashedPassword;
 
 	    @JsonIgnore
 	    @OneToMany(
 	            mappedBy = "bands",
-	            cascade = CascadeType.MERGE,
+	            cascade = CascadeType.ALL,
 	            orphanRemoval = true
 	        )
 	    List<BandGigs> bandGigs;

@@ -10,7 +10,7 @@
         <table class="pushdown table table-dark col-sm-9">
           <thead>
             <tr scope="row">
-            <th scope="col" class="tablehead" colspan="7">My Profile Info</th> 
+            <th scope="col" class="tablehead" colspan="8">My Profile Info</th> 
             </tr>
           </thead>
           <tbody>
@@ -22,20 +22,27 @@
               <th scope="col">Genre</th>
               <th scope="col">Hourly Rate</th>
               <th scope="col">Social Media</th>
+              <th scope="col">Profile Picture URL</th>
             </tr>
             <tr scope="row">
-              <td><input type="text" [(ngModel)]="bandname"></td>
-              <td><input type="text" [(ngModel)]="bio"></td>
-              <td><input type="date" [(ngModel)]="debutdate"></td>
-              <td><input type="email" [(ngModel)]="email"></td>
-              <td><input type="text" [(ngModel)]="genre"></td>
-              <td><input type="number" min="0.00" max="10000000000.00" step="0.01" [(ngModel)]="hourlyrate"></td>
-              <td><input type="text" [(ngModel)]="socialmedia"></td>
+              <td><input type="text" [(ngModel)]="bandName" placeholder="Band Name">{{band.bandName}}</td>
+              <td><input type="text" [(ngModel)]="bio" placeholder="Bio">{{band.bio}}</td>
+              <td><input type="date" [(ngModel)]="debutDate"placeholder="Debut Date">{{band.debutDate}}</td>
+              <td><input type="email" [(ngModel)]="email" placeholder="Email">{{band.email}}</td>
+              <td><input type="text" [(ngModel)]="genre" placeholder="Genre">{{band.genre}}</td>
+              <td><input type="number" min="0.00" max="10000000000.00" step="0.01" [(ngModel)]="hourlyRate" placeholder="Hourly Rate">{{band.hourlyRate}}</td>
+              <td><input type="text" [(ngModel)]="socialMedia" placeholder="Social Media">{{band.socialMedia}}</td>
+              <td><input type="url" [(ngModel)]="imageURL" placeholder="Profile Picture URL">{{band.imageURL}}</td>
             </tr>
           </tbody>
         </table>
     </div>
+    <div class="center" *ngIf=""></div>
     <div class="center">
+<<<<<<< HEAD
+      <button id="Accept" class="btn btn-dark" type="button" [disabled]="!formValidation()" (click)="submit()">Submit Changes</button>
+=======
       <button id="Accept" class="btn btn-dark" type="submit" (click)="submit()">Submit Changes</button>
+>>>>>>> origin
     </div>
   </div>

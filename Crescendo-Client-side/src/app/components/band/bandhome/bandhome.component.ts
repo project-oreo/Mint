@@ -12,7 +12,6 @@ export class BandhomeComponent implements OnInit {
 
   assignedGigs = new Array<Gig>();
   invitedGigs = new Array<Gig>();
-  createResponse: Subscription;
   lastStatus = 200;
   vid: any;
 
