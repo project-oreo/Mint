@@ -22,20 +22,22 @@
               <th scope="col">Genre</th>
               <th scope="col">Hourly Rate</th>
               <th scope="col">Social Media</th>
+              <th scope="col">Profile Picture URL</th>
             </tr>
             <tr scope="row">
-              <td><input type="text" [(ngModel)]="bandname"></td>
-              <td><input type="text" [(ngModel)]="bio"></td>
-              <td><input type="date" [(ngModel)]="debutdate"></td>
-              <td><input type="email" [(ngModel)]="email"></td>
-              <td><input type="text" [(ngModel)]="genre"></td>
-              <td><input type="number" min="0.00" max="10000000000.00" step="0.01" [(ngModel)]="hourlyrate"></td>
-              <td><input type="text" [(ngModel)]="socialmedia"></td>
+              <td><input type="text" [(ngModel)]="bandname">{{band.name}}</td>
+              <td><input type="text" [(ngModel)]="bio">{{band.bio}}</td>
+              <td><input type="date" [(ngModel)]="debutdate">{{band.debutdate}}</td>
+              <td><input type="email" [(ngModel)]="email">{{band.email}}</td>
+              <td><input type="text" [(ngModel)]="genre">{{band.genre}}</td>
+              <td><input type="number" min="0.00" max="10000000000.00" step="0.01" [(ngModel)]="hourlyrate">{{band.hourlyrate}}</td>
+              <td><input type="text" [(ngModel)]="socialmedia">{{band.socialmedia}}</td>
+              <td><input type="url" [(ngModel)]="imageURL">{{band.imageURL}}</td>
             </tr>
           </tbody>
         </table>
     </div>
     <div class="center">
-      <button id="Accept" class="btn btn-dark" type="submit">Submit Changes</button>
+      <button id="Accept" class="btn btn-dark" type="submit" (click)="formValidation()">Submit Changes</button>
     </div>
   </div>

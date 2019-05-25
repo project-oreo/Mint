@@ -35,7 +35,6 @@ export class BandloginService {
         this.AssignedGigs();
         this.Invite();
         this.getBandInfo();
-        console.log(response);
       }, err => {
         this.loginStatusSubject.next(err.status);
       });
