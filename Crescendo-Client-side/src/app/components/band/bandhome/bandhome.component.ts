@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Gig } from 'src/app/classes/gig';
 import { BandloginService } from 'src/app/services/bandlogin.service';
-import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-bandhome',
@@ -17,14 +16,27 @@ export class BandhomeComponent implements OnInit {
   lastStatus = 200;
   vid: any;
 
-  constructor(private bandloginService: BandloginService, private homeService: HomeService) { }
+  constructor(private bandloginService: BandloginService) { }
 
   ngOnInit() {
     this.assignedGigs = this.bandloginService.assignedGigs;
     this.invitedGigs = this.bandloginService.invitedGigs;
+    console.log(this.invitedGigs);
   }
 
   clearStorage() {
     localStorage.clear();
+  }
+
+  Approved(id: number) {
+    localStorage.setItem('status', 'Approved');
+    localStorage.setItem('gigId', id.toString());
+    this.bandloginService.Approve();
+  }
+
+  Denied(id: number) {
+    localStorage.setItem('status', 'Denied');
+    localStorage.setItem('gigId', id.toString());
+    this.bandloginService.Approve();
   }
 }
