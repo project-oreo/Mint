@@ -15,7 +15,7 @@ export class HomeService {
   constructor(private httpClient: HttpClient) { }
 
   Request(): void {
-    this.httpClient.get('http://ec2-13-59-68-239.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/', {
+    this.httpClient.get('http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/', {
       observe: 'response'
     }).pipe(map(response => response.body as Array<Gig>)).subscribe(response => {
       response.forEach(element => {
