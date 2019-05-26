@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BandMasterComponent } from './components/band/bandMaster/band-master/band-master.component';
 import { PromotermasterComponent } from './components/promoter/promotermaster/promotermaster.component';
 import { BsModalRef, BsModalService, ModalModule } from 'ngx-bootstrap/modal';
+import { LoadingComponent } from './components/extras/loading/loading.component';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { BsModalRef, BsModalService, ModalModule } from 'ngx-bootstrap/modal';
     MasterComponent,
     BandMasterComponent,
     PromotermasterComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

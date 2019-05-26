@@ -16,6 +16,7 @@ import { PromoterendorseComponent } from './components/promoter/promoterendorse/
 import { MasterComponent } from './components/general/master/master.component';
 import { BandMasterComponent } from './components/band/bandMaster/band-master/band-master.component';
 import { PromotermasterComponent } from './components/promoter/promotermaster/promotermaster.component';
+import { LoadingComponent } from './components/extras/loading/loading.component';
 
 const routes: Routes = [
   { path: '',
@@ -23,7 +24,7 @@ const routes: Routes = [
   children: [
     {
       path: '',
-      component: HomeComponent
+      component: LoadingComponent
     },
     {
       path: 'home',

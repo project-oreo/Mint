@@ -7,7 +7,7 @@
 </div>
 <div class="city">
   <div class="title">My Profile Info</div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-sm-4">
         <div class="picCenter">
             <img class="profilepic" src="{{imageURL}}" alt="Band Image goes here.">
@@ -36,6 +36,17 @@
         <br>
         <span class="subtitle5">Hourly Rate</span>
         <span class="subtitlevalue5">{{band.hourlyRate}}</span>
-      </div>
+      </div> -->
+    <div class="gigbox">
+      <img class="img-fluid bandpic" src="{{imageURL}}" alt="{{band.bandName}}">
+      <div class="content">
+          Name: {{band.bandName}}<br>
+          Genre: {{band.genre}}<br>
+          Social Media: {{band.socialMedia}}<br>
+          Bio: {{band.bio}}<br>
+          Debut Date: {{band.debutDate | date: 'MMM d yyyy'}}<br>
+          Email: {{band.email}}<br>
+          Hourly Rate: {{band.hourlyRate}}
+      </div> 
     </div>
 </div>

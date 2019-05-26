@@ -93,6 +93,7 @@ label
   padding: 1rem;
   margin: 1rem auto;
   background-color: rgba(0,0,0,0.7);
+  border-radius: 5px;
 }
 button{
   margin-right: 1rem;

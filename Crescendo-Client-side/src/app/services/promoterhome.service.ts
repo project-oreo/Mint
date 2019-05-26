@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Band } from '../models/band';
 import { map } from 'rxjs/operators';
+import { PromoterhomeComponent } from '../components/promoter/promoterhome/promoterhome.component';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,9 @@ export class PromoterhomeService {
 
   private updateGigStatusSubject = new Subject<number>();
   public $updateGigStatus = this.updateGigStatusSubject.asObservable();
+
+  private cancelStatusSubject = new Subject<number>();
+  public $cancelStatus = this.cancelStatusSubject.asObservable();
 
   public $bandsAtGig = new Array<Band>();
   public $bandsPlaying = new Array<Band>();
@@ -98,5 +102,19 @@ export class PromoterhomeService {
       alert('Something has gone terribly wrong!')
     });
   }
+
+  cancel(){
+    this.httpClient.delete(`http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/${localStorage.getItem('gigId')}` , {
+      observe: 'response'
+    }).subscribe( response => {
+      this.cancelStatusSubject.next(200);
+      alert('Gig cancelled!');
+      }, err => {
+      this.cancelStatusSubject.next(err.status);
+      alert('Something has gone terribly wrong!')
+    });
+  }
+
+  
 
 }

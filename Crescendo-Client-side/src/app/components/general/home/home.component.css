@@ -110,6 +110,15 @@ video {
         opacity: 0;
     }
   }
+  
+@keyframes move {
+  0% {
+      left: -1000px;
+    }
+  100% {
+      left: 0;
+  }
+}
 
   @keyframes example {
     0% {
@@ -160,6 +169,8 @@ video {
   text-align: center;
   color: white;
   z-index: -1;
+  animation-name: move;
+  animation-duration: 4s;
 }
 .centered {
   position: absolute;
