@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Gig } from 'src/app/classes/gig';
 import { Band } from 'src/app/models/band';
 import { PromoterhomeService } from 'src/app/services/promoterhome.service';
+import { Router } from '@angular/router';
 
 
 
@@ -34,13 +35,20 @@ export class PromoterhomeComponent implements OnInit {
   closed = false;
 
   constructor(private modalRef: BsModalRef, private modalService: BsModalService, private promoterLoginService: PromoterloginService,
-              private promoterHomeService : PromoterhomeService) { }
+              private promoterHomeService : PromoterhomeService, private router: Router) { }
 
 
   ngOnInit() {
         this.promoter = this.promoterLoginService.promoter;
         this.gigs = this.promoterLoginService.gigs;
         this.allBands = this.promoterLoginService.allBands;
+        this.promoterHomeService.$cancelStatus.subscribe(status => {
+          if (status === 200) {
+            console.log('receiving transmission');
+            this.ngOnInit(); 
+            this.router.navigateByUrl('promotermaster/promoterhome');
+          }
+        });
         console.log(this.gigs);
   }
 
@@ -100,6 +108,10 @@ export class PromoterhomeComponent implements OnInit {
 
   submit(){
     this.promoterHomeService.updateGig(this.gigName, this.startTime, this.location, this.Security, this.maxCapacity, this.closed);
+  }
+
+  cancel(){
+    this.promoterHomeService.cancel();
   }
 
 }
