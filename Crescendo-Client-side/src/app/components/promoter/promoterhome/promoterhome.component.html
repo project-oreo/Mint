@@ -1,12 +1,14 @@
-<div class ="col-12">     
-  <nav class="nav nav-pills text-white">
-    <a class="text-sm-center nav-link text-white active bg-danger" routerLink="/home" (click)="clearStorage()">Logout</a>
-    <a class="text-sm-center nav-link text-white" routerLink="/promotermaster/promoterendorse">Endorse a Gig</a>
-    <!-- <a class="text-sm-center nav-link text-white" routerLink="/promotermaster/promotermanage">Manage a Gig</a> -->
-  </nav>
-</div>
-<div class="city">
-  <div class="gigtable">
+
+    <div class ="col-12">     
+        <nav class="nav nav-pills text-white">
+          <a class="text-sm-center nav-link text-white active bg-danger" routerLink="/home" (click)="clearStorage()">Logout</a>
+          <a class="text-sm-center nav-link text-white" routerLink="/promotermaster/promoterendorse">Endorse a Gig</a>
+          <!-- <a class="text-sm-center nav-link text-white" routerLink="/promotermaster/promotermanage">Manage a Gig</a> -->
+        </nav>
+    </div>
+    
+  <div class="col-12 city">
+  <!-- <div class="gigtable">
     <table class="pushdown table table-dark col-sm-9">
       <thead>
           <tr scope="row">
@@ -30,12 +32,25 @@
             <td>{{item.startTime}}</td>
             <td>{{item.maxCapacity}}</td>
             <td><button type="button" class="btn btn-light" data-toggle="modal" (click)="openBand(band,item.id)">Invite Bands</button></td>
-            <td>{{item.closed}}</td>
             <td><button type="button" class="btn btn-light" data-toggle="modal" (click)="openPlaying(playing,item.id)">Bands</button></td>
           </tr>
         </tbody>
       </table>
-    </div>
+    </div> -->
+    <div class="title">
+        Your Gigs
+      </div>
+      <div class="gigbox" *ngFor="let item of gigs">
+          <button type="button" class="btn btn-danger" (click)="openGig(gig, item.id)">{{item.gigName}}</button>
+          <button type="button" class="btn btn-light" data-toggle="modal" (click)="openPlaying(playing,item.id)">Bands</button>
+          <button type="button" class="btn btn-light" data-toggle="modal" (click)="openBand(band,item.id)">Click to Invite Bands</button><br>
+          Security: {{item.security === true ? 'Yes' : 'No'}}<br>
+          Location: {{item.location}}<br>
+          Start Time: {{item.startTime | date : 'MMMM d HH:mma EEEE'}}<br>
+          Max Capacity: {{item.maxCapacity}}<br>
+  
+      </div>
+
     <ng-template #band>
         <div class="modal-content modal-lg">
             <div class="modal-header">
@@ -82,7 +97,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body text-white">
               <div *ngFor="let item of this.promoterHomeService.$bandsPlaying">
                 {{item.bandName}}
               </div>
@@ -149,12 +164,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-secondary" id="cancel" (click)="modalRef.hide()" >Cancel</button>
-          <button type="submit" class="btn btn-primary" id="Update" (click)="modalRef.hide()" (click)="submit()">Update</button>
+          <button type="submit" class="btn btn-secondary" id="cancel" (click)="modalRef.hide()" >Cancel This Gig</button>
+          <button type="submit" class="btn btn-primary bg-danger" id="Update" (click)="modalRef.hide()" (click)="submit()">Update</button>
         </div>
         </div>
 </ng-template>
-<!-- <div class="tbcontainer">
-<div class="centered">Hiiiii!</div>
-      <img class ="img-fluid" src="assets\kisspng-persona-5-dialog-box-dialogue-computer-icons-art-5b1ff3598a6291.2793164815288205695668.png">
-</div> -->
