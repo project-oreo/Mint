@@ -5,7 +5,21 @@
   </nav>
 </div>
 <div class="city">
-  <div class="gigtable">
+  <div class="row">
+
+
+  <div class="col-sm-12 col-lg-6">
+      <div class="title">
+          Your Upcoming Gigs
+        </div>
+      <div class="gigbox" *ngFor="let gig of assignedGigs">
+          <div class="d-flex justify-content-center"><span class="title">{{gig.gigName}}</span></div>
+          Security: {{gig.security === true ? 'Yes' : 'No'}}<br>
+          Location: {{gig.location}}<br>
+          Start Time: {{gig.startTime | date : 'MMMM d HH:mma EEEE'}}<br>
+      </div>
+  </div>
+  <!-- <div class="gigtable">
       <table class="pushdown table table-dark col-sm-9">
         <thead>
           <tr scope="row">
@@ -29,8 +43,28 @@
           </tr>
         </tbody>
       </table>
+  </div> -->
+
+  <div class="col-sm-12 col-lg-6">
+      <div class="title">
+          Your Invites
+        </div>
+      <div class="gigbox" *ngFor="let gig of invitedGigs">
+          <div class="d-flex justify-content-center">Play This Gig?</div>
+          <nav id="Accept" class="nav nav-pills d-flex justify-content-center text-white">
+              <button type="button" class="btn btn-light" (click)="Approved(gig.id)">Yes</button>
+              <button type="button" class="btn btn-dark" (click)="Denied(gig.id)">No</button>
+            </nav>
+          <span class="title">{{gig.gigName}}</span><br>
+          Security: {{gig.security === true ? 'Yes' : 'No'}}<br>
+          Location: {{gig.location}}<br>
+          Start Time: {{gig.startTime | date : 'MMMM d HH:mma EEEE'}}<br>
+          
+      </div>
   </div>
-  <div class="gigtable cont">
+</div>
+  
+  <!-- <div class="gigtable cont">
       <table class="pushdown table table-dark col-sm-9">
         <thead>
           <tr>
@@ -60,7 +94,7 @@
           </tr>
         </tbody> 
       </table>
-  </div>
+  </div> -->
 </div>
 
 

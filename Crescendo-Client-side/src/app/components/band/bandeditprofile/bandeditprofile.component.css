@@ -24,12 +24,13 @@
   }
 
   .city
-{
-    background-image: url('https://i.ytimg.com/vi/wrpgVH-AqY4/maxresdefault.jpg');
-    background-size: cover;
-    height: 100vh;
-    
-}
+  {
+      background-image: url('https://i.ytimg.com/vi/wrpgVH-AqY4/maxresdefault.jpg');
+      background-size: cover;
+      background-position: fixed;
+      min-height: 100vh;
+      
+  }
 
 .box
 {
@@ -56,5 +57,4 @@ label
 .center {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
 }

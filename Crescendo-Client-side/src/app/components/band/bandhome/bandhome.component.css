@@ -28,7 +28,8 @@
 {
     background-image: url('https://i.ytimg.com/vi/wrpgVH-AqY4/maxresdefault.jpg');
     background-size: cover;
-    height: 100vh;
+    background-position: fixed;
+    min-height: 100vh;
     
 }
 
@@ -54,4 +55,23 @@ label
     font-size: 1rem;
     display: flex;
     justify-content: space-around;
+}
+
+.title
+{
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-family: earwig;
+    font-size: 3rem;
+    text-shadow: 20px 0px 20px  black ;
+}
+.gigbox
+{
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 1rem auto;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 5px;
 }
