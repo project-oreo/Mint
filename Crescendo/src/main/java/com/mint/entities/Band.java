@@ -16,6 +16,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mint.hasher.PasswordHasher;
 
@@ -42,7 +43,6 @@ public class Band {
 	    
 	    @Transient
 	    private String password;
-	    
 	    
 	    private String hashedPassword;
 
