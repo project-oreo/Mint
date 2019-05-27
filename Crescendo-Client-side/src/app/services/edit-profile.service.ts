@@ -11,8 +11,8 @@ export class EditProfileService {
 
   constructor(private httpClient: HttpClient) { }
 
-  edit(id: string, email: string, bandName: string, bio: string, socialmedia: string,
-       genre: string, debutDate: Date, hourlyRate: number, imageURL: string, hashedPassword: string): void {
+  edit(id: number, email: string, bandName: string, bio: string,
+       genre: string, debutDate: Date, socialmedia: string, hourlyRate: number, imageURL: string, hashedPassword: string): void {
     const payload = {
     id: id,
     email: email,
@@ -20,11 +20,12 @@ export class EditProfileService {
     bio: bio,
     genre: genre,
     debutDate: debutDate,
-    socialmedia: socialmedia,
+    socialMedia: socialmedia,
     hourlyRate: hourlyRate,
-    imageURL: imageURL,
-    hashedPassword: hashedPassword
+    imageURL: imageURL
   };
+
+  console.log(payload);
 
     this.httpClient.put('http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/update', payload, {
     observe: 'response'}).subscribe(response => {
