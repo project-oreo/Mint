@@ -4,6 +4,7 @@ import { BandloginService } from 'src/app/services/bandlogin.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { Band } from 'src/app/models/band';
+import { Url } from 'url';
 
 @Component({
   selector: 'app-bandeditprofile',
@@ -17,7 +18,7 @@ export class BandeditprofileComponent implements OnInit {
   bio = this.band.bio;
   genre = this.band.genre;
   debutDate: Date = this.band.debutDate;
-  socialMedia: any = this.band.socialMedia;
+  socialMedia: Url = this.band.socialMedia;
   hourlyRate = this.band.hourlyRate;
   imageURL = this.band.imageURL;
   hashedPassword = this.hashedPassword;
@@ -44,7 +45,7 @@ export class BandeditprofileComponent implements OnInit {
 
   formValidation(): boolean {
     return this.email.length > 0 && this.hourlyRate > 0.01 && this.bandName.length > 0 &&
-    this.imageURL.length > 0 && this.bio.length > 0 && this.genre.length > 0 && this.socialMedia.length > 0;
+    this.imageURL.length > 0 && this.bio.length > 0 && this.genre.length > 0;
   }
 
   submit() {

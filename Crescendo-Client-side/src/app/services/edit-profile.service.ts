@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { Url } from 'url';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class EditProfileService {
   constructor(private httpClient: HttpClient) { }
 
   edit(id: number, email: string, bandName: string, bio: string,
-       genre: string, debutDate: Date, socialmedia: string, hourlyRate: number, imageURL: string, hashedPassword: string): void {
+       genre: string, debutDate: Date, socialmedia: Url, hourlyRate: number, imageURL: string, hashedPassword: string): void {
     const payload = {
     id: id,
     email: email,
