@@ -45,9 +45,17 @@ public class BandRepository {
 	public Band update(Band band) {
 		Session session = sf.getCurrentSession();
 		Band checkBand = session.get(Band.class, band.getId());
+		String hash = checkBand.getHashedPassword();
 		band.setBandGigs(checkBand.getBandGigs());
 		session.merge(band);
-		return band;
+		String hql = "update Band b set b.hashedPassword = :hp where b.id = :id";
+		session.createQuery(hql).
+		setParameter("hp", hash)
+		.setParameter("id", band.getId()).executeUpdate();
+		System.out.println(hash);
+		Band updatedBand = session.get(Band.class, band.getId());
+		System.out.println(updatedBand.getHashedPassword());
+		return updatedBand;
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED)
