@@ -12,7 +12,7 @@ export class BandsignupService {
   constructor(private httpClient: HttpClient) { }
 
   signup(email: string, password: string, name: string, bio: string,
-         genre: string, debutDate: any, promotion: any, hourlyRate: number, imageURL: string): void {
+         genre: string, debutDate: any, promotion: any, hourlyRate: number, imageURL: any): void {
     const payload = {
       email: email,
       password: password,
