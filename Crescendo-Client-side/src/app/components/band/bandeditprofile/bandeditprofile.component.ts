@@ -3,6 +3,7 @@ import { EditProfileService } from 'src/app/services/edit-profile.service';
 import { BandloginService } from 'src/app/services/bandlogin.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { Band } from 'src/app/models/band';
 
 @Component({
   selector: 'app-bandeditprofile',
@@ -10,17 +11,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./bandeditprofile.component.css']
 })
 export class BandeditprofileComponent implements OnInit {
-  id = 0;
-  email = '';
-  bandName = '';
-  bio = '';
-  genre = '';
-  socialMedia: any;
-  debutDate: any;
-  hourlyRate = 0;
-  imageURL: '';
-  hashedPassword;
-  band;
+  band = this.bandloginService.band;
+  email = this.band.email;
+  bandName = this.band.bandName;
+  bio = this.band.bio;
+  genre = this.band.genre;
+  debutDate: Date = this.band.debutDate;
+  socialMedia: any = this.band.socialMedia;
+  hourlyRate = this.band.hourlyRate;
+  imageURL = this.band.imageURL;
+  hashedPassword = this.hashedPassword;
   editProfile: boolean;
   editResponse: Subscription;
   lastStatus = 200;
@@ -37,7 +37,7 @@ export class BandeditprofileComponent implements OnInit {
         this.lastStatus = status;
       }
     });
-    this.band = this.bandloginService.band;
+    // this.band = this.bandloginService.band;
     this.editProfile = false;
     this.hashedPassword = localStorage.getItem('hashedPass');
   }
@@ -48,7 +48,7 @@ export class BandeditprofileComponent implements OnInit {
   }
 
   submit() {
-    this.editprofileService.edit(localStorage.getItem('bandId'), this.email, this.bandName, this.bio,
+    this.editprofileService.edit(Number(localStorage.getItem('bandId')), this.email, this.bandName, this.bio,
                                  this.genre, this.debutDate, this.socialMedia, this.hourlyRate, this.imageURL, this.hashedPassword);
   }
 
