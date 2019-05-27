@@ -56,12 +56,26 @@ export class PromoterhomeComponent implements OnInit {
       console.log(template);
       this.gigId2 = id;
       console.log(id);
+      let clickedGig: Gig;
+      for(let i=0; i< this.gigs.length; i++)
+      {
+        if(this.gigId2 === this.gigs[i].id)
+        {
+          clickedGig = this.gigs[i];
+          break;
+        }
+      }
+      this.gigName = clickedGig.gigName;
+      this.startTime = clickedGig.startTime;
+      this.location = clickedGig.location;
+      this.Security = clickedGig.security;
+      this.maxCapacity = clickedGig.maxCapacity;
+      this.closed = clickedGig.closed;
       localStorage.setItem('gigId', id.toString());
       this.modalRef = this.modalService.show(template,
         {
           class: 'modal-dialog-centered modal-lg'
         });
-      
   }
 
   openBand(template: TemplateRef<any>, id: number) {
