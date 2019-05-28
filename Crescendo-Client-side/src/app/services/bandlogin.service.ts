@@ -27,7 +27,7 @@ export class BandloginService {
       password
     };
 
-    this.httpClient.post('http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/login', payload, {
+    this.httpClient.post('http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/login', payload, {
       observe: 'response'
       }).pipe(map(response => response.body as Band)).subscribe(response => {
         this.loginStatusSubject.next(200);
@@ -45,7 +45,7 @@ export class BandloginService {
   }
 
   AssignedGigs(): void {
-    this.httpClient.get(`http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/` +
+    this.httpClient.get(`http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/` +
                         `Crescendo/bands/gigs/${localStorage.getItem('bandId')}`, {
       observe: 'response'
     }).pipe(map(response => response.body as Array<Gig>)).subscribe(response => {
@@ -58,7 +58,7 @@ export class BandloginService {
   }
 
   Invite(): void {
-    this.httpClient.get(`http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/` +
+    this.httpClient.get(`http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/` +
                         `Crescendo/bands/invites/${localStorage.getItem('bandId')}`, {
       observe: 'response'
     }).pipe(map(response => response.body as Array<Gig>)).subscribe(response => {
@@ -72,7 +72,7 @@ export class BandloginService {
 
   Approve(): void {
 
-    this.httpClient.put('http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/resolve/' +
+    this.httpClient.put('http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/resolve/' +
                         localStorage.getItem('bandId') + '/' + localStorage.getItem('gigId') + '/' + localStorage.getItem('status'), {
       observe: 'response'
     }).subscribe(response => {
@@ -82,7 +82,7 @@ export class BandloginService {
   }
 
   getBandInfo(): void {
-    this.httpClient.get(`http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/${localStorage.getItem('bandId')}`, {
+    this.httpClient.get(`http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/${localStorage.getItem('bandId')}`, {
       observe: 'response'
       }).pipe(map(response => response.body as Band)).subscribe(response => {
         this.loginStatusSubject.next(200);

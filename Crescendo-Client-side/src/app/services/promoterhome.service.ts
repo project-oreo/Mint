@@ -33,7 +33,7 @@ export class PromoterhomeService {
   constructor(private httpClient: HttpClient) { }
 
   inviteBands(gigId: number, bandId: number){
-    this.httpClient.post(`http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/promoters/invite/${bandId}/${gigId}`, {
+    this.httpClient.post(`http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/Crescendo/promoters/invite/${bandId}/${gigId}`, {
         observe: 'response'
       }).subscribe(response => {
         this.inviteStatusSubject.next(200);
@@ -46,7 +46,7 @@ export class PromoterhomeService {
 
 
   bandExists(gigId: number){
-    this.httpClient.get(`http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/allbands/${gigId}`, {
+    this.httpClient.get(`http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/allbands/${gigId}`, {
         observe: 'response'
     }).pipe(map(response => response.body as Array<Band>))
     .subscribe(response => {
@@ -61,7 +61,7 @@ export class PromoterhomeService {
   }
 
   bandsPlaying(gigId: number) {
-    this.httpClient.get(`http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/bands/${gigId}`, {
+    this.httpClient.get(`http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/bands/${gigId}`, {
         observe: 'response'
     }).pipe(map(response => response.body as Array<Band>))
     .subscribe(response => {
@@ -91,7 +91,7 @@ export class PromoterhomeService {
 
     console.log(payload);
 
-    this.httpClient.put('http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/updateGig', payload, {
+    this.httpClient.put('http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/updateGig', payload, {
       observe: 'response'
     })
     .subscribe(response => {
@@ -104,7 +104,7 @@ export class PromoterhomeService {
   }
 
   cancel(){
-    this.httpClient.delete(`http://ec2-52-15-213-35.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/${localStorage.getItem('gigId')}` , {
+    this.httpClient.delete(`http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/Crescendo/gigs/${localStorage.getItem('gigId')}` , {
       observe: 'response'
     }).subscribe( response => {
       this.cancelStatusSubject.next(200);
