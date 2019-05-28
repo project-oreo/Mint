@@ -80,7 +80,8 @@ export class BandloginService {
       }, err => {
   });
   }
-
+   
+  
   getBandInfo(): void {
     this.httpClient.get(`http://ec2-18-191-22-171.us-east-2.compute.amazonaws.com:8081/Crescendo/bands/${localStorage.getItem('bandId')}`, {
       observe: 'response'
